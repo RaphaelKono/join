@@ -2,3 +2,13 @@ body {
     margin: 0;
     font-family: 'PT Sans';
 }
+
+.card {
+    display: flex;
+    flex-direction: row !important;
+    min-height: 95vh;
+}
+
+.card-header {
+    max-width: 200px;
+}
