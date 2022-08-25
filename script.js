@@ -1,3 +1,21 @@
+let tasks = [{
+    'title': 'testtitle',
+    'id': 1,
+    'urgency': 'Medium',
+    'category': 'Managment',
+    'dueDate': new Date(),
+    'currentDate': new Date(),
+    'description': 'string ... lorem ipsum',
+    'assignedTo': 'Be creative',
+    'status': 'ToDo'
+}];
+
+//Urgencies are: Low, Medium, Hight
+//Categories are: Managment, Sales, Product, Marketing
+//Status are: ToDo, InProgress, Testing, Done
+
+
+
 setURL('http://developerakademie.com/smallest_backend_ever')
 
 //https://github.com/JunusErgin/smallest_backend_ever
