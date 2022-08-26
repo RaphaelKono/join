@@ -6,13 +6,12 @@ body {
 .container {
     padding-left: 0;
     margin-left: 0;
-    margin-top: 2.5vh;
 }
 
 .card {
     display: flex;
     flex-direction: row !important;
-    min-height: 95vh;
+    min-height: 100vh;
     --bs-card-inner-border-radius: unset;
     border: unset;
 }
@@ -28,7 +27,7 @@ body {
 }
 
 .navbar-brand {
-    padding-left: 20px;
+    padding-left: 30px;
     color: #C3C5CF;
 }
 
