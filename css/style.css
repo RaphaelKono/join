@@ -11,4 +11,13 @@ body {
 
 .card-header {
     max-width: 200px;
+    background-color: #1E3190 !important;
+}
+
+.container-fluid {
+    background-color: #1E3190 !important;
+}
+
+.navbar {
+    background-color: #1E3190 !important;
 }
