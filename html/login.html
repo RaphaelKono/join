@@ -6,22 +6,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-    <!-- <script src="../mini_backend.js"></script> -->
-    <script src="../js/script.js"></script>
-    <script src="../js/w3include.js"></script>
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="./css/Login.css">
 </head>
 
 <body>
+    <h1>Join-Test 2</h1>
+
     <div class="container">
-        <h1>Login</h1>
+        <form id="login">
+            <h1 class="form_title">Login</h1>
+            <div class="form_message form_message_error"></div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" autofocus placeholder="Benutzername oder E-mail">
+                <div class="form_input_error_message">Fehlermeldung</div>
+
+            </div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" autofocus placeholder="Passwort">
+
+
+            </div>
+            <button class="form_button" type="submit">Einloggen</button>
+            <p class="form_text">
+                <a href="#" class="form_link">Passwort vergessen</a>
+            </p>
+            <p class="form_text">
+                <a class="form_link" href="./" id="createAccount">Account erstellen</a>
+            </p>
+        </form>
+        <form id="createAccount" class="form_hidden">
+            <h1 class="form_title">Account erstellen</h1>
+            <div class="form_message form_message_error"></div>
+            <div class="form_input_group">
+                <input type="text" id="signupUsername" class="form_input" autofocus placeholder="Benutzername">
+                <div class="form_input_error_message">Fehlermeldung</div>
+
+            </div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" autofocus placeholder="E-mail">
+                <div class="form_input_error_message">Fehlermeldung</div>
+
+            </div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" autofocus placeholder="Passwort">
+                <div class="form_input_error_message">Fehlermeldung</div>
+
+            </div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" autofocus placeholder="Passwort Wiederholen">
+                <div class="form_input_error_message">Fehlermeldung</div>
+
+            </div>
+            <button class="form_button" type="submit">Einloggen</button>
+            <p class="form_text">
+                <a href="#" id="linklogin" class="form_link">Passwort vergessen</a>
+            </p>
+            <p class="form_text">
+                <a class="form_link" href="#" id="createAccount">Sie haben bereits einen Account? Login</a>
+            </p>
+        </form>
     </div>
+    <script src="./js/Login.js"></script>
 </body>
 
 </html>

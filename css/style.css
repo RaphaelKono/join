@@ -3,9 +3,15 @@ body {
     font-family: 'PT Sans';
 }
 
+h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 .container {
     padding-left: 0;
     margin-left: 0;
+    margin-right: 0 !important;
 }
 
 .card {
@@ -43,4 +49,9 @@ body {
 .navbar-brand:hover {
     color: white;
     border-left: 5px solid #C3C5CF;
+}
+
+.board-col {
+    min-height: 80vh;
+    background-color: #F4F3FB
 }
