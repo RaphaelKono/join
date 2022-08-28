@@ -6,7 +6,7 @@ let boardTasks = [{
     'dueDate': 'XX.XX.XXXX',
     'currentDate': 'ZZ.ZZ.ZZZZ',
     'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.',
-    'assignedTo': 'Mark Wahlberg',
+    'assignedTo': 1,
     'status': 'ToDo'
 }, {
     'title': 'Present presentation',
@@ -18,4 +18,10 @@ let boardTasks = [{
     'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.',
     'assignedTo': 'CEO',
     'status': 'ToDo'
+}];
+
+let staff = [{
+    'id': 1,
+    'name': 'Mark Wahlberg',
+    'src': 'img/Markwahlberg'
 }];
