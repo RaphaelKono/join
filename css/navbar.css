@@ -35,7 +35,7 @@ a {
 .navbar div:hover,
 .headerBottom a:hover {
     transition: all 100ms ease-in-out;
-    border-bottom: 4px solid white;
+    border-left: 4px solid white;
 }
 
 .headerBottom a {
