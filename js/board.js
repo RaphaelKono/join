@@ -1,3 +1,8 @@
+async function initBoard() {
+    await includeHTML();
+    loadBoard();
+}
+
 let boardTasks = [{
     'title': 'Prepare presentation',
     'id': 1,
@@ -25,3 +30,11 @@ let staff = [{
     'name': 'Mark Wahlberg',
     'src': 'img/Markwahlberg'
 }];
+
+function loadBoard() {
+    let createdAt = document.getElementById('createdAtBoard');
+    let title = document.getElementById('titleBoard');
+    let description = document.getElementById('descriptionBoard');
+    let categories = document.getElementById('categoryBoard');
+    let avatars = document.getElementById('avatarsBoard');
+}
