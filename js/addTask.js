@@ -19,7 +19,6 @@
       })
   })()
   
-  let tasks = [];
   let task = {};
   let form = document.getElementById("form");
   let submit = document.getElementById("button");
