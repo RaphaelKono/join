@@ -19,7 +19,7 @@
     <link rel="manifest" href="../favicon/site.webmanifest">
 </head>
 
-<body onload="init()">
+<body onload="initBoard()">
     <div class="container">
         <div class="card">
             <div w3-include-html="../html/header.html" class="card-header">
@@ -31,16 +31,15 @@
                         <div class="col">
                             <h3>TO DO</h3>
                             <div id="toDoBoard" class="board-col">
-                                <div class="card-body card-body-board">
-                                    <h5 class="card-title">Card title</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-flex">
-                                        <a href="#" class="btn btn-primary card-link">Marketing</a>
-                                        <a href="#" class="card-link">IMG of assigned person</a>
+                                <div id="task1" class="card-body card-body-board text-start">
+                                    <h6 id="createdAtBoard" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <h5 id="titleBoard" class="card-title">Card title</h5>
+                                    <p id="descriptionBoard" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="d-flex justify-content-between text-end">
+                                        <a id="categoryBoard" href="#" class="btn btn-primary">Marketing</a>
+                                        <a id="avatarsBoard" href="#" class="card-link">IMG of assigned person</a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col">
