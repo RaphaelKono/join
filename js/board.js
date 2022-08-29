@@ -1,6 +1,6 @@
 async function initBoard() {
     await includeHTML();
-    loadBoard();
+    renderBoard();
 }
 
 let boardTasks = [{
@@ -11,7 +11,7 @@ let boardTasks = [{
     'dueDate': 'XX.XX.XXXX',
     'currentDate': 'ZZ.ZZ.ZZZZ',
     'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.',
-    'assignedTo': 1,
+    'assignedTo': [1],
     'status': 'ToDo'
 }, {
     'title': 'Present presentation',
@@ -21,7 +21,7 @@ let boardTasks = [{
     'dueDate': 'XX.XX.XXXX',
     'currentDate': 'ZZ.ZZ.ZZZZ',
     'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.',
-    'assignedTo': 'CEO',
+    'assignedTo': [2, 1],
     'status': 'ToDo'
 }];
 
@@ -31,10 +31,38 @@ let staff = [{
     'src': 'img/Markwahlberg'
 }];
 
-function loadBoard() {
-    let createdAt = document.getElementById('createdAtBoard');
-    let title = document.getElementById('titleBoard');
-    let description = document.getElementById('descriptionBoard');
-    let categories = document.getElementById('categoryBoard');
-    let avatars = document.getElementById('avatarsBoard');
+function renderBoard() {
+    console.log('loaded');
+    let toDoBoard = document.getElementById('toDoBoard');
+    toDoBoard.innerHTML = '';
+    for (let i = 0; i < boardTasks.length; i++) {
+        const taskOnBoard = boardTasks[i];
+        toDoBoard.innerHTML += templateBoardCards(taskOnBoard);
+        for (let j = 0; j < taskOnBoard.assignedTo.length; j++) {
+            const avatarId = taskOnBoard.assignedTo[j];
+            const imgSrc = staff.filter(() => staff.id === avatarId);
+            toDoBoard.innerHTML += templateBoardCardsChild(imgSrc);
+        }
+
+    }
+}
+
+function templateBoardCards(currentTask) {
+    return `
+    <div class="card-body card-body-board text-start">
+        <h6 class="card-subtitle mb-2 text-muted">${currentTask.currentDate}</h6>
+        <h5 class="card-title">${currentTask.title}</h5>
+        <p class="card-text">${currentTask.description}</p>
+        <div class="d-flex justify-content-between text-end">
+            <a href="#" class="btn btn-primary ${currentTask.currentDate}">${currentTask.category}</a>
+            <a id="task${currentTask.id}" href="#" class="card-link">IMG of assigned person</a>
+        </div>
+    </div>
+    `
+}
+
+function templateBoardCardsChild(imgSrc) {
+    return `
+    <img class="avatar-board" src="${imgSrc}">
+    `;
 }
