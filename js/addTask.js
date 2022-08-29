@@ -1,7 +1,7 @@
+//#region Bootstrap functions
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'
-  
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
   
@@ -18,6 +18,7 @@
         }, false)
       })
   })()
+  //#endregion
   
   let task = {};
   let form = document.getElementById("form");
@@ -53,9 +54,10 @@
   
   function isAssigned() {
     let assignedTos = document.querySelectorAll('input[type="checkbox"]');
-    for (i = 0; i < assignedTos.length; i++) {
-      if (assignedTos[i].checked) assignUser.push(assignedTos[i].value);
-    }
+    assignUser = [];
+    assignedTos.forEach(function (user) {
+      if (user.checked) assignUser.push(user.value);
+    });
     if (!assignUser.length) {
       for (const assign of assignedTos) {
         assign.setAttribute("required", "");
@@ -67,7 +69,10 @@
     }
   }
   
-  function init() {
+
+  async function init() {
+    await includeHTML();
+    form.elements["curDate"].value = new Date().toJSON().split("T")[0];
     isAssigned();
     let store = JSON.parse(localStorage.getItem("tasks")) || [];
     document.getElementById("test").innerHTML = store.length;
@@ -78,4 +83,25 @@
     tasks.push(task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
+
+  let users = ['ar1.png', 'ar2.png', 'ar3.png'];
+  let selectedUsers = [];
   
+  function render(){
+    avatarPicker =document.getElementById("avatars");
+    avatarPicker.innerHTML =``;
+    for(let i=0; i<users.length; i++){
+      const user = users[i];
+      avatarPicker.innerHTML += `<img id='user-${i}' onclick='selectUser(${user})' src="img/${user} class="avatar">`;
+    }
+  }
+
+  function selectUser(i){
+    let user = document.getElementById("user-" + i);
+    user.classList.toggle('avatar-selected');
+    if(selectedUsers.includes(user[i])){
+      selectedUsers = selectedUsers.filter( a => a != users[i]);
+    } else {
+      selectUsers.push(user[i]);
+    }
+  }
