@@ -8,62 +8,35 @@
     <!-- <script src="../mini_backend.js"></script> -->
     <script src="../js/script.js"></script>
     <script defer src="../js/addTask.js"></script>
-    <link
-      rel="stylesheet"
-      href="../node_modules\bootstrap\dist\css\bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
   </head>
 
-  <body style="margin: 10px" onload="init()">
+  <body onload="init()">
     <div class="container">
       <div class="card">
         <div class="card-header">
           <div w3-include-html="../html/header.html" class="card-header"></div>
         </div>
         <div class="card-body">
-          <div class="border p-5">
-            <h1>Add Task</h1>
-            <h4>Easily manage your tasks and projects</h4>
+          <div class="pb-5 m-1">
+            <h1><b>Add Task</b></h1>
+            <h4 style="color: #203192">Easily manage your tasks and projects</h4>
           </div>
-          <form
-            class="row g-1 row gy-4 mt-3 border p-5 needs-validation"
-            id="form"
-            novalidate
-          >
+          <form class="row gy-4 border m-1 p-3 pb-5 needs-validation" id="form" novalidate>
             <div class="col-md-12">
-              <label for="validationDefault01" class="form-label">Title</label>
+              <label for="validationDefault01" class="form-label">TITLE</label>
               <input type="text" class="form-control" id="tasktitle" required />
               <div class="invalid-feedback">Please choose a title.</div>
             </div>
             <div class="col-md-6">
-              <label for="validationDefault02" class="form-label"
-                >Category</label
-              >
-              <select
-                class="form-select"
-                aria-label="Default select example"
-                id="category"
-              >
+              <label for="validationDefault02" class="form-label">CATEGORY</label>
+              <select class="form-select" aria-label="Default select example" id="category">
                 <option selected value="management">Management</option>
                 <option value="sales">Sales</option>
                 <option value="product">Product</option>
@@ -71,18 +44,10 @@
               </select>
             </div>
             <div class="col-md-6">
-              <label for="validationDefault03" class="form-label"
-                >Urgency</label
-              >
+              <label for="validationDefault03" class="form-label">URGENCY</label>
               <div class="form-control">
                 <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="choice"
-                    id="inlineRadio1"
-                    value="low"
-                  />
+                  <input class="form-check-input" type="radio" name="choice" id="inlineRadio1" value="low" />
                   <label class="form-check-label" for="inlineRadio1">Low</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -94,112 +59,43 @@
                     value="medium"
                     checked="checked"
                   />
-                  <label class="form-check-label" for="inlineRadio2"
-                    >Medium</label
-                  >
+                  <label class="form-check-label" for="inlineRadio2">Medium</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="choice"
-                    id="inlineRadio3"
-                    value="high"
-                  />
-                  <label class="form-check-label" for="inlineRadio3"
-                    >High</label
-                  >
+                  <input class="form-check-input" type="radio" name="choice" id="inlineRadio3" value="high" />
+                  <label class="form-check-label" for="inlineRadio3">High</label>
                 </div>
               </div>
             </div>
             <div class="col-md-12">
-              <label for="validationDefault03" class="form-label"
-                >Description</label
-              >
-              <textarea
-                class="form-control"
-                id="desc"
-                rows="3"
-                name="textarea"
-              ></textarea>
+              <label for="validationDefault03" class="form-label">DESCRIPTION</label>
+              <textarea class="form-control" id="desc" rows="3" name="textarea"></textarea>
             </div>
             <div class="col-md-4">
-              <label for="curDate" class="form-label">Start Date</label>
+              <label for="curDate" class="form-label">START DATE</label>
               <input id="curDate" class="form-control" type="date" />
             </div>
             <div class="col-md-4">
-              <label for="dueDate" class="form-label">Due Date</label>
+              <label for="dueDate" class="form-label">DUE DATE</label>
               <input id="dueDate" class="form-control" type="date" required />
               <div class="invalid-feedback">Please choose a due date.</div>
             </div>
             <div class="col-md-12">
-              <label for="users" class="form-label" id="assignedTo"
-                >Assigned User</label
-              >
-              <div class="form-control" required>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="Checkbox1"
-                    value="User1"
-                    onchange="isAssigned()"
-                  />
-                  <label class="form-check-label" for="inlineCheckbox1"
-                    >User 1</label
-                  >
-                </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="Checkbox2"
-                    value="User2"
-                    onchange="isAssigned()"
-                  />
-                  <label class="form-check-label" for="inlineCheckbox2"
-                    >User 2</label
-                  >
-                </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="Checkbox3"
-                    value="User3"
-                    onchange="isAssigned()"
-                  />
-                  <label class="form-check-label" for="inlineCheckbox3"
-                    >User 3</label
-                  >
-                </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="Checkbox4"
-                    value="User4"
-                    onchange="isAssigned()"
-                  />
-                  <label class="form-check-label" for="inlineCheckbox4"
-                    >User 4</label
-                  >
-                </div>
+              <label for="users" class="form-label" id="assignedTo">ASSIGNED TO</label>
+              <div class="col-md-12">
+                <div id="avatars"></div>
               </div>
-              <div class="invalid-feedback">Please choose min a user.</div>
+              <input type="text" style="display: none" class="form-control" id="users" required />
+              <div class="invalid-feedback">Please choose one or more user.</div>
             </div>
-            <div class="col-md-12">
-              <button
-                class="btn btn-outline-primary col-md-12"
-                type="submit"
-                id="button"
-              >
-                Create Task
-              </button>
+            <div class="col-md-6">
+              <a class="btn  col-md-12" onclick="window.location.reload()" id="cancel">CANCEL</a>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary col-md-12" type="submit" id="btn-create">CREATE TASK</button>
             </div>
           </form>
         </div>
-        <div id="test">23</div>
       </div>
     </div>
   </body>

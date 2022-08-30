@@ -1,71 +1,128 @@
 body {
-    margin: 0;
-    font-family: 'PT Sans';
+  margin: 0;
+  font-family: "PT Sans";
 }
 
 h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .container {
-    padding-left: 0;
-    margin-left: 0;
-    margin-right: 0 !important;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 0 !important;
 }
 
 .card {
-    display: flex;
-    flex-direction: row !important;
-    --bs-card-inner-border-radius: unset;
-    border: unset;
+  display: flex;
+  flex-direction: row !important;
+  --bs-card-inner-border-radius: unset;
+  border: unset;
 }
 
 .card-header {
-    max-width: 180px;
-    background-color: #1E3190 !important;
-    padding: 0;
-    height: 100vh;
+  max-width: 180px;
+  background-color: #1e3190 !important;
+  padding: 0;
+  height: 100vh;
 }
 
 .navbar {
-    background-color: #1E3190 !important;
+  background-color: #1e3190 !important;
 }
 
 .navbar-brand {
-    padding-left: 30px;
-    color: #C3C5CF;
+  padding-left: 30px;
+  color: #c3c5cf;
 }
 
 .brd-left-active {
-    border-left: 5px solid #C3C5CF;
-    color: white;
+  border-left: 5px solid #c3c5cf;
+  color: white;
 }
 
 .brd-left-inactive {
-    border-left: 5px solid transparent;
+  border-left: 5px solid transparent;
 }
 
 .navbar-brand:hover {
-    color: white;
-    border-left: 5px solid #C3C5CF;
+  color: white;
+  border-left: 5px solid #c3c5cf;
 }
-
 
 /* -----------------CSS for Board ----------------- */
 
 .board-col {
-    min-height: 80vh;
-    background-color: #F4F3FB;
-    padding: .5rem;
+  min-height: 80vh;
+  background-color: #f4f3fb;
+  padding: 0.5rem;
 }
 
 .card-body-board {
-    padding: .5rem;
-    margin: .5rem;
-    margin-top: .5rem !important;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    background-color: white;
-    border-left: 8px solid rgb(255, 165, 0, 0.7) !important;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  margin-top: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: white;
+  border-left: 8px solid rgb(255, 165, 0, 0.7) !important;
 }
+
+/*#region addTasks*/
+form label {
+  font-weight: bold;
+  color: var(--blue);
+}
+.avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  opacity: 0.6;
+  border: 4px solid transparent;
+  margin-right: 5px;
+}
+
+.avatar:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.avatar-selected {
+  opacity: 1;
+  border: 4px solid var(--blue);
+}
+
+#form {
+  background-color: #f4f2fb;
+  border-radius: 10px;
+}
+textarea {
+  resize: none;
+}
+#btn-create {
+  background-color: var(--blue);
+  border: 1px solid transparent;
+  font-weight: bold;
+}
+
+#btn-create:hover {
+    background-color: unset;
+    color: var(--blue);
+    border: 1px solid;
+  }
+
+#cancel{
+    color: var(--blue);
+    font-weight: bold;
+}
+
+#cancel:hover {
+  background-color: var(--blue);
+  color: white;
+}
+
+:root {
+  --blue: #203192;
+}
+/*#endregion */
