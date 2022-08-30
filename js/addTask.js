@@ -1,28 +1,7 @@
-//#region Bootstrap functions
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  "use strict";
-  var forms = document.querySelector(".needs-validation");
-  forms.addEventListener(
-    "submit",
-    function (event) {
-      if (!forms.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      forms.classList.add("was-validated");
-    },
-    false
-  );
-})();
-//#endregion
-
+let form = document.getElementById("form");
 let task = {};
 let users = ["user1", "user2", "user3", "user4"];
 let selectedUsers = [];
-let form = document.getElementById("form");
-let submit = document.getElementById("btn-create");
-submit.addEventListener("click", addTask);
 
 async function init() {
   await includeHTML();
@@ -30,9 +9,22 @@ async function init() {
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
 }
 
+form.addEventListener(
+  "submit",
+  function (event) {
+    if (form.checkValidity()) addTask();
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    } 
+    form.classList.add("was-validated");
+  },
+  false
+);
+
 function addTask() {
-  setTask();
-  saveTask();
+    setTask();
+    saveTask();
 }
 
 function setTask() {
