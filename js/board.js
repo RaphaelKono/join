@@ -3,6 +3,8 @@ async function initBoard() {
     renderBoard();
 }
 
+var taskOnBoard;
+
 let boardTasks = [{
     'title': 'Prepare presentation',
     'id': 1,
@@ -12,7 +14,7 @@ let boardTasks = [{
     'currentDate': 'ZZ.ZZ.ZZZZ',
     'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.',
     'assignedTo': [1],
-    'status': 'ToDo'
+    'status': 'Done'
 }, {
     'title': 'Present presentation',
     'id': 2,
@@ -36,21 +38,12 @@ let staff = [{
 }];
 
 function renderBoard() {
-    console.log('loaded');
-    let toDoBoard = document.getElementById('toDoBoard');
-    toDoBoard.innerHTML = '';
+    resetBoard();
     for (let i = 0; i < boardTasks.length; i++) {
-        const taskOnBoard = boardTasks[i];
-        toDoBoard.innerHTML += templateBoardCards(taskOnBoard);
-        let toDoBoardChild = document.getElementById(`task${i+1}`);
-        toDoBoardChild.innerHTML = '';
+        renderCurrentCol(i);
         for (let j = 0; j < taskOnBoard.assignedTo.length; j++) {
-            const avatarId = taskOnBoard.assignedTo[j];
-            const imgSrc = staff.find((element) => element.id == avatarId);
-            console.log(imgSrc.src);
-            toDoBoardChild.innerHTML += templateBoardCardsChild(imgSrc.src);
+            renderCurrentTaskAvatars(i, j);
         }
-
     }
 }
 
@@ -72,4 +65,30 @@ function templateBoardCardsChild(imgSrc) {
     return `
     <img class="avatar-board" src="../${imgSrc}">
     `;
+}
+
+function resetBoard() {
+    document.getElementById('ToDoBoard').innerHTML = '';
+    document.getElementById('InProgressBoard').innerHTML = '';
+    document.getElementById('TestingBoard').innerHTML = '';
+    document.getElementById('DoneBoard').innerHTML = '';
+}
+
+function renderCurrentCol(i) {
+    taskOnBoard = boardTasks[i];
+    let currentBoardCol = document.getElementById(`${taskOnBoard.status}Board`);
+    currentBoardCol.innerHTML += templateBoardCards(taskOnBoard);
+    resetBoardAvatars(i);
+}
+
+function resetBoardAvatars(i) {
+    let currentBoardColChild = document.getElementById(`task${i+1}`);
+    currentBoardColChild.innerHTML = '';
+}
+
+function renderCurrentTaskAvatars(i, j) {
+    let currentBoardColChild = document.getElementById(`task${i+1}`)
+    const avatarId = taskOnBoard.assignedTo[j];
+    const imgSrc = staff.find((element) => element.id == avatarId);
+    currentBoardColChild.innerHTML += templateBoardCardsChild(imgSrc.src);
 }
