@@ -47,26 +47,6 @@ function renderBoard() {
     }
 }
 
-function templateBoardCards(currentTask) {
-    return `
-    <div class="card-body card-body-board text-start">
-        <h6 class="card-subtitle mb-2 text-muted">${currentTask.currentDate}</h6>
-        <h5 class="card-title">${currentTask.title}</h5>
-        <p class="card-text">${currentTask.description}</p>
-        <div class="d-flex justify-content-between text-end">
-            <a href="#" class="btn btn-primary ${currentTask.currentDate}">${currentTask.category}</a>
-            <a id="task${currentTask.id}" href="#" class="card-link">IMG of assigned person</a>
-        </div>
-    </div>
-    `
-}
-
-function templateBoardCardsChild(imgSrc) {
-    return `
-    <img class="avatar-board" src="../${imgSrc}">
-    `;
-}
-
 function resetBoard() {
     document.getElementById('ToDoBoard').innerHTML = '';
     document.getElementById('InProgressBoard').innerHTML = '';
@@ -91,4 +71,28 @@ function renderCurrentTaskAvatars(i, j) {
     const avatarId = taskOnBoard.assignedTo[j];
     const imgSrc = staff.find((element) => element.id == avatarId);
     currentBoardColChild.innerHTML += templateBoardCardsChild(imgSrc.src);
+}
+
+// function cutString(descr){
+
+// }
+
+function templateBoardCards(currentTask) {
+    return `
+    <div class="card-body card-body-board text-start">
+        <h6 class="card-subtitle mb-2 text-muted">${currentTask.currentDate}</h6>
+        <h5 class="card-title">${currentTask.title}</h5>
+        <p class="card-text">${currentTask.description}</p>
+        <div class="d-flex justify-content-between text-end">
+            <a href="#" class="btn btn-primary ${currentTask.currentDate}">${currentTask.category}</a>
+            <a id="task${currentTask.id}" href="#" class="card-link">IMG of assigned person</a>
+        </div>
+    </div>
+    `
+}
+
+function templateBoardCardsChild(imgSrc) {
+    return `
+    <img class="avatar-board" src="../${imgSrc}">
+    `;
 }
