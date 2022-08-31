@@ -54,6 +54,12 @@ h3 {
 
 /* -----------------CSS for Board ----------------- */
 
+.board {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 80vw !important;
+}
+
 .board-col {
     min-height: 80vh;
     background-color: #f4f3fb;
@@ -120,9 +126,8 @@ textarea {
 }
 
 .btn-primary {
-  background-color: var(--blue);
+    background-color: var(--blue);
 }
-
 
 #btn-create {
     background-color: var(--blue);
@@ -142,49 +147,52 @@ textarea {
 }
 
 #cancel:hover {
-  border: 1px solid;
+    border: 1px solid;
 }
 
 :root {
-  --blue: #203192;
-  --violet: #f4f2fb;
-}
-#category, #curDate, #dueDate:hover{
-  cursor: pointer;
+    --blue: #203192;
+    --violet: #f4f2fb;
 }
 
-.d-none{
-  display: none;
+#category,
+#curDate,
+#dueDate:hover {
+    cursor: pointer;
 }
 
-#dialogNewUser{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0,0,0,0.2);
+.d-none {
+    display: none;
 }
 
-#ContentNewUser{
-  background-color: var(--violet);
-  border: 2px solid var(--blue);
-  border-radius: 10px;
-  padding: 30px;
+#dialogNewUser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#ContentNewUser {
+    background-color: var(--violet);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 30px;
 }
 
 #cross {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
-#cross img{
-  height: 16px;
-  width: 16px;
-  cursor: pointer;
+#cross img {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
     background-color: var(--blue);
     color: white;
 }

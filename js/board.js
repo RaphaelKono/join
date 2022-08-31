@@ -58,12 +58,7 @@ function renderCurrentCol(i) {
     taskOnBoard = boardTasks[i];
     let currentBoardCol = document.getElementById(`${taskOnBoard.status}Board`);
     currentBoardCol.innerHTML += templateBoardCards(taskOnBoard);
-    resetBoardAvatars(i);
-}
-
-function resetBoardAvatars(i) {
-    let currentBoardColChild = document.getElementById(`task${i+1}`);
-    currentBoardColChild.innerHTML = '';
+    document.getElementById(`task${i+1}`).innerHTML = '';
 }
 
 function renderCurrentTaskAvatars(i, j) {
@@ -73,19 +68,24 @@ function renderCurrentTaskAvatars(i, j) {
     currentBoardColChild.innerHTML += templateBoardCardsChild(imgSrc.src);
 }
 
-// function cutString(descr){
-
-// }
+function cutString(descr) {
+    if (descr.length > 50) {
+        descr = descr.slice(0, 50);
+        let dots = '...';
+        descr = descr.concat(dots);
+    }
+    return descr;
+}
 
 function templateBoardCards(currentTask) {
     return `
     <div class="card-body card-body-board text-start">
         <h6 class="card-subtitle mb-2 text-muted">${currentTask.currentDate}</h6>
         <h5 class="card-title">${currentTask.title}</h5>
-        <p class="card-text">${currentTask.description}</p>
-        <div class="d-flex justify-content-between text-end">
+        <p class="card-text">${cutString(currentTask.description)}</p>
+        <div class="d-flex justify-content-between align-items-center text-end">
             <a href="#" class="btn btn-primary ${currentTask.currentDate}">${currentTask.category}</a>
-            <a id="task${currentTask.id}" href="#" class="card-link">IMG of assigned person</a>
+            <p id="task${currentTask.id}" href="#" class="card-text">IMG of assigned person</p>
         </div>
     </div>
     `
