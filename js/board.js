@@ -4,6 +4,7 @@ async function initBoard() {
 }
 
 var taskOnBoard;
+let currentDraggedElement;
 
 let boardTasks = [{
     'title': 'Prepare presentation',
@@ -77,9 +78,22 @@ function cutString(descr) {
     return descr;
 }
 
+function startDragging(id) {
+    currentDraggedElement = id;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(category) {
+    boardTasks[currentDraggedElement - 1].status = category;
+    renderBoard();
+}
+
 function templateBoardCards(currentTask) {
     return `
-    <div class="card-body card-body-board text-start">
+    <div draggable="true" ondragstart="startDragging(${currentTask.id})" class="card-body card-body-board text-start">
         <h6 class="card-subtitle mb-2 text-muted">${currentTask.currentDate}</h6>
         <h5 class="card-title">${currentTask.title}</h5>
         <p class="card-text">${cutString(currentTask.description)}</p>

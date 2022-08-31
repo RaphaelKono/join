@@ -29,35 +29,19 @@
                     <div class="row align-items-start">
                         <div class="col">
                             <h3>TO DO</h3>
-                            <div id="ToDoBoard" class="board-col">
-                                <div id="task1" class="card-body card-body-board text-start">
-                                    <h6 id="createdAtBoard" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <h5 id="titleBoard" class="card-title">Card title</h5>
-                                    <p id="descriptionBoard" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-flex justify-content-between text-end">
-                                        <a id="categoryBoard" href="#" class="btn btn-primary">Marketing</a>
-                                        <a id="avatarsBoard" href="#" class="card-link">IMG of assigned person</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="board-col dragarea" ondrop="moveTo('ToDo')" ondragover="allowDrop(event)" id="ToDoBoard"></div>
                         </div>
                         <div class="col">
                             <h3>IN PROGRESS</h3>
-                            <div id="InProgressBoard" class="board-col">
-                                One of four columns
-                            </div>
+                            <div class="board-col dragarea" ondrop="moveTo('InProgress')" ondragover="allowDrop(event)" id="InProgressBoard"></div>
                         </div>
                         <div class="col">
                             <h3>TESTING</h3>
-                            <div id="TestingBoard" class="board-col">
-                                One of four columns
-                            </div>
+                            <div class="board-col dragarea" ondrop="moveTo('Testing')" ondragover="allowDrop(event)" id="TestingBoard"></div>
                         </div>
                         <div class="col">
                             <h3>DONE</h3>
-                            <div id="DoneBoard" class="board-col">
-                                One of four columns
-                            </div>
+                            <div class="board-col dragarea" ondrop="moveTo('Done')" ondragover="allowDrop(event)" id="DoneBoard"></div>
                         </div>
                     </div>
                 </div>
