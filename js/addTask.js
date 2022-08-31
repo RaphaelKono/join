@@ -1,7 +1,10 @@
 let form = document.getElementById("form");
+let formDialog = document.getElementById("dialogForm");
 let task = {};
-let users = ["user1", "user2", "user3", "user4"];
+let users = ["user1.jpg", "user2.jpg", "user3.jpg", "user4.jpg"];
 let selectedUsers = [];
+let allUsers = [{'firstName': 'John', 'lastName': 'Doe', 'img':'/img/user.jpg'}]
+let selectedNewUser = "userNew-1";
 
 async function init() {
   await includeHTML();
@@ -16,15 +19,28 @@ form.addEventListener(
     if (!form.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
-    } 
+    }
     form.classList.add("was-validated");
   },
   false
 );
 
+formDialog.addEventListener(
+  "submit",
+  function (event) {
+    if (formDialog.checkValidity()) addNewUser();
+    if (!formDialog.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    formDialog.classList.add("was-validated");
+  },
+  false
+);
+
 function addTask() {
-    setTask();
-    saveTask();
+  setTask();
+  saveTask();
 }
 
 function setTask() {
@@ -55,10 +71,10 @@ function saveTask() {
 
 function renderUser() {
   let avatarPicker = document.getElementById("avatars");
-  avatarPicker.innerHTML = ``;
+  avatarPicker.innerHTML = `<img title="add user" id='user-add' onclick='openDialog()' src="../img/icon plus.png" class="avatar">`;
   for (let i = 0; i < users.length; i++) {
     const user = users[i];
-    avatarPicker.innerHTML += `<img id='user-${i}' onclick='selectUser(${i})' src="../img/${user}.jpg" class="avatar ">`;
+    avatarPicker.innerHTML += `<img title="${user}" id='user-${i}' onclick='selectUser(${i})' src="../img/${user}" class="avatar ">`;
   }
 }
 
@@ -76,3 +92,54 @@ function selectUser(i) {
     document.getElementById("users").removeAttribute("required");
   }
 }
+
+function openDialog() {
+  document.body.style.overflow = "hidden";
+  window.scrollTo(0, 0);
+  let newUser = document.getElementById("dialogNewUser");
+  newUser.classList.remove("d-none");
+  selectNewUser(1);
+}
+
+function selectNewUser(i) {
+  let user = document.getElementById("userNew-" + i);
+  if (i != 1) user.classList.toggle("avatar-selected");
+  if (selectedNewUser.includes("userNew-" + i)) {
+    selectedNewUser = "userNew-1";
+    document.getElementById("userNew-1").classList.add("avatar-selected");
+  } else {
+    selectedNewUser = "userNew-" + i;
+    if (i == 1) {
+      document.getElementById("userNew-1").classList.add("avatar-selected");
+    }
+    for (let j = 1; j < 4; j++) {
+      if(j == i) continue;
+      document.getElementById("userNew-" + j).classList.remove("avatar-selected");
+    }
+  }
+}
+
+function addNewUser(){
+let newUser = {
+'firstName': document.getElementById('fName').value,
+'lastName' : document.getElementById('lName').value,
+'img' : document.getElementById(selectedNewUser).src
+};
+allUsers.push(newUser);
+users.push(newUser.img.split('/img/')[1]);
+renderUser();
+formDialog.reset();
+closeDialog();
+}
+
+function closeDialog() {
+  document.body.style.overflow = "auto";
+  document.getElementById("dialogNewUser").classList.add("d-none");
+}
+
+
+
+
+
+
+

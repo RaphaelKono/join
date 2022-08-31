@@ -100,6 +100,11 @@ form label {
 textarea {
   resize: none;
 }
+
+.btn-primary {
+  background-color: var(--blue);
+}
+
 #btn-create {
   background-color: var(--blue);
   border: 1px solid transparent;
@@ -118,11 +123,48 @@ textarea {
 }
 
 #cancel:hover {
-  background-color: var(--blue);
-  color: white;
+  border: 1px solid;
 }
 
 :root {
   --blue: #203192;
+  --violet: #f4f2fb;
+}
+#category, #curDate, #dueDate:hover{
+  cursor: pointer;
+}
+
+.d-none{
+  display: none;
+}
+
+#dialogNewUser{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.2);
+}
+
+#ContentNewUser{
+  background-color: var(--violet);
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+#cross {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#cross img{
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
 }
 /*#endregion */
