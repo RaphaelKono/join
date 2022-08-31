@@ -119,13 +119,11 @@ textarea {
     resize: none;
 }
 
-<<<<<<< HEAD
 .btn-primary {
   background-color: var(--blue);
 }
 
-=======
->>>>>>> ad0ef2d9a65e93a92541f0826116e13ec23da8ce
+
 #btn-create {
     background-color: var(--blue);
     border: 1px solid transparent;
@@ -144,7 +142,6 @@ textarea {
 }
 
 #cancel:hover {
-<<<<<<< HEAD
   border: 1px solid;
 }
 
@@ -188,14 +185,12 @@ textarea {
   height: 16px;
   width: 16px;
   cursor: pointer;
-=======
     background-color: var(--blue);
     color: white;
 }
 
 :root {
     --blue: #203192;
->>>>>>> ad0ef2d9a65e93a92541f0826116e13ec23da8ce
 }
 
 
