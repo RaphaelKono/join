@@ -28,7 +28,11 @@ let boardTasks = [{
 let staff = [{
     'id': 1,
     'name': 'Mark Wahlberg',
-    'src': 'img/Markwahlberg'
+    'src': 'img/user1.jpg'
+}, {
+    'id': 2,
+    'name': 'Hannes Zimmermann',
+    'src': 'img/user2.jpg'
 }];
 
 function renderBoard() {
@@ -38,10 +42,13 @@ function renderBoard() {
     for (let i = 0; i < boardTasks.length; i++) {
         const taskOnBoard = boardTasks[i];
         toDoBoard.innerHTML += templateBoardCards(taskOnBoard);
+        let toDoBoardChild = document.getElementById(`task${i+1}`);
+        toDoBoardChild.innerHTML = '';
         for (let j = 0; j < taskOnBoard.assignedTo.length; j++) {
             const avatarId = taskOnBoard.assignedTo[j];
-            const imgSrc = staff.filter(() => staff.id === avatarId);
-            toDoBoard.innerHTML += templateBoardCardsChild(imgSrc);
+            const imgSrc = staff.find((element) => element.id == avatarId);
+            console.log(imgSrc.src);
+            toDoBoardChild.innerHTML += templateBoardCardsChild(imgSrc.src);
         }
 
     }
@@ -63,6 +70,6 @@ function templateBoardCards(currentTask) {
 
 function templateBoardCardsChild(imgSrc) {
     return `
-    <img class="avatar-board" src="${imgSrc}">
+    <img class="avatar-board" src="../${imgSrc}">
     `;
 }
