@@ -9,6 +9,7 @@
     <!-- <script src="../mini_backend.js"></script> -->
     <script src="../js/script.js"></script>
     <script src="../js/w3include.js"></script>
+    <script src="../js/backlog.js"></script>
     <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css">
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -18,15 +19,14 @@
     <link rel="manifest" href="../favicon/site.webmanifest">
 </head>
 
-<body onload="init()">
+<body onload="renderBacklog()">
     <div class="container">
         <div class="card">
             <div w3-include-html="../html/header.html" class="card-header">
             </div>
             <div class="card-body">
                 <h5 class="card-title">Backlog</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div id="backlogContent"></div>
             </div>
         </div>
     </div>
