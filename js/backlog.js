@@ -1,4 +1,4 @@
-async function renderBacklog() {
+async function initBacklog() {
     await includeHTML();
     renderBacklog();
 }
