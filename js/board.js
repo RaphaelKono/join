@@ -25,16 +25,25 @@ let boardTasks = [{
     'currentDate': 'ZZ.ZZ.ZZZZ',
     'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.',
     'assignedTo': [2, 1],
-    'status': 'ToDo'
+    'status': 'ToDo',
+    'creator': [2]
 }];
 
 let staff = [{
     'id': 1,
-    'name': 'Mark Wahlberg',
+    'userName': 'user1',
+    'password': 'short',
+    'firstName': 'Mark',
+    'lastName': 'Wahlberg',
+    'email': 'mark.wahlberg@hotmail.de',
     'src': 'img/user1.jpg'
 }, {
     'id': 2,
-    'name': 'Hannes Zimmermann',
+    'userName': 'user1',
+    'password': 'short',
+    'firstName': 'Hannes',
+    'lastName': 'Zimmermann',
+    'email': 'mark.wahlberg@hotmail.de',
     'src': 'img/user2.jpg'
 }];
 
