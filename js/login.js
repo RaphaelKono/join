@@ -39,7 +39,7 @@ function login() {
     for (let i = 0; i < user.length; i++) {
         if (username == user[i].username && password == user[i].password) {
             console.log(username + " is logged in!!!")
-
+            
             return
         } else {
             console.log("username or password is wrong")
