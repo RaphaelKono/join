@@ -88,6 +88,116 @@ h3 {
     object-fit: cover;
 }
 
+/* -----------------CSS for Backlog ----------------- */
+
+p{
+    color: black;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.text{
+    margin-top:-5px;
+}
+
+.bg{
+    /* Tasks Container */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 8px;
+    margin:10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Colors of Urgency */
+
+.low{
+    border-right: 4px solid green;
+}
+
+.high{
+    border-right: 4px solid red;
+}
+
+.medium{
+    border-right: 4px solid orange;
+}
+
+/* Colors of Category */
+
+.Management{
+    border-left: 4px solid #8a2be2;
+}
+
+.Sales{
+    border-left: 4px solid #8B6969;
+}
+
+.Software-Department{
+    border-left: 4px solid #dbc836;
+}
+
+.Design{
+    border-left: 4px solid #6C7B8B;
+}
+
+.contentAvatar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width:15%;
+    /* border: 1px solid black; */
+    min-width: 150px;
+}
+
+.iconAvatarBacklog{
+    width:35px;
+    object-fit: cover;
+    border-radius: 100%;
+    border:4px solid orange;
+    margin-right:15px;
+}
+
+.contentCategory{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left:30px;
+    width:10%;
+    padding: 10px;
+    /* border: 1px solid black; */
+}
+
+.contentDescription{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left:30px;
+    width:50%;
+    /* border: 1px solid black; */
+}
+
+.contentEdit{
+    margin-top:20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left:50px;
+    /* border: 1px solid black; */
+}
+
+.iconBacklog{
+    width:20px;
+    object-fit: contain;
+    margin-right:15px;
+    cursor: pointer;
+}
+
+/* -----------------End region CSS for Backlog ----------------- */
+
 
 /*#region addTasks*/
 
@@ -195,8 +305,11 @@ textarea {
     cursor: pointer;
 }
 
+
 #userNew-2, #userNew-3{
     object-fit: contain !important;
 }
 
+
 /*#endregion */
+
