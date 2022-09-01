@@ -275,7 +275,7 @@ textarea {
     display: none;
 }
 
-#dialogNewUser {
+#dialogNewUser, #dialogEditTask {
     position: absolute;
     top: 0;
     left: 0;
@@ -305,4 +305,11 @@ textarea {
     cursor: pointer;
 }
 
+
+#userNew-2, #userNew-3{
+    object-fit: contain !important;
+}
+
+
 /*#endregion */
+
