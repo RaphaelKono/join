@@ -103,8 +103,8 @@ function renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgenc
         </div>
 
         <div class="contentEdit">
-            <div><a href="#" onclick="deleteTask(${i})"><img src="./img/delete.png" class="iconBacklog"></a></div>
-            <div><a href="#" onclick="editTask(${i})"><img src="./img/edit.png" class="iconBacklog"></a></div>
+            <div><a href="#" onclick="deleteTask(${i})"><img src="../img/delete.png" class="iconBacklog"></a></div>
+            <div><a href="#" onclick="editTask(${i})"><img src="../img/edit.png" class="iconBacklog"></a></div>
         </div>
 
         <!--
