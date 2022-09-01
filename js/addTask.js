@@ -6,6 +6,57 @@ let selectedUsers = [];
 let allUsers = [{'firstName': 'John', 'lastName': 'Doe', 'img':'/img/user.jpg'}]
 let selectedNewUser = "userNew-1";
 
+let staff = [{
+  'id': 1,
+  'userName': 'user1',
+  'password': 'short',
+  'firstName': 'Bruce',
+  'lastName': 'Humphrey',
+  'email': 'Bruce.Humphrey@join.de',
+  'src': './img/user1.jpg'
+}, {
+  'id': 2,
+  'userName': 'user2',
+  'password': 'short',
+  'firstName': 'Hamza',
+  'lastName': 'Paul',
+  'email': 'Hamza.Paul@join.de',
+  'src': './img/user2.jpg'
+},
+{
+  'id': 3,
+  'userName': 'user3',
+  'password': 'short',
+  'firstName': 'Stella',
+  'lastName': 'Hayes',
+  'email': 'Stella.Hayes@join.de',
+  'src': './img/user3.jpg'
+},
+{
+  'id': 4,
+  'userName': 'user4',
+  'password': 'short',
+  'firstName': 'Brian',
+  'lastName': 'McBride',
+  'email': 'Brian.McBride@join.de',
+  'src': './img/user4.jpg'
+},
+{
+  'id': 5,
+  'userName': 'guest',
+  'password': 'short',
+  'firstName': 'Guest',
+  'lastName': 'guest',
+  'email': 'guest@join.de',
+  'src': './img/guest-user.jpg'
+}
+];
+
+
+async function addUser() {
+  await backend.setItem('users', JSON.stringify(staff));
+}
+
 async function init() {
   await includeHTML();
   renderUser();
