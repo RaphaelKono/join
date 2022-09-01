@@ -117,7 +117,7 @@ form label {
 }
 
 #form {
-    background-color: #f4f2fb;
+    background-color: var(--violet);
     border-radius: 10px;
 }
 
@@ -193,13 +193,6 @@ textarea {
     height: 16px;
     width: 16px;
     cursor: pointer;
-    background-color: var(--blue);
-    color: white;
 }
-
-:root {
-    --blue: #203192;
-}
-
 
 /*#endregion */
