@@ -7,7 +7,7 @@ let titles = [];
 
 let editedTasks = [];
 
-let tasks = [{
+let tasksBacklog = [{
     'title': 'Testtitle1',
     'id': 1,
     'urgency': 'high',
@@ -17,7 +17,7 @@ let tasks = [{
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     'assignedTo': {
         'name': 'Mark Wahlberg',
-        'src': './img/icons8-calendar-150.png'
+        'src': '../img/user1.jpg'
     },
     'status': 'ToDo'
 },
@@ -31,7 +31,7 @@ let tasks = [{
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     'assignedTo': {
         'name': 'Cristina Jordi',
-        'src': './img/icon plus.png'
+        'src': '../img/user2.jpg'
     },
     'status': 'InProgress'
 },
@@ -45,7 +45,7 @@ let tasks = [{
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     'assignedTo': {
         'name': 'Mark Wahlberg',
-        'src': './img/icons8-calendar-150.png'
+        'src': '../img/user1.jpg'
     },
     'status': 'ToDo'
 },
@@ -59,7 +59,7 @@ let tasks = [{
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     'assignedTo': {
         'name': 'Mark Wahlberg',
-        'src': './img/icons8-calendar-150.png'
+        'src': '../img/user1.jpg'
     },
     'status': 'ToDo'
 }];
@@ -69,17 +69,17 @@ load();
 function renderBacklog() {
     let loadTasks = document.getElementById('backlogContent');
     loadTasks.innerHTML = '';
-    for (let i = 0; i < tasks.length; i++) {
-        let staffSrc = tasks[i].assignedTo.src;
-        let staffName = tasks[i].assignedTo.name;
-        let taskTitle = tasks[i].title;
-        let taskId = tasks[i].id;
-        let taskUrgency = tasks[i].urgency;
-        let taskCategory = tasks[i].category;
-        let taskDueDate = tasks[i].dueDate;
-        let taskCurrentDate = tasks[i].currentDate;
-        let taskDescription = tasks[i].description;
-        let taskStatus = tasks[i].status;
+    for (let i = 0; i < tasksBacklog.length; i++) {
+        let staffSrc = tasksBacklog[i].assignedTo.src;
+        let staffName = tasksBacklog[i].assignedTo.name;
+        let taskTitle = tasksBacklog[i].title;
+        let taskId = tasksBacklog[i].id;
+        let taskUrgency = tasksBacklog[i].urgency;
+        let taskCategory = tasksBacklog[i].category;
+        let taskDueDate = tasksBacklog[i].dueDate;
+        let taskCurrentDate = tasksBacklog[i].currentDate;
+        let taskDescription = tasksBacklog[i].description;
+        let taskStatus = tasksBacklog[i].status;
 
         loadTasks.innerHTML += renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgency, taskCategory,
             taskDueDate, taskCurrentDate, taskDescription, taskStatus);
@@ -91,7 +91,7 @@ function renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgenc
     return `
     <div class="bg ${taskUrgency}">
         <div class="contentAvatar">
-            <div><img src="${staffSrc}" class="iconAvatarBacklog"></div>
+            <div><img src="${staffSrc}" class="avatar"></div>
             <div><p>${staffName}</p></div>
         </div>
 
@@ -119,14 +119,14 @@ function renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgenc
 }
 
 function deleteTask(i) {
-    tasks.splice(i, 1);
+    tasksBacklog.splice(i, 1);
     renderBacklog();
 
     save();
 }
 
 function editTask(i) {
-    editedTasks.push(tasks[i]);
+    editedTasks.push(tasksBacklog[i]);
     window.location.href = "addTask.html";
 }
 
