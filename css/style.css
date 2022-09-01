@@ -51,6 +51,13 @@ h3 {
     border-left: 5px solid #c3c5cf;
 }
 
+/* -----------------CSS for Impressum ----------------- */
+
+.impressum-margin-top{
+    margin-top:50px;
+}
+
+/* -----------------End CSS for Impressum ----------------- */
 
 /* -----------------CSS for Board ----------------- */
 
