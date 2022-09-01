@@ -132,11 +132,11 @@ function editTask(i) {
 
 function save() {
     let TitleAsText = JSON.stringify(titles);
-    backend.setItem('titles', TitleAsText);
+    localStorage.setItem('titles', TitleAsText);
 }
 
 function load() {
-    let TitleAsText = backend.getItem('titles');
+    let TitleAsText = localStorage.getItem('titles');
     if (TitleAsText) {
         titles = JSON.parse(TitleAsText);
     }
