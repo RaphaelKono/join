@@ -30,22 +30,50 @@ let boardTasks = [{
 }];
 
 let staff = [{
-    'id': 1,
-    'userName': 'user1',
-    'password': 'short',
-    'firstName': 'Mark',
-    'lastName': 'Wahlberg',
-    'email': 'mark.wahlberg@hotmail.de',
-    'src': 'img/user1.jpg'
-}, {
-    'id': 2,
-    'userName': 'user1',
-    'password': 'short',
-    'firstName': 'Hannes',
-    'lastName': 'Zimmermann',
-    'email': 'mark.wahlberg@hotmail.de',
-    'src': 'img/user2.jpg'
-}];
+        'id': 1,
+        'userName': 'user1',
+        'password': 'short',
+        'firstName': 'Bruce',
+        'lastName': 'Humphrey',
+        'email': 'Bruce.Humphrey@join.de',
+        'src': 'img/user1.jpg'
+    }, {
+        'id': 2,
+        'userName': 'user1',
+        'password': 'short',
+        'firstName': 'Hamza',
+        'lastName': 'Paul',
+        'email': 'Hamza.Paul@join.de',
+        'src': 'img/user2.jpg'
+    },
+    {
+        'id': 2,
+        'userName': 'user1',
+        'password': 'short',
+        'firstName': 'Stella',
+        'lastName': 'Hayes',
+        'email': 'Stella.Hayes@join.de',
+        'src': 'img/user2.jpg'
+    },
+    {
+        'id': 2,
+        'userName': 'user1',
+        'password': 'short',
+        'firstName': 'Brian',
+        'lastName': 'McBride',
+        'email': 'Brian.McBride@join.de',
+        'src': 'img/user2.jpg'
+    },
+    {
+        'id': 2,
+        'userName': 'guest',
+        'password': 'short',
+        'firstName': 'guest',
+        'lastName': 'guest',
+        'email': 'guest@join.de',
+        'src': 'img/user2.jpg'
+    }
+];
 
 function renderBoard() {
     resetBoard();
@@ -78,9 +106,9 @@ function renderCurrentTaskAvatars(i, j) {
     currentBoardColChild.innerHTML += templateBoardCardsChild(imgSrc.src);
 }
 
-function cutString(descr) {
-    if (descr.length > 50) {
-        descr = descr.slice(0, 50);
+function cutString(descr, amount) {
+    if (descr.length > amount) {
+        descr = descr.slice(0, amount);
         let dots = '...';
         descr = descr.concat(dots);
     }
@@ -105,7 +133,7 @@ function templateBoardCards(currentTask) {
     <div draggable="true" ondragstart="startDragging(${currentTask.id})" class="card-body card-body-board text-start">
         <h6 class="card-subtitle mb-2 text-muted">${currentTask.currentDate}</h6>
         <h5 class="card-title">${currentTask.title}</h5>
-        <p class="card-text">${cutString(currentTask.description)}</p>
+        <p class="card-text">${cutString(currentTask.description, 50)}</p>
         <div class="d-flex justify-content-between align-items-center text-end">
             <a href="#" class="btn btn-primary ${currentTask.currentDate}">${currentTask.category}</a>
             <p id="task${currentTask.id}" href="#" class="card-text">IMG of assigned person</p>

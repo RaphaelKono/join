@@ -51,13 +51,16 @@ h3 {
     border-left: 5px solid #c3c5cf;
 }
 
+
 /* -----------------CSS for Impressum ----------------- */
 
-.impressum-margin-top{
-    margin-top:50px;
+.impressum-margin-top {
+    margin-top: 50px;
 }
 
+
 /* -----------------End CSS for Impressum ----------------- */
+
 
 /* -----------------CSS for Board ----------------- */
 
@@ -95,113 +98,117 @@ h3 {
     object-fit: cover;
 }
 
+
 /* -----------------CSS for Backlog ----------------- */
 
-p{
+p {
     color: black;
     font-size: 12px;
     line-height: 14px;
 }
 
-.text{
-    margin-top:-5px;
+.text {
+    margin-top: -5px;
 }
 
-.bg{
+.bg {
     /* Tasks Container */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 8px;
-    margin:10px;
+    margin: 10px;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+
 /* Colors of Urgency */
 
-.low{
+.low {
     border-right: 4px solid green;
 }
 
-.high{
+.high {
     border-right: 4px solid red;
 }
 
-.medium{
+.medium {
     border-right: 4px solid orange;
 }
 
+
 /* Colors of Category */
 
-.Management{
-    border-left: 4px solid #8a2be2;
+.Management {
+    border-left: 4px solid var(--managment);
 }
 
-.Sales{
+.Sales {
     border-left: 4px solid #8B6969;
 }
 
-.Software-Department{
+.Software-Department {
     border-left: 4px solid #dbc836;
 }
 
-.Design{
+.Design {
     border-left: 4px solid #6C7B8B;
 }
 
-.contentAvatar{
+.contentAvatar {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width:15%;
+    width: 15%;
     /* border: 1px solid black; */
     min-width: 150px;
 }
 
-.iconAvatarBacklog{
-    width:35px;
+.iconAvatarBacklog {
+    width: 35px;
     object-fit: cover;
     border-radius: 100%;
-    border:4px solid orange;
-    margin-right:15px;
+    border: 4px solid orange;
+    margin-right: 15px;
 }
 
-.contentCategory{
+.contentCategory {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left:30px;
-    width:10%;
+    margin-left: 30px;
+    width: 10%;
     padding: 10px;
     /* border: 1px solid black; */
 }
 
-.contentDescription{
+.contentDescription {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left:30px;
-    width:50%;
+    margin-left: 30px;
+    width: 50%;
     /* border: 1px solid black; */
 }
 
-.contentEdit{
-    margin-top:20px;
+.contentEdit {
+    margin-top: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left:50px;
+    margin-left: 50px;
     /* border: 1px solid black; */
 }
 
-.iconBacklog{
-    width:20px;
+.iconBacklog {
+    width: 20px;
     object-fit: contain;
-    margin-right:15px;
+    margin-right: 15px;
     cursor: pointer;
 }
+
 
 /* -----------------End region CSS for Backlog ----------------- */
 
@@ -270,6 +277,7 @@ textarea {
 :root {
     --blue: #203192;
     --violet: #f4f2fb;
+    --managment: #8a2be2;
 }
 
 #category,
@@ -282,7 +290,8 @@ textarea {
     display: none;
 }
 
-#dialogNewUser, #dialogEditTask {
+#dialogNewUser,
+#dialogEditTask {
     position: absolute;
     top: 0;
     left: 0;
@@ -312,11 +321,10 @@ textarea {
     cursor: pointer;
 }
 
-
-#userNew-2, #userNew-3{
+#userNew-2,
+#userNew-3 {
     object-fit: contain !important;
 }
 
 
 /*#endregion */
-
