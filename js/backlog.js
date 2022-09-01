@@ -48,20 +48,6 @@ let tasksBacklog = [{
         'src': '../img/user1.jpg'
     },
     'status': 'ToDo'
-},
-{
-    'title': 'Testtitle4',
-    'id': 4,
-    'urgency': 'high',
-    'category': 'Management',
-    'dueDate': '20. Oktober 2022',
-    'currentDate': '29. August 2022',
-    'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-    'assignedTo': {
-        'name': 'Mark Wahlberg',
-        'src': '../img/user1.jpg'
-    },
-    'status': 'ToDo'
 }];
 
 load();
