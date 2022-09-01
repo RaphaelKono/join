@@ -1,3 +1,8 @@
+async function renderBacklog() {
+    await includeHTML();
+    renderBacklog();
+}
+
 let titles = [];
 
 let editedTasks = [];
