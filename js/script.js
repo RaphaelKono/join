@@ -1,4 +1,4 @@
-let backendtasks;
+let backendTasks;
 let currentUserId;
 let backendUsers;
 
@@ -10,8 +10,8 @@ async function init() {
     await includeHTML();
     await downloadFromServer();
     backendUsers = JSON.parse(backend.getItem('users')) || [];
-    backendtasks = JSON.parse(backend.getItem('tasks')) || [];
-    currentUserId = backendUsers[3]['id'];
+    backendTasks = JSON.parse(backend.getItem('tasks')) || [];
+    currentUserId = backendUsers[4]['id'];
 }
 
 async function includeHTML() {

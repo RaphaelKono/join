@@ -8,6 +8,10 @@ h3 {
     font-weight: 700;
 }
 
+h4{
+    color: var(--blue);
+}
+
 .container {
     padding-left: 0;
     margin-left: 0;
