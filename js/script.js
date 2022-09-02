@@ -1,14 +1,6 @@
-let tasks = [{
-    'title': 'testtitle',
-    'id': 1,
-    'urgency': 'Medium',
-    'category': 'Managment',
-    'dueDate': new Date(),
-    'currentDate': new Date(),
-    'description': 'string ... lorem ipsum',
-    'assignedTo': 'Be creative',
-    'status': 'ToDo'
-}];
+let backendTasks;
+let currentUserId;
+let backendUsers;
 
 //Urgencies are: Low, Medium, Hight
 //Categories are: Managment, Sales, Product, Marketing
@@ -16,6 +8,10 @@ let tasks = [{
 
 async function init() {
     await includeHTML();
+    await downloadFromServer();
+    backendUsers = JSON.parse(backend.getItem('users')) || [];
+    backendTasks = JSON.parse(backend.getItem('tasks')) || [];
+    currentUserId = backendUsers[4]['id'];
 }
 
 async function includeHTML() {
@@ -36,8 +32,12 @@ async function includeHTML() {
 
 
 
+<<<<<<< HEAD
  setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
 
+=======
+setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
+>>>>>>> 07b906bd780d2e810071f1a680daafc27fd7ae85
 
 //https://github.com/JunusErgin/smallest_backend_ever
 /*Examples

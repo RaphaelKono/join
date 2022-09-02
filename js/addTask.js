@@ -3,9 +3,10 @@ let formDialog = document.getElementById("dialogForm");
 let task = {};
 let users = ["user1.jpg", "user2.jpg", "user3.jpg", "user4.jpg"];
 let selectedUsers = [];
-let allUsers = [{'firstName': 'John', 'lastName': 'Doe', 'img':'/img/user.jpg'}]
+let allUsers = [{ firstName: "John", lastName: "Doe", img: "/img/user.jpg" }];
 let selectedNewUser = "userNew-1";
 
+<<<<<<< HEAD
 let staff = [{
   'id': 1,
   'userName': 'user1',
@@ -58,6 +59,10 @@ async function addUser() {
 }
 
 async function init() {
+=======
+async function initAddTask() {
+  await init();
+>>>>>>> 07b906bd780d2e810071f1a680daafc27fd7ae85
   await includeHTML();
   renderUser();
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
@@ -104,6 +109,7 @@ function setTask() {
     description: form.elements["desc"].value,
     assignedTo: selectedUsers,
     status: "ToDo",
+    creator: currentUserId,
   };
 }
 
@@ -123,19 +129,19 @@ function saveTask() {
 function renderUser() {
   let avatarPicker = document.getElementById("avatars");
   avatarPicker.innerHTML = `<img title="add user" id='user-add' onclick='openDialog()' src="../img/icon plus.png" class="avatar">`;
-  for (let i = 0; i < users.length; i++) {
-    const user = users[i];
-    avatarPicker.innerHTML += `<img title="${user}" id='user-${i}' onclick='selectUser(${i})' src="../img/${user}" class="avatar ">`;
+  for (let i = 0; i < backendUsers.length; i++) {
+    const user = backendUsers[i];
+    avatarPicker.innerHTML += `<img title="${user['firstName']} ${user['lastName']}" id='user-${i}' onclick='selectUser(${i})' src=".${user['src']}" class="avatar ">`;
   }
 }
 
 function selectUser(i) {
   let user = document.getElementById("user-" + i);
   user.classList.toggle("avatar-selected");
-  if (selectedUsers.includes(users[i])) {
-    selectedUsers = selectedUsers.filter((a) => a != users[i]);
+  if (selectedUsers.includes(i)) {
+    selectedUsers = selectedUsers.filter((a) => a != i);
   } else {
-    selectedUsers.push(users[i]);
+    selectedUsers.push(i);
   }
   if (selectedUsers.length == 0) {
     document.getElementById("users").setAttribute("required", "");
@@ -164,33 +170,26 @@ function selectNewUser(i) {
       document.getElementById("userNew-1").classList.add("avatar-selected");
     }
     for (let j = 1; j < 4; j++) {
-      if(j == i) continue;
+      if (j == i) continue;
       document.getElementById("userNew-" + j).classList.remove("avatar-selected");
     }
   }
 }
 
-function addNewUser(){
-let newUser = {
-'firstName': document.getElementById('fName').value,
-'lastName' : document.getElementById('lName').value,
-'img' : document.getElementById(selectedNewUser).src
-};
-allUsers.push(newUser);
-users.push(newUser.img.split('/img/')[1]);
-renderUser();
-formDialog.reset();
-closeDialog();
+function addNewUser() {
+  let newUser = {
+    firstName: document.getElementById("fName").value,
+    lastName: document.getElementById("lName").value,
+    img: document.getElementById(selectedNewUser).src,
+  };
+  allUsers.push(newUser);
+  users.push(newUser.img.split("/img/")[1]);
+  renderUser();
+  formDialog.reset();
+  closeDialog();
 }
 
 function closeDialog() {
   document.body.style.overflow = "auto";
   document.getElementById("dialogNewUser").classList.add("d-none");
 }
-
-
-
-
-
-
-
