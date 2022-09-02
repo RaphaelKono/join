@@ -16,6 +16,8 @@ let tasks = [{
 
 async function init() {
     await includeHTML();
+    await downloadFromServer();
+    backendUsers = JSON.parse(backend.getItem('users')) || [];
 }
 
 async function includeHTML() {
@@ -36,7 +38,7 @@ async function includeHTML() {
 
 
 
-// setURL('http://developerakademie.com/smallest_backend_ever')
+setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
 
 //https://github.com/JunusErgin/smallest_backend_ever
 /*Examples

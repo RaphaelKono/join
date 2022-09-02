@@ -6,10 +6,12 @@ let selectedUsers = [];
 let allUsers = [{'firstName': 'John', 'lastName': 'Doe', 'img':'/img/user.jpg'}]
 let selectedNewUser = "userNew-1";
 
-async function init() {
+async function initAddTask() {
+  await init();
   await includeHTML();
   renderUser();
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
+  console.log(backendUsers[0].firstName);
 }
 
 form.addEventListener(
