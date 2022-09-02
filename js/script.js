@@ -28,16 +28,8 @@ async function includeHTML() {
     }
 }
 
-
-
-
-
-<<<<<<< HEAD
- setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
-
-=======
 setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
->>>>>>> 07b906bd780d2e810071f1a680daafc27fd7ae85
+
 
 //https://github.com/JunusErgin/smallest_backend_ever
 /*Examples
