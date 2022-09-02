@@ -1,14 +1,6 @@
-let tasks = [{
-    'title': 'testtitle',
-    'id': 1,
-    'urgency': 'Medium',
-    'category': 'Managment',
-    'dueDate': new Date(),
-    'currentDate': new Date(),
-    'description': 'string ... lorem ipsum',
-    'assignedTo': 'Be creative',
-    'status': 'ToDo'
-}];
+let backendtasks;
+let currentUserId;
+let backendUsers;
 
 //Urgencies are: Low, Medium, Hight
 //Categories are: Managment, Sales, Product, Marketing
@@ -18,6 +10,8 @@ async function init() {
     await includeHTML();
     await downloadFromServer();
     backendUsers = JSON.parse(backend.getItem('users')) || [];
+    backendtasks = JSON.parse(backend.getItem('tasks')) || [];
+    currentUserId = backendUsers[3]['id'];
 }
 
 async function includeHTML() {
