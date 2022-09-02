@@ -126,17 +126,16 @@ p {
 /* Colors of Urgency */
 
 .low {
-    border-right: 4px solid green;
+    border-right: 4px solid var(--low);
 }
 
 .high {
-    border-right: 4px solid red;
+    border-right: 4px solid var(--high);
 }
 
 .medium {
-    border-right: 4px solid orange;
+    border-right: 4px solid var(--medium);
 }
-
 
 /* Colors of Category */
 
@@ -145,15 +144,15 @@ p {
 }
 
 .Sales {
-    border-left: 4px solid #8B6969;
+    border-left: 4px solid var(--sales);
 }
 
 .Software-Department {
-    border-left: 4px solid #dbc836;
+    border-left: 4px solid var(--software-department);
 }
 
 .Design {
-    border-left: 4px solid #6C7B8B;
+    border-left: 4px solid var(--design);
 }
 
 .contentAvatar {
@@ -277,7 +276,15 @@ textarea {
 :root {
     --blue: #203192;
     --violet: #f4f2fb;
+    /* Categories Colors */
     --managment: #8a2be2;
+    --sales: #8B6969;
+    --software-department: #dbc836;
+    --design: #6C7B8B;
+    /* Urgencies Colors */
+    --low: green;
+    --high: red;
+    --medium: orange;
 }
 
 #category,

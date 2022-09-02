@@ -75,13 +75,13 @@ function renderBacklog() {
 function renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgency, taskCategory,
     taskDueDate, taskCurrentDate, taskDescription, taskStatus) {
     return `
-    <div class="bg ${taskUrgency}">
+    <div class="bg ${taskUrgency} ${taskCategory}">
         <div class="contentAvatar">
             <div><img src="${staffSrc}" class="avatar"></div>
             <div><p>${staffName}</p></div>
         </div>
 
-        <div class="contentCategory ${taskCategory}"><p>${taskCategory}</p></div>
+        <div class="contentCategory"><p>${taskCategory}</p></div>
 
         <div class="contentDescription">
             <div><p><b>${taskTitle} / Ticket-ID: ${taskId}</b></p></div>
@@ -113,16 +113,16 @@ function deleteTask(i) {
 
 function editTask(i) {
     editedTasks.push(tasksBacklog[i]);
-    window.location.href = "addTask.html";
+    window.location.href = "addTaskbacklog.html";
 }
 
 function save() {
     let TitleAsText = JSON.stringify(titles);
-    localStorage.setItem('titles', TitleAsText);
+    backend.setItem('titles', TitleAsText);
 }
 
 function load() {
-    let TitleAsText = localStorage.getItem('titles');
+    let TitleAsText = backend.getItem('titles');
     if (TitleAsText) {
         titles = JSON.parse(TitleAsText);
     }
