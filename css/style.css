@@ -117,9 +117,10 @@ p {
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 8px;
+    border: 1px solid rgba(157, 153, 153, 0.1);
     margin: 10px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #F4F2FB;
 }
 
 

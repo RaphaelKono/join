@@ -15,7 +15,7 @@ let tasksBacklog = [{
     'dueDate': '20. Oktober 2022',
     'currentDate': '29. August 2022',
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-    'assignedTo': {
+    'creator': {
         'name': 'Mark Wahlberg',
         'src': '../img/user1.jpg'
     },
@@ -29,7 +29,7 @@ let tasksBacklog = [{
     'dueDate': '15. September 2022',
     'currentDate': '29. August 2022',
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-    'assignedTo': {
+    'creator': {
         'name': 'Cristina Jordi',
         'src': '../img/user2.jpg'
     },
@@ -43,7 +43,7 @@ let tasksBacklog = [{
     'dueDate': '20. Oktober 2022',
     'currentDate': '29. August 2022',
     'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-    'assignedTo': {
+    'creator': {
         'name': 'Mark Wahlberg',
         'src': '../img/user1.jpg'
     },
@@ -56,8 +56,8 @@ function renderBacklog() {
     let loadTasks = document.getElementById('backlogContent');
     loadTasks.innerHTML = '';
     for (let i = 0; i < tasksBacklog.length; i++) {
-        let staffSrc = tasksBacklog[i].assignedTo.src;
-        let staffName = tasksBacklog[i].assignedTo.name;
+        let staffSrc = tasksBacklog[i].creator.src;
+        let staffName = tasksBacklog[i].creator.name;
         let taskTitle = tasksBacklog[i].title;
         let taskId = tasksBacklog[i].id;
         let taskUrgency = tasksBacklog[i].urgency;
@@ -66,7 +66,6 @@ function renderBacklog() {
         let taskCurrentDate = tasksBacklog[i].currentDate;
         let taskDescription = tasksBacklog[i].description;
         let taskStatus = tasksBacklog[i].status;
-
         loadTasks.innerHTML += renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgency, taskCategory,
             taskDueDate, taskCurrentDate, taskDescription, taskStatus);
     }
@@ -85,7 +84,7 @@ function renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgenc
 
         <div class="contentDescription">
             <div><p><b>${taskTitle} / Ticket-ID: ${taskId}</b></p></div>
-            <div><p class="text">${taskDescription}</p></div>
+            <div><p class="text">${cutString(taskDescription, 200)}</p></div>
         </div>
 
         <div class="contentEdit">
@@ -102,6 +101,15 @@ function renderBacklogHMTL(i, staffSrc, staffName, taskTitle, taskId, taskUrgenc
         -->
     </div>
         `;
+}
+
+function cutString(descr, amount) {
+    if (descr.length > amount) {
+        descr = descr.slice(0, amount);
+        let dots = '...';
+        descr = descr.concat(dots);
+    }
+    return descr;
 }
 
 function deleteTask(i) {
