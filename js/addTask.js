@@ -58,11 +58,8 @@ async function addUser() {
   await backend.setItem('users', JSON.stringify(staff));
 }
 
-async function init() {
-=======
 async function initAddTask() {
   await init();
->>>>>>> 07b906bd780d2e810071f1a680daafc27fd7ae85
   await includeHTML();
   renderUser();
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
