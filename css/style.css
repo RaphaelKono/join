@@ -263,6 +263,7 @@ textarea {
     background-color: unset;
     color: var(--blue);
     border: 1px solid;
+    transition: 225ms ease-in-out;
 }
 
 #cancel {
@@ -272,6 +273,7 @@ textarea {
 
 #cancel:hover {
     border: 1px solid;
+    transition: 225ms ease-in;
 }
 
 :root {
