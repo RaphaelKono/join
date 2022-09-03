@@ -8,7 +8,7 @@ h3 {
     font-weight: 700;
 }
 
-h4{
+h4 {
     color: var(--blue);
 }
 
@@ -102,6 +102,10 @@ h4{
     object-fit: cover;
 }
 
+.no-wrap {
+    flex-wrap: nowrap !important;
+}
+
 
 /* -----------------CSS for Backlog ----------------- */
 
@@ -141,6 +145,7 @@ p {
 .medium {
     border-right: 4px solid var(--medium);
 }
+
 
 /* Colors of Category */
 
@@ -342,3 +347,10 @@ textarea {
 
 
 /*#endregion */
+
+@media(max-width: 1200px) {
+    .board-col {
+        min-height: unset;
+        height: 40vh !important;
+    }
+}

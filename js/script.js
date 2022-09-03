@@ -28,7 +28,7 @@ async function includeHTML() {
     }
 }
 
-setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
+// setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever');
 
 
 //https://github.com/JunusErgin/smallest_backend_ever
