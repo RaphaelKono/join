@@ -354,3 +354,19 @@ textarea {
         height: 40vh !important;
     }
 }
+
+@media(min-width: 768px) {
+    /* .container {
+        max-width: 870px;
+    } */
+}
+
+@media(max-width: 1000px) {
+    .board-col {
+        height: 177px !important;
+        min-width: 60vw;
+    }
+    .col {
+        min-width: 60vw;
+    }
+}
