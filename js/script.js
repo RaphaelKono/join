@@ -39,8 +39,10 @@ async function includeHTML() {
   }
 }
 
+
 setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
 
+// setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever');
 //https://github.com/JunusErgin/smallest_backend_ever
 /*Examples
 If you want to see a full working example, open the file example.html. Imagine we're having an array of users:

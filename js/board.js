@@ -147,3 +147,20 @@ function templateBoardCardsChild(imgSrc) {
     <img class="avatar-board" src="../${imgSrc}">
     `;
 }
+
+window.addEventListener('resize', function(event) {
+    if (window.innerWidth < 1200 && window.innerWidth >= 1000) {
+        document.getElementById('resizeid').classList.add('row-cols-2');
+        document.getElementById('resizeid').classList.remove('row-cols-4');
+        document.getElementById('resizeid').classList.remove('flex-column');
+    }
+    if (window.innerWidth >= 1200) {
+        document.getElementById('resizeid').classList.remove('row-cols-2');
+        document.getElementById('resizeid').classList.add('row-cols-4');
+    }
+    if (window.innerWidth < 1000) {
+        document.getElementById('resizeid').classList.remove('row-cols-2');
+        document.getElementById('resizeid').classList.add('row-cols-4');
+        document.getElementById('resizeid').classList.add('flex-column');
+    }
+});
