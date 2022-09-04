@@ -1,35 +1,45 @@
 let backendTasks;
+let serverTasks;
 let currentUserId;
 let backendUsers;
-
+let localTasks;
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 //Urgencies are: Low, Medium, Hight
 //Categories are: Managment, Sales, Product, Marketing
 //Status are: ToDo, InProgress, Testing, Done
 
 async function init() {
-    await includeHTML();
-    await downloadFromServer();
-    backendUsers = JSON.parse(backend.getItem('users')) || [];
-    backendTasks = JSON.parse(backend.getItem('tasks')) || [];
-    currentUserId = backendUsers[4]['id'];
+  await includeHTML();
+  await downloadFromServer();
+  await getUsersFromServer();
+  await getTasksFromServer();
+  backendTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+}
+async function getUsersFromServer(){
+    backendUsers = await JSON.parse(backend.getItem("users")) || [];
+    currentUserId = backendUsers[4]["id"];
+}
+
+async function getTasksFromServer(){
+    backend.setItem('tasks', JSON.stringify(tasks));
+    backendTasks = await JSON.parse(backend.getItem("tasks")) || [];
 }
 
 async function includeHTML() {
-    let includeElements = document.querySelectorAll('[w3-include-html]');
-    for (let i = 0; i < includeElements.length; i++) {
-        const element = includeElements[i];
-        file = element.getAttribute("w3-include-html"); // "includes/header.html"
-        let resp = await fetch(file);
-        if (resp.ok) {
-            element.innerHTML = await resp.text();
-        } else {
-            element.innerHTML = 'Page not found';
-        }
+  let includeElements = document.querySelectorAll("[w3-include-html]");
+  for (let i = 0; i < includeElements.length; i++) {
+    const element = includeElements[i];
+    file = element.getAttribute("w3-include-html"); // "includes/header.html"
+    let resp = await fetch(file);
+    if (resp.ok) {
+      element.innerHTML = await resp.text();
+    } else {
+      element.innerHTML = "Page not found";
     }
+  }
 }
 
-setURL('https://gruppe-302.developerakademie.net/smallest_backend_ever')
-
+setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
 
 //https://github.com/JunusErgin/smallest_backend_ever
 /*Examples
@@ -40,7 +50,7 @@ Save
 Add a user with this function:
 
 function addUser() {
-    users.push('John);
+    users.push('John');
     backend.setItem('users', JSON.stringify(users));
 }
 If you want to wait for the request you can add the await keyword as well:

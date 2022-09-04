@@ -1,79 +1,86 @@
 let form = document.getElementById("form");
 let formDialog = document.getElementById("dialogForm");
-let task = {};
-let users = ["user1.jpg", "user2.jpg", "user3.jpg", "user4.jpg"];
+let task;
 let selectedUsers = [];
-let allUsers = [{ firstName: "John", lastName: "Doe", img: "/img/user.jpg" }];
 let selectedNewUser = "userNew-1";
 
-<<<<<<< HEAD
-let staff = [{
-  'id': 1,
-  'userName': 'user1',
-  'password': 'short',
-  'firstName': 'Bruce',
-  'lastName': 'Humphrey',
-  'email': 'Bruce.Humphrey@join.de',
-  'src': './img/user1.jpg'
-}, {
-  'id': 2,
-  'userName': 'user2',
-  'password': 'short',
-  'firstName': 'Hamza',
-  'lastName': 'Paul',
-  'email': 'Hamza.Paul@join.de',
-  'src': './img/user2.jpg'
-},
-{
-  'id': 3,
-  'userName': 'user3',
-  'password': 'short',
-  'firstName': 'Stella',
-  'lastName': 'Hayes',
-  'email': 'Stella.Hayes@join.de',
-  'src': './img/user3.jpg'
-},
-{
-  'id': 4,
-  'userName': 'user4',
-  'password': 'short',
-  'firstName': 'Brian',
-  'lastName': 'McBride',
-  'email': 'Brian.McBride@join.de',
-  'src': './img/user4.jpg'
-},
-{
-  'id': 5,
-  'userName': 'guest',
-  'password': 'short',
-  'firstName': 'Guest',
-  'lastName': 'guest',
-  'email': 'guest@join.de',
-  'src': './img/guest-user.jpg'
-}
+let staff = [
+  {
+    id: 1,
+    userName: "user1",
+    password: "short",
+    firstName: "Bruce",
+    lastName: "Humphrey",
+    email: "Bruce.Humphrey@join.de",
+    src: "../img/user1.jpg",
+  },
+  {
+    id: 2,
+    userName: "user2",
+    password: "short",
+    firstName: "Hamza",
+    lastName: "Paul",
+    email: "Hamza.Paul@join.de",
+    src: "../img/user2.jpg",
+  },
+  {
+    id: 3,
+    userName: "user3",
+    password: "short",
+    firstName: "Stella",
+    lastName: "Hayes",
+    email: "Stella.Hayes@join.de",
+    src: "../img/user3.jpg",
+  },
+  {
+    id: 4,
+    userName: "user4",
+    password: "short",
+    firstName: "Brian",
+    lastName: "McBride",
+    email: "Brian.McBride@join.de",
+    src: "../img/user4.jpg",
+  },
+  {
+    id: 5,
+    userName: "guest",
+    password: "short",
+    firstName: "Guest",
+    lastName: "Anonymus",
+    email: "guest@join.de",
+    src: "../img/guest-user.jpg",
+  },
 ];
-
-
 async function addUser() {
-  await backend.setItem('users', JSON.stringify(staff));
+  await backend.setItem("users", JSON.stringify(staff));
+  await backend.setItem("tasks", JSON.stringify(tasks));
+}
+
+async function addTasksToServer() {
+  await backend.setItem("tasks", JSON.stringify(tasks));
 }
 
 async function initAddTask() {
   await init();
+  await addUser();
   await includeHTML();
   renderUser();
+  tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  backendTasks.push(tasks);
+
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
 }
 
 form.addEventListener(
   "submit",
   function (event) {
-    if (form.checkValidity()) addTask();
+    
     if (!form.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
     }
     form.classList.add("was-validated");
+    if (form.checkValidity()) addTask();
   },
   false
 );
@@ -94,8 +101,8 @@ formDialog.addEventListener(
 function addTask() {
   setTask();
   saveTask();
+ // window.location.href = 'backlog.html';
 }
-
 function setTask() {
   task = {
     title: form.elements["tasktitle"].value,
@@ -117,9 +124,10 @@ function getUrgency() {
   }
 }
 
-function saveTask() {
-  tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+async function saveTask() {
   tasks.push(task);
+  backendTasks.push(task);
+  //backend.setItem("tasks", JSON.stringify(tasks));
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
@@ -128,7 +136,7 @@ function renderUser() {
   avatarPicker.innerHTML = `<img title="add user" id='user-add' onclick='openDialog()' src="../img/icon plus.png" class="avatar">`;
   for (let i = 0; i < backendUsers.length; i++) {
     const user = backendUsers[i];
-    avatarPicker.innerHTML += `<img title="${user['firstName']} ${user['lastName']}" id='user-${i}' onclick='selectUser(${i})' src=".${user['src']}" class="avatar ">`;
+    avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;
   }
 }
 
@@ -168,7 +176,9 @@ function selectNewUser(i) {
     }
     for (let j = 1; j < 4; j++) {
       if (j == i) continue;
-      document.getElementById("userNew-" + j).classList.remove("avatar-selected");
+      document
+        .getElementById("userNew-" + j)
+        .classList.remove("avatar-selected");
     }
   }
 }
