@@ -21,6 +21,8 @@ function cutString(descr, amount) {
 
 function deleteTask(i) {
   backendTasks.splice(i, 1);
+  tasks.splice(i, 1);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   renderBacklog();
 }
 
@@ -112,6 +114,7 @@ function setEditTask(id) {
 function saveEditTask() {
   setTask();
   backendTasks[editTaskId] = task;
+  tasks[editTaskId] = task;
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
