@@ -4,49 +4,56 @@ let selectedUsers = [];
 let editTaskId;
 
 async function initBacklog() {
-    await init();
-    await includeHTML();
-    renderBacklog();
-    renderUser();
+  await init();
+  await includeHTML();
+  renderBacklog();
+  renderUser();
 }
 
 function cutString(descr, amount) {
-    if (descr.length > amount) {
-        descr = descr.slice(0, amount);
-        let dots = '...';
-        descr = descr.concat(dots);
-    }
-    return descr;
+  if (descr.length > amount) {
+    descr = descr.slice(0, amount);
+    let dots = "...";
+    descr = descr.concat(dots);
+  }
+  return descr;
 }
 
 function deleteTask(i) {
-    backendTasks.splice(i, 1);
-    renderBacklog();
+  backendTasks.splice(i, 1);
+  renderBacklog();
 }
 
 function renderBacklog() {
-    let loadTasks = document.getElementById('backlogContent');
-    loadTasks.innerHTML = '';
-    for (let i = 0; i < backendTasks.length; i++) {
-        const task = backendTasks[i];
-        loadTasks.innerHTML += renderBacklogHMTL(i, task);
-    }
+  let loadTasks = document.getElementById("backlogContent");
+  loadTasks.innerHTML = "";
+  for (let i = 0; i < backendTasks.length; i++) {
+    const task = backendTasks[i];
+    loadTasks.innerHTML += renderBacklogHMTL(i, task);
+  }
 }
 
 function renderBacklogHMTL(i, task) {
-    return `
-    <div class="bg ${task['urgency']} ${task['category']}">
+  return `
+    <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
-            <div><img src=".${backendUsers[task['creator']-1]['src']}" class="avatar"></div>
-            <div><p>${backendUsers[task['creator']-1]['firstName']} ${backendUsers[task['creator']-1]['lastName']}</p>
-            <p>${backendUsers[task['creator']-1]['email']}</p></div>
+            <div><img src="${
+              backendUsers[task["creator"] - 1]["src"]
+            }" class="avatar"></div>
+            <div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
+    backendUsers[task["creator"] - 1]["lastName"]
+  }</p>
+            <p>${backendUsers[task["creator"] - 1]["email"]}</p></div>
         </div>
 
-        <div class="contentCategory"><p>${task['category']}</p></div>
+        <div class="contentCategory"><p>${task["category"]}</p></div>
 
         <div class="contentDescription">
-            <div><p><b>${task['title']} / Ticket-ID: ${i+1}</b></p></div>
-            <div><p class="text">${cutString(task['description'], 200)}</p></div>
+            <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
+            <div><p class="text">${cutString(
+              task["description"],
+              200
+            )}</p></div>
         </div>
 
         <div class="contentEdit">
@@ -55,10 +62,10 @@ function renderBacklogHMTL(i, task) {
         </div>
 
         <!--
-        <div><p>Dringlichkeit: ${task['urgency']}</p>
-        <div><p>Ticket erledigt bis: ${task['duedate']}</p>
-        <div><p>Task erfasst am: ${task['currentdate']}</p>
-        <div><p>Ticket Status: ${task['status']}</p>
+        <div><p>Dringlichkeit: ${task["urgency"]}</p>
+        <div><p>Ticket erledigt bis: ${task["duedate"]}</p>
+        <div><p>Task erfasst am: ${task["currentdate"]}</p>
+        <div><p>Ticket Status: ${task["status"]}</p>
         </div>
         -->
     </div>
@@ -84,27 +91,27 @@ function editTask(id) {
   editTaskId = id;
 }
 
-function setEditTask(id){
+function setEditTask(id) {
   let editTasks = backendTasks[id];
-  form.elements["tasktitle"].value = editTasks['title'];
-  form.elements["category"].value = editTasks['category'];
-  form.elements["dueDate"].value = editTasks['duedate'];
+  form.elements["tasktitle"].value = editTasks["title"];
+  form.elements["category"].value = editTasks["category"];
+  form.elements["dueDate"].value = editTasks["duedate"];
   let urgencys = document.getElementsByName("choice");
   for (i = 0; i < urgencys.length; i++) {
-    if (urgencys[i].value == editTask['urgency']) urgencys[i].checked = "checked";
+    if (urgencys[i].value == editTask["urgency"])
+      urgencys[i].checked = "checked";
   }
   form.elements["curDate"].value = editTasks["currentdate"];
   form.elements["desc"].value = editTasks["description"];
   editTasks["assignedTo"].forEach((element) => {
     selectUser(element);
   });
-  selectedUsers = editTasks['assignedTo'];
+  selectedUsers = editTasks["assignedTo"];
 }
 
-function saveEditTask(){
+function saveEditTask() {
   setTask();
-  tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks[editTaskId] = task;
+  backendTasks[editTaskId] = task;
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
@@ -117,8 +124,8 @@ function setTask() {
     currentdate: form.elements["curDate"].value,
     description: form.elements["desc"].value,
     assignedTo: selectedUsers,
-    creator: backendTasks[editTaskId]['creator'],
-    status: backendTasks[editTaskId]['status'],
+    creator: backendTasks[editTaskId]["creator"],
+    status: backendTasks[editTaskId]["status"],
   };
 }
 
@@ -130,25 +137,25 @@ function getUrgency() {
 }
 
 function renderUser() {
-    let avatarPicker = document.getElementById("avatars");
-    avatarPicker.innerHTML = ``;
-    for (let i = 0; i < backendUsers.length; i++) {
-      const user = backendUsers[i];
-      avatarPicker.innerHTML += `<img title="${user['firstName']} ${user['lastName']}" id='user-${i}' onclick='selectUser(${i})' src=".${user['src']}" class="avatar ">`;
-    }
+  let avatarPicker = document.getElementById("avatars");
+  avatarPicker.innerHTML = ``;
+  for (let i = 0; i < backendUsers.length; i++) {
+    const user = backendUsers[i];
+    avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;
   }
+}
 
 function selectUser(i) {
-    let user = document.getElementById("user-" + i);
-    user.classList.toggle("avatar-selected");
-    if (selectedUsers.includes(i)) {
-      selectedUsers = selectedUsers.filter((a) => a != i);
-    } else {
-      selectedUsers.push(i);
-    }
-    if (selectedUsers.length == 0) {
-      document.getElementById("users").setAttribute("required", "");
-    } else {
-      document.getElementById("users").removeAttribute("required");
-    }
+  let user = document.getElementById("user-" + i);
+  user.classList.toggle("avatar-selected");
+  if (selectedUsers.includes(i)) {
+    selectedUsers = selectedUsers.filter((a) => a != i);
+  } else {
+    selectedUsers.push(i);
   }
+  if (selectedUsers.length == 0) {
+    document.getElementById("users").setAttribute("required", "");
+  } else {
+    document.getElementById("users").removeAttribute("required");
+  }
+}
