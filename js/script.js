@@ -13,7 +13,6 @@ async function init() {
   await downloadFromServer();
   await getUsersFromServer();
   await getTasksFromServer();
-  backendTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 }
 async function getUsersFromServer(){
     backendUsers = await JSON.parse(backend.getItem("users")) || [];
