@@ -3,6 +3,30 @@ body {
     font-family: "PT Sans";
 }
 
+.footer{
+    margin: 0 auto;
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+    justify-content: space-around;
+    height: 96vh;
+}
+
+.footer a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
+
+.divider{
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 h3 {
     font-size: 1.2rem;
     font-weight: 700;
