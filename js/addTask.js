@@ -62,12 +62,7 @@ async function addTasksToServer() {
 
 async function initAddTask() {
   await init();
-  await addUser();
-  await includeHTML();
   renderUser();
-  tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  backendTasks.push(tasks);
-
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
 }
 
@@ -103,6 +98,7 @@ function addTask() {
   saveTask();
  // window.location.href = 'backlog.html';
 }
+
 function setTask() {
   task = {
     title: form.elements["tasktitle"].value,
@@ -126,7 +122,7 @@ function getUrgency() {
 
 async function saveTask() {
   tasks.push(task);
-  backendTasks.push(task);
+  //backendTasks.push(task);
   //backend.setItem("tasks", JSON.stringify(tasks));
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }

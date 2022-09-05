@@ -14,14 +14,20 @@ async function init() {
   await getUsersFromServer();
   await getTasksFromServer();
 }
-async function getUsersFromServer(){
-    backendUsers = await JSON.parse(backend.getItem("users")) || [];
-    currentUserId = backendUsers[4]["id"];
+async function getUsersFromServer() {
+  backendUsers = (await JSON.parse(backend.getItem("users"))) || [];
+  currentUserId = backendUsers[4]["id"];
 }
 
-async function getTasksFromServer(){
-    backend.setItem('tasks', JSON.stringify(tasks));
-    backendTasks = await JSON.parse(backend.getItem("tasks")) || [];
+async function getTasksFromServer() {
+  serverTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
+  //backend.setItem("tasks", JSON.stringify(tasks));
+  if (!tasks) {
+    localStorage.setItem("tasks", JSON.stringify(serverTasks));
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  //backendTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
+  backendTasks = tasks;
 }
 
 async function includeHTML() {
@@ -37,7 +43,6 @@ async function includeHTML() {
     }
   }
 }
-
 
 setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
 
