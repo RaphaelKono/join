@@ -35,6 +35,7 @@ function sumbit() {
     loginForm.classList.remove("form_hidden");
     createAccountForm.classList.add("form_hidden");
 
+
 }
 
 function createAcc() {
@@ -91,6 +92,9 @@ function regristerUsers() {
             return;
         } else if (regristerpassword == user[i].password) {
             alert("that password is already in use, please choose another.");
+            return;
+        } else if (regristerpassword != regristerpassword2) {
+            alert("the password is not the same as the repeated password");
             return;
         }
     }
