@@ -21,7 +21,7 @@ async function getUsersFromServer() {
 
 async function getTasksFromServer() {
   serverTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
-  //backend.setItem("tasks", JSON.stringify(tasks));
+  backend.setItem("tasks", JSON.stringify(tasks));
   if (!tasks) {
     localStorage.setItem("tasks", JSON.stringify(serverTasks));
     tasks = JSON.parse(localStorage.getItem("tasks"));
