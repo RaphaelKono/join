@@ -34,7 +34,6 @@ var user = [{
 function sumbit() {
     loginForm.classList.remove("form_hidden");
     createAccountForm.classList.add("form_hidden");
-    document.getElementById('form_button').innerHTML = "Einloggen";
 
 }
 
