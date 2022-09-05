@@ -13,12 +13,26 @@
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
         justify-content: center;
         align-items: center;
+        position: absolute;
+        left: 25%;
+        top: 20%;
     }
     
     .container,
     .form_input,
     .form_button {
         font: 500 1rem 'Quicksand', sans-serif;
+    }
+    
+    input.form_input_pw,
+    input#signUpPassword2 {
+        display: block;
+        width: 300px;
+        padding: 0.75rem;
+        box-sizing: border-box;
+        border: 1px solid #dddddd;
+        background: #eeeeee;
+        transition: background 0.2s, border-color 0.2s;
     }
     
     .form_hidden {
@@ -53,16 +67,22 @@
     
     .form_input_group {
         margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
     }
     
     .form_input {
         display: block;
-        width: 100%;
+        width: 300px;
         padding: 0.75rem;
         box-sizing: border-box;
         border: 1px solid #dddddd;
         background: #eeeeee;
         transition: background 0.2s, border-color 0.2s;
+    }
+    
+    .error {
+        text-align: center;
     }
     
     .form_input_error {

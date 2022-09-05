@@ -16,18 +16,19 @@ async function init() {
 }
 async function getUsersFromServer() {
   backendUsers = (await JSON.parse(backend.getItem("users"))) || [];
-  currentUserId = backendUsers[4]["id"];
+  let zahl = Math.floor(Math.random() * 5);
+  currentUserId = backendUsers[zahl]["id"];
 }
 
 async function getTasksFromServer() {
-  if (!tasks) {
+  serverTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
+  if (tasks.length === 0) {
     localStorage.setItem("tasks", JSON.stringify(serverTasks));
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-  //backendTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
-  backend.setItem("tasks", JSON.stringify(tasks));
-  serverTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
-  backendTasks = serverTasks;
+  await backend.setItem("tasks", JSON.stringify(tasks));
+  backendTasks = (await JSON.parse(backend.getItem("tasks")));
+  //backendTasks = serverTasks;
 }
 
 async function includeHTML() {
