@@ -1,6 +1,6 @@
 const loginForm = document.querySelector("#login");
 const createAccountForm = document.querySelector("#regrister");
-
+var currentUser = [];
 
 
 var user = [{
@@ -50,6 +50,8 @@ function login() {
         if (username == user[i].username && password == user[i].password) {
             console.log(username + " is logged in!!!");
             loginForm.classList.add("form_hidden");
+            currentUser.push(user[i].username);
+            console.log("current user:" + currentUser);
             createAccountForm.classList.add("form_hidden");
             document.getElementById('container').style.display = "none";
             return
