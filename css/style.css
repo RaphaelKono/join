@@ -149,19 +149,19 @@ p {
 
 /* Colors of Category */
 
-.Management {
+.management {
     border-left: 4px solid var(--managment);
 }
 
-.Sales {
+.sales {
     border-left: 4px solid var(--sales);
 }
 
-.Software-Department {
+.product {
     border-left: 4px solid var(--software-department);
 }
 
-.Design {
+.marketing {
     border-left: 4px solid var(--design);
 }
 
