@@ -16,7 +16,7 @@ async function init() {
 }
 async function getUsersFromServer() {
   backendUsers = (await JSON.parse(backend.getItem("users"))) || [];
-  let zahl = Math.floor(Math.random() * 5) + 1;
+  let zahl = Math.floor(Math.random() * 5);
   currentUserId = backendUsers[zahl]["id"];
 }
 
