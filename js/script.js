@@ -26,7 +26,7 @@ async function getTasksFromServer() {
     localStorage.setItem("tasks", JSON.stringify(serverTasks));
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-  backend.setItem("tasks", JSON.stringify(tasks));
+  await backend.setItem("tasks", JSON.stringify(tasks));
   backendTasks = (await JSON.parse(backend.getItem("tasks")));
   //backendTasks = serverTasks;
 }
