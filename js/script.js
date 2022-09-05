@@ -20,14 +20,14 @@ async function getUsersFromServer() {
 }
 
 async function getTasksFromServer() {
+  serverTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
   if (!tasks) {
     localStorage.setItem("tasks", JSON.stringify(serverTasks));
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-  //backendTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
   backend.setItem("tasks", JSON.stringify(tasks));
-  serverTasks = (await JSON.parse(backend.getItem("tasks"))) || [];
-  backendTasks = serverTasks;
+  backendTasks = (await JSON.parse(backend.getItem("tasks")));
+  //backendTasks = serverTasks;
 }
 
 async function includeHTML() {
