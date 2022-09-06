@@ -209,16 +209,36 @@ p {
     border-left: 4px solid var(--managment);
 }
 
-.Sales {
+p.Management  {
+    color:var(--managment);
+    border-left:unset;
+}
+
+.Sales{
     border-left: 4px solid var(--sales);
+}
+
+p.Sales  {
+    color:var(--sales);
+    border-left:unset;
 }
 
 .Product {
     border-left: 4px solid var(--product);
 }
 
+p.Product {
+    color:var(--product);
+    border-left:unset;
+}
+
 .Marketing {
-    border-left: 4px solid var(--design);
+    border-left: 4px solid var(--marketing);
+}
+
+p.Marketing {
+    color:var(--marketing);
+    border-left:unset;
 }
 
 .contentAvatar {
@@ -410,10 +430,10 @@ textarea {
     --blue: #203192;
     --violet: #f4f2fb;
     /* Categories Colors */
-    --managment: #8a2be2;
+    --managment: #892299;
     --sales: #8B6969;
-    --product: #dbc836;
-    --design: #6C7B8B;
+    --product: #4faadf;
+    --marketing: #adb63a;
     /* Urgencies Colors */
     --low: green;
     --high: red;

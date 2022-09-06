@@ -49,7 +49,7 @@ function renderBacklogHMTL(i, task) {
             <p>${backendUsers[task["creator"] - 1]["email"]}</p></div>
         </div>
 
-        <div class="contentCategory"><p>${task["category"]}</p></div>
+        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${task["category"]}</b></p></div>
 
         <div class="contentDescription">
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
