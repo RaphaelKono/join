@@ -1,8 +1,7 @@
 const loginForm = document.querySelector("#login");
 const createAccountForm = document.querySelector("#regrister");
+
 var currentUser = [];
-
-
 var user = [{
         username: "user1",
         profilpic: "img",
@@ -31,6 +30,7 @@ var user = [{
 
 
 
+
 function sumbit() {
     loginForm.classList.remove("form_hidden");
     createAccountForm.classList.add("form_hidden");
@@ -52,6 +52,7 @@ function login() {
             loginForm.classList.add("form_hidden");
             currentUser.push(user[i].username);
             console.log("current user:" + currentUser);
+
             createAccountForm.classList.add("form_hidden");
             document.getElementById('container').style.display = "none";
             return
@@ -104,4 +105,11 @@ function regristerUsers() {
     console.log(user);
     loginForm.classList.remove("form_hidden");
     createAccountForm.classList.add("form_hidden");
+}
+
+function loginAsGuest() {
+    loginForm.classList.add("form_hidden");
+    createAccountForm.classList.add("form_hidden");
+    document.getElementById('container').style.display = "none";
+
 }
