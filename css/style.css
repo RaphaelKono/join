@@ -67,7 +67,7 @@ a{
     max-width: 180px;
     background-color: #1e3190 !important;
     padding: 0;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .navbar {
