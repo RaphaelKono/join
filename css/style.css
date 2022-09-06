@@ -8,7 +8,7 @@ body {
     font-size: 11px;
     position: fixed;
     left: 3px;
-    bottom: 0;
+    bottom: 10px;
 }
 
 .footer a{
@@ -271,6 +271,7 @@ p {
 
     .contentEdit{
         margin-left: unset;
+        margin-top: -10px;
     }
 
     .iconBacklog{
