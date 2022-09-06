@@ -164,3 +164,25 @@ function selectUser(i) {
     document.getElementById("users").removeAttribute("required");
   }
 }
+
+function renderUrg() {
+  backendTasks.sort(function (x, y) {
+    let a = x.urgency,
+        b = y.urgency;
+        a = a == 'low' ? 2 : a == 'medium' ? 1 : 0;
+        b = b == 'low' ? 2 : b == 'medium' ? 1 : 0;
+    return a == b ? 0 : a > b ? 1 : -1;
+});
+renderBacklog();
+}
+
+function renderCat() {
+  backendTasks.sort((a, b) => a["category"].localeCompare(b["category"]));
+  renderBacklog();
+}
+
+function renderNam() {
+  //backendTasks.sort((a, b) => a["creator"].localeCompare(b["creator"]));
+  backendTasks.sort((a, b) => a["creator"] - b["creator"]);
+    renderBacklog();
+  }
