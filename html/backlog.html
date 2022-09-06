@@ -24,6 +24,17 @@
         <div class="card-body">
           <h1><b>Back Log</b></h1>
           <h4>See all your tasks and projects</h4>
+          <div class="mt-5" id="backlogFilter">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"><a onclick="renderNam()"">Creator</a></th>
+                  <th scope="col"><a onclick="renderCat()"">Category</a></th>
+                  <th scope="col" class="justify-content-end"><a onclick="renderUrg()">Urgency</a></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
           <div class="mt-5" id="backlogContent"></div>
         </div>
       </div>
