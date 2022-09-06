@@ -4,12 +4,11 @@ body {
 }
 
 .footer{
-    margin: 0 auto;
     display: flex;
-    font-size: 12px;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 96vh;
+    font-size: 11px;
+    position: fixed;
+    left: 3px;
+    bottom: 0;
 }
 
 .footer a{
@@ -55,11 +54,12 @@ a{
     max-width: 180px;
     background-color: #1e3190 !important;
     padding: 0;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .navbar {
     background-color: #1e3190 !important;
+    width: 124px;
 }
 
 .navbar-brand {
@@ -216,7 +216,7 @@ p {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 30px;
+    margin-left: 65px;
     width: 10%;
     padding: 10px;
     /* border: 1px solid black; */
@@ -227,7 +227,7 @@ p {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 30px;
+    margin-left: 199px;
     width: 50%;
     /* border: 1px solid black; */
 }
