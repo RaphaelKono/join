@@ -39,6 +39,17 @@ a{
     cursor: pointer;
 }
 
+.ruler{
+    border-top: 1px solid white;
+    height: 1px;
+    position: relative;
+    left: 35px;
+    right: 0;
+    width: 60px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .container {
     padding-left: 0;
     margin-left: 0;
@@ -61,7 +72,7 @@ a{
 
 .navbar {
     background-color: #1e3190 !important;
-    width: 124px;
+    width: 153px;
 }
 
 .navbar-brand {
