@@ -184,7 +184,7 @@ p {
 }
 
 .Product {
-    border-left: 4px solid var(--software-department);
+    border-left: 4px solid var(--product);
 }
 
 .Marketing {
@@ -317,7 +317,7 @@ textarea {
     /* Categories Colors */
     --managment: #8a2be2;
     --sales: #8B6969;
-    --software-department: #dbc836;
+    --product: #dbc836;
     --design: #6C7B8B;
     /* Urgencies Colors */
     --low: green;
