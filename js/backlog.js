@@ -3,6 +3,7 @@ let task;
 let selectedUsers = [];
 let editTaskId;
 
+
 async function initBacklog() {
   await init();
   await includeHTML();
@@ -29,6 +30,7 @@ function deleteTask(i) {
 function renderBacklog() {
   let loadTasks = document.getElementById("backlogContent");
   loadTasks.innerHTML = "";
+  backendTasks.reverse();
   for (let i = 0; i < backendTasks.length; i++) {
     const task = backendTasks[i];
     loadTasks.innerHTML += renderBacklogHMTL(i, task);
