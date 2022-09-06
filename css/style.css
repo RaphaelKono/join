@@ -111,6 +111,12 @@ a{
 
 /* -----------------CSS for Board ----------------- */
 
+.titleBoard{
+    margin-left: 179px;
+    margin-bottom: 50px;
+    margin-top: -31px;
+}
+
 .board {
     margin-top: 2rem;
     margin-left: 2rem;
