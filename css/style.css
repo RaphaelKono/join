@@ -175,19 +175,19 @@ p {
 /* Background
 /* Colors of Category */
 
-.Management {
+.management {
     border-left: 4px solid var(--managment);
 }
 
-.Sales {
+.sales {
     border-left: 4px solid var(--sales);
 }
 
-.Product {
+.product {
     border-left: 4px solid var(--product);
 }
 
-.Marketing {
+.marketing {
     border-left: 4px solid var(--design);
 }
 
