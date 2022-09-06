@@ -159,11 +159,18 @@ a{
 
 /* -----------------CSS for Backlog ----------------- */
 
-p {
+/* p {
     color: black;
     font-size: 12px;
     line-height: 14px;
+} */
+
+p {
+    font-size: .85rem;
+    color: #A5A5A5;
 }
+
+
 
 .text {
     margin-top: -5px;
