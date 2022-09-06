@@ -179,19 +179,19 @@ p {
 /* Background
 /* Colors of Category */
 
-.Management {
+.management {
     border-left: 4px solid var(--managment);
 }
 
-.Sales {
+.sales {
     border-left: 4px solid var(--sales);
 }
 
-.Product {
-    border-left: 4px solid var(--software-department);
+.product {
+    border-left: 4px solid var(--product);
 }
 
-.Marketing {
+.marketing {
     border-left: 4px solid var(--design);
 }
 
@@ -321,7 +321,7 @@ textarea {
     /* Categories Colors */
     --managment: #8a2be2;
     --sales: #8B6969;
-    --software-department: #dbc836;
+    --product: #dbc836;
     --design: #6C7B8B;
     /* Urgencies Colors */
     --low: green;
