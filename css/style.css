@@ -153,6 +153,10 @@ p {
     background-color: #F4F2FB;
 }
 
+.justify-content-center {
+    display: flex;
+}
+
 
 /* Colors of Urgency */
 
@@ -369,7 +373,7 @@ textarea {
 
 .scaleIn{
     animation: scale-in 225ms ease-in-out;
-    transform-origin: 50% 100%;
+    transform-origin: 50% 100% 100%;
 }
 
 @keyframes scale-in{
