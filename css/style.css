@@ -171,19 +171,19 @@ p {
 /* Background
 /* Colors of Category */
 
-.management {
+.Management {
     border-left: 4px solid var(--managment);
 }
 
-.sales {
+.Sales {
     border-left: 4px solid var(--sales);
 }
 
-.product {
+.Product {
     border-left: 4px solid var(--software-department);
 }
 
-.marketing {
+.Marketing {
     border-left: 4px solid var(--design);
 }
 
@@ -365,6 +365,22 @@ textarea {
 #userNew-2,
 #userNew-3 {
     object-fit: contain !important;
+}
+
+.scaleIn{
+    animation: scale-in 225ms ease-in-out;
+    transform-origin: 50% 100%;
+}
+
+@keyframes scale-in{
+    0% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
 }
 
 
