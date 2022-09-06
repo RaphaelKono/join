@@ -3,7 +3,6 @@ let task;
 let selectedUsers = [];
 let editTaskId;
 
-
 async function initBacklog() {
   await init();
   await includeHTML();
@@ -30,7 +29,7 @@ function deleteTask(i) {
 function renderBacklog() {
   let loadTasks = document.getElementById("backlogContent");
   loadTasks.innerHTML = "";
-  backendTasks.reverse();
+  //backendTasks.reverse();
   for (let i = 0; i < backendTasks.length; i++) {
     const task = backendTasks[i];
     loadTasks.innerHTML += renderBacklogHMTL(i, task);
@@ -41,9 +40,7 @@ function renderBacklogHMTL(i, task) {
   return `
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
-            <div><img src="${
-              backendUsers[task["creator"] - 1]["src"]
-            }" class="avatar"></div>
+            <div><img src="${backendUsers[task["creator"] - 1]["src"]}" class="avatar"></div>
             <div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
     backendUsers[task["creator"] - 1]["lastName"]
   }</p>
@@ -54,10 +51,7 @@ function renderBacklogHMTL(i, task) {
 
         <div class="contentDescription">
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
-            <div><p class="text">${cutString(
-              task["description"],
-              200
-            )}</p></div>
+            <div><p class="text">${cutString(task["description"], 200)}</p></div>
         </div>
 
         <div class="contentEdit">
@@ -102,8 +96,7 @@ function setEditTask(id) {
   form.elements["dueDate"].value = editTasks["duedate"];
   let urgencys = document.getElementsByName("choice");
   for (i = 0; i < urgencys.length; i++) {
-    if (urgencys[i].value == editTask["urgency"])
-      urgencys[i].checked = "checked";
+    if (urgencys[i].value == editTasks["urgency"]) urgencys[i].checked = "checked";
   }
   form.elements["curDate"].value = editTasks["currentdate"];
   form.elements["desc"].value = editTasks["description"];
@@ -168,27 +161,30 @@ function selectUser(i) {
 function renderUrg() {
   backendTasks.sort(function (x, y) {
     let a = x.urgency,
-        b = y.urgency;
-        a = a == 'low' ? 0 : a == 'medium' ? 1 : 2;
-        b = b == 'low' ? 0 : b == 'medium' ? 1 : 2;
+      b = y.urgency;
+    a = a == "low" ? 2 : a == "medium" ? 1 : 0;
+    b = b == "low" ? 2 : b == "medium" ? 1 : 0;
     return a == b ? 0 : a > b ? 1 : -1;
-});
-renderBacklog();
+  });
+  localStorage.setItem("tasks", JSON.stringify(backendTasks));
+  renderBacklog();
 }
 
 function renderCat() {
-  backendTasks.sort((a, b) => b["category"].localeCompare(a["category"]));
+  backendTasks.sort((a, b) => a["category"].localeCompare(b["category"]));
+  localStorage.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
 }
 
 function renderNam() {
   //backendTasks.sort((a, b) => a["creator"].localeCompare(b["creator"]));
-  backendTasks.sort((a, b) => b["creator"] - a["creator"]);
-    renderBacklog();
-  }
+  backendTasks.sort((a, b) => a["creator"] - b["creator"]);
+  localStorage.setItem("tasks", JSON.stringify(backendTasks));
+  renderBacklog();
+}
 
-  function renderTit() {
-    backendTasks.sort((a, b) => b["title"].localeCompare(a["title"]));
-    renderBacklog();
-  }
-
+function renderTit() {
+  backendTasks.sort((a, b) => a["title"].localeCompare(b["title"]));
+  localStorage.setItem("tasks", JSON.stringify(backendTasks));
+  renderBacklog();
+}
