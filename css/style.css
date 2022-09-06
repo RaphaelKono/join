@@ -179,19 +179,19 @@ p {
 /* Background
 /* Colors of Category */
 
-.management {
+.Management {
     border-left: 4px solid var(--managment);
 }
 
-.sales {
+.Sales {
     border-left: 4px solid var(--sales);
 }
 
-.product {
+.Product {
     border-left: 4px solid var(--product);
 }
 
-.marketing {
+.Marketing {
     border-left: 4px solid var(--design);
 }
 
