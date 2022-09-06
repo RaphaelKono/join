@@ -186,3 +186,9 @@ function renderNam() {
   backendTasks.sort((a, b) => b["creator"] - a["creator"]);
     renderBacklog();
   }
+
+  function renderTit() {
+    backendTasks.sort((a, b) => b["title"].localeCompare(a["title"]));
+    renderBacklog();
+  }
+
