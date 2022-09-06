@@ -40,7 +40,9 @@ function renderBacklogHMTL(i, task) {
   return `
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
-            <div><img src="${backendUsers[task["creator"] - 1]["src"]}" class="avatar"></div>
+            <div><img src="${
+              backendUsers[task["creator"] - 1]["src"]
+            }" class="avatarBacklog"></div>
             <div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
     backendUsers[task["creator"] - 1]["lastName"]
   }</p>
