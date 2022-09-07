@@ -6,6 +6,8 @@ let editTaskId;
 async function initBacklog() {
   await init();
   await includeHTML();
+  document.getElementById('nav-Backlog').classList.remove('brd-left-inactive');
+  document.getElementById('nav-Backlog').classList.add('brd-left-active');
   renderBacklog();
   renderUser();
 }

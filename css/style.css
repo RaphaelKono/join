@@ -137,7 +137,7 @@ a{
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     background-color: white;
-    border-left: 8px solid rgb(255, 165, 0, 0.7) !important;
+    /*border-left: 8px solid rgb(255, 165, 0, 0.7) !important;*/
 }
 
 .card-body-board p {
