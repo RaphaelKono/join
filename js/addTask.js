@@ -131,7 +131,7 @@ async function saveTask() {
 
 function renderUser() {
   let avatarPicker = document.getElementById("avatars");
-  avatarPicker.innerHTML = `<img title="add user" id='user-add' onclick='openDialog()' src="../img/icon plus.png" class="avatar">`;
+  avatarPicker.innerHTML = ``;
   for (let i = 0; i < backendUsers.length; i++) {
     const user = backendUsers[i];
     avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;
