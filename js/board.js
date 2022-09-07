@@ -110,8 +110,6 @@ function renderCurrentCol(i) {
 
 function renderCurrentTaskAvatars(i, j) {
   let currentBoardColChild = document.getElementById(`task${i}`);
-  const avatarId = taskOnBoard.assignedTo[j];
-  const imgSrc = staff.find((element) => element.id == avatarId);
   currentBoardColChild.innerHTML += templateBoardCardsChild(i, j);
 }
 
