@@ -4,68 +4,13 @@ let task;
 let selectedUsers = [];
 let selectedNewUser = "userNew-1";
 
-let staff = [
-  {
-    id: 1,
-    userName: "user1",
-    password: "short",
-    firstName: "Bruce",
-    lastName: "Humphrey",
-    email: "Bruce.Humphrey@join.de",
-    src: "../img/user1.jpg",
-  },
-  {
-    id: 2,
-    userName: "user2",
-    password: "short",
-    firstName: "Hamza",
-    lastName: "Paul",
-    email: "Hamza.Paul@join.de",
-    src: "../img/user2.jpg",
-  },
-  {
-    id: 3,
-    userName: "user3",
-    password: "short",
-    firstName: "Stella",
-    lastName: "Hayes",
-    email: "Stella.Hayes@join.de",
-    src: "../img/user3.jpg",
-  },
-  {
-    id: 4,
-    userName: "user4",
-    password: "short",
-    firstName: "Brian",
-    lastName: "McBride",
-    email: "Brian.McBride@join.de",
-    src: "../img/user4.jpg",
-  },
-  {
-    id: 5,
-    userName: "guest",
-    password: "short",
-    firstName: "Guest",
-    lastName: "Anonymus",
-    email: "guest@join.de",
-    src: "../img/guest-user.jpg",
-  },
-];
-async function addUser() {
-  await backend.setItem("users", JSON.stringify(staff));
-  await backend.setItem("tasks", JSON.stringify(tasks));
-}
-
-async function addTasksToServer() {
-  await backend.setItem("tasks", JSON.stringify(tasks));
-}
 
 async function initAddTask() {
   await init();
   document.getElementById('nav-AddTask').classList.remove('brd-left-inactive');
   document.getElementById('nav-AddTask').classList.add('brd-left-active');
-  renderUser();
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
+  renderUser();
 }
 
 form.addEventListener(
@@ -125,7 +70,7 @@ function getUrgency() {
 async function saveTask() {
   tasks.push(task);
   //backendTasks.push(task);
-  //backend.setItem("tasks", JSON.stringify(tasks));
+  //await backend.setItem("tasks", JSON.stringify(tasks));
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 

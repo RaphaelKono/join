@@ -6,8 +6,8 @@ let editTaskId;
 async function initBacklog() {
   await init();
   await includeHTML();
-  document.getElementById('nav-Backlog').classList.remove('brd-left-inactive');
-  document.getElementById('nav-Backlog').classList.add('brd-left-active');
+  document.getElementById("nav-Backlog").classList.remove("brd-left-inactive");
+  document.getElementById("nav-Backlog").classList.add("brd-left-active");
   renderBacklog();
   renderUser();
 }
@@ -31,7 +31,6 @@ function deleteTask(i) {
 function renderBacklog() {
   let loadTasks = document.getElementById("backlogContent");
   loadTasks.innerHTML = "";
-  //backendTasks.reverse();
   for (let i = 0; i < backendTasks.length; i++) {
     const task = backendTasks[i];
     loadTasks.innerHTML += renderBacklogHMTL(i, task);
@@ -42,16 +41,16 @@ function renderBacklogHMTL(i, task) {
   return `
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
-            <div><img src="${
-              backendUsers[task["creator"] - 1]["src"]
-            }" class="avatarBacklog"></div>
+            <div><img src="${backendUsers[task["creator"] - 1]["src"]}" class="avatarBacklog"></div>
             <div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
     backendUsers[task["creator"] - 1]["lastName"]
   }</p>
             <p>${backendUsers[task["creator"] - 1]["email"]}</p></div>
         </div>
 
-        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${task["category"]}</b></p></div>
+        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${
+    task["category"]
+  }</b></p></div>
 
         <div class="contentDescription">
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
@@ -59,8 +58,8 @@ function renderBacklogHMTL(i, task) {
         </div>
 
         <div class="contentEdit">
-            <div><a href="#" onclick="deleteTask(${i})"><img src="../img/delete.png" class="iconBacklog"></a></div>
-            <div><a href="#" onclick="editTask(${i})"><img src="../img/edit.png" class="iconBacklog"></a></div>
+            <div><a  onclick="deleteTask(${i})"><img src="../img/delete.png" class="iconBacklog"></a></div>
+            <div><a  onclick="editTask(${i})"><img src="../img/edit.png" class="iconBacklog"></a></div>
         </div>
 
         <!--
@@ -89,6 +88,7 @@ form.addEventListener(
 
 function editTask(id) {
   document.getElementById("dialogEditTask").classList.remove("d-none");
+  document.body.style.overflow = "hidden";
   setEditTask(id);
   editTaskId = id;
 }
@@ -181,7 +181,6 @@ function renderCat() {
 }
 
 function renderNam() {
-  //backendTasks.sort((a, b) => a["creator"].localeCompare(b["creator"]));
   backendTasks.sort((a, b) => a["creator"] - b["creator"]);
   localStorage.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
