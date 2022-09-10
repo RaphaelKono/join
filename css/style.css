@@ -325,7 +325,7 @@ p.Marketing {
 
 @media (min-width:299px) and (max-width:995px){
     .bg{
-        /* width: 100%; */
+        width: unset;
         flex-direction: column;
     }
 
