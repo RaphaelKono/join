@@ -170,7 +170,9 @@ p {
     color: #A5A5A5;
 }
 
-
+.mail{
+    color:var(--mailblue);
+}
 
 .text {
     margin-top: -5px;
@@ -444,6 +446,7 @@ textarea {
     --low: green;
     --high: red;
     --medium: orange;
+    --mailblue: #248bf2;
 }
 
 #category,

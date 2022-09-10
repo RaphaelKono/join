@@ -45,7 +45,7 @@ function renderBacklogHMTL(i, task) {
             <div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
     backendUsers[task["creator"] - 1]["lastName"]
   }</p>
-            <p>${backendUsers[task["creator"] - 1]["email"]}</p></div>
+            <p class="mail">${backendUsers[task["creator"] - 1]["email"].toLowerCase()}</p></div>
         </div>
 
         <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${
