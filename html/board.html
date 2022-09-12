@@ -1,54 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
     <script src="../mini_backend.js"></script>
     <script src="../js/script.js"></script>
     <script defer src="../js/board.js"></script>
-    <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../favicon/site.webmanifest">
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+  </head>
 
-<body onload="initBoard()">
+  <body onload="initBoard()">
+    <div class="card-header">
+        <div w3-include-html="../html/header.html" class="card-header"></div>
+      </div>
     <div class="container">
-        <div class="card">
-            <div w3-include-html="../html/header.html" class="card-header">
+      <div class="card">
+        <div class="card-body">
+          <div class="pb-5 m-1">
+            <h1><b>Board</b></h1>
+            <h4>Easily drag and drop your tasks and projects</h4>
+          </div>
+          <div class=" text-center">
+            <div id="resizeid" class="row row-cols-4 align-items-start">
+              <div class="col">
+                <h3>TO DO</h3>
+                <div
+                  class="board-col dragarea"
+                  ondrop="moveTo('ToDo')"
+                  ondragover="allowDrop(event)"
+                  id="ToDoBoard"
+                ></div>
+              </div>
+              <div class="col">
+                <h3>IN PROGRESS</h3>
+                <div
+                  class="board-col dragarea"
+                  ondrop="moveTo('InProgress')"
+                  ondragover="allowDrop(event)"
+                  id="InProgressBoard"
+                ></div>
+              </div>
+              <div class="col">
+                <h3>TESTING</h3>
+                <div
+                  class="board-col dragarea"
+                  ondrop="moveTo('Testing')"
+                  ondragover="allowDrop(event)"
+                  id="TestingBoard"
+                ></div>
+              </div>
+              <div class="col">
+                <h3>DONE</h3>
+                <div
+                  class="board-col dragarea"
+                  ondrop="moveTo('Done')"
+                  ondragover="allowDrop(event)"
+                  id="DoneBoard"
+                ></div>
+              </div>
             </div>
-            <div class="card-body board">
-                <div class="titleBoard"><h1><b>Board</b></h1>
-                <h4>Easily drag and drop your tasks and projects</h4></div>
-                <div class="container text-center">
-                    <div id="resizeid" class="row row-cols-4 align-items-start">
-                        <div class="col">
-                            <h3>TO DO</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('ToDo')" ondragover="allowDrop(event)" id="ToDoBoard"></div>
-                        </div>
-                        <div class="col">
-                            <h3>IN PROGRESS</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('InProgress')" ondragover="allowDrop(event)" id="InProgressBoard"></div>
-                        </div>
-                        <div class="col">
-                            <h3>TESTING</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('Testing')" ondragover="allowDrop(event)" id="TestingBoard"></div>
-                        </div>
-                        <div class="col">
-                            <h3>DONE</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('Done')" ondragover="allowDrop(event)" id="DoneBoard"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

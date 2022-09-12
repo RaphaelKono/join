@@ -4,9 +4,6 @@ let task;
 let selectedUsers = [];
 let selectedNewUser = "userNew-1";
 let storedUser = localStorage.getItem("currentID");
-let currentLoggedUser = JSON.parse(storedUser);
-currentUser.push(storedUser);
-
 
 async function addUser() {
     await backend.setItem("users", JSON.stringify(staff));
@@ -29,13 +26,12 @@ async function initAddTask() {
 form.addEventListener(
     "submit",
     function(event) {
-
+        if (form.checkValidity()) addTask();
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
         }
         form.classList.add("was-validated");
-        if (form.checkValidity()) addTask();
     },
     false
 );
@@ -89,7 +85,7 @@ async function saveTask() {
 
 function renderUser() {
     let avatarPicker = document.getElementById("avatars");
-    avatarPicker.innerHTML = `<img title="add user" id='user-add' onclick='openDialog()' src="../img/icon plus.png" class="avatar">`;
+    avatarPicker.innerHTML = ``;
     for (let i = 0; i < backendUsers.length; i++) {
         const user = backendUsers[i];
         avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;

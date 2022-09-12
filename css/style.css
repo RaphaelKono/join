@@ -51,9 +51,7 @@ th h3{
 }
 
 .container {
-    padding-left: 0;
     margin-left: 164px;
-    margin-right: 0 !important;
     max-width:80%;
 }
 
@@ -187,7 +185,7 @@ p {
     margin-left: 1px;
 }
 
-.justify-content-center, .justify-content-end {
+.justify-content-center, .justify-content-end, .justify-content-around {
     display: flex;
 }
 
@@ -519,14 +517,12 @@ textarea {
 @media(max-width: 1200px) {
     .board-col {
         min-height: unset;
-        height: 40vh !important;
     }
 }
 
 
 @media(max-width: 1000px) {
     .board-col {
-        height: 177px !important;
         min-width: 60vw;
     }
     .col {
@@ -534,10 +530,38 @@ textarea {
     }
 }
 
+@media(min-width: 991px) {
+    #nav-res{
+        display: none;
+    }
+}
 
-@media(max-width: 770px) {
+
+@media(max-width: 991px) {
+    #navbar{
+        display: none;
+    }
     .container {
-        max-width: 65vw;
+        max-width: unset;
+        margin-left: unset;
+    }
+    .card {
+        flex-direction: column !important;
+    }
+
+    .card-header{
+        max-width: unset;
+        height: unset;
+        position: unset;
+    }
+
+    .navbar-brand{
+        padding-left: 5px;
+        padding-right: 15px;
+    }
+
+    #form{
+        border-radius: unset;
     }
 
 }
