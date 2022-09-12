@@ -66,7 +66,7 @@ th h3{
 
 .card-header {
     max-width: 180px;
-    background-color: #1e3190 !important;
+    background-color: var(--blue) !important;
     padding: 0;
     height: 100vh;
     position:fixed;
@@ -74,8 +74,9 @@ th h3{
     top:0;
 }
 
+/*#region Navigation */
 .navbar {
-    background-color: #1e3190 !important;
+    background-color: var(--blue)!important;
     width: 153px;
 }
 
@@ -97,19 +98,9 @@ th h3{
     color: white;
     border-left: 5px solid #c3c5cf;
 }
+/*#endregion*/
 
-
-/* -----------------CSS for Impressum ----------------- */
-
-.impressum-margin-top {
-    margin-top: 50px;
-}
-
-
-/* -----------------End CSS for Impressum ----------------- */
-
-
-/* -----------------CSS for Board ----------------- */
+/*#region Board -----------------CSS for Board ----------------- */
 
 .titleBoard{
     margin-left: 179px;
@@ -157,20 +148,13 @@ th h3{
 }
 
 
-/* -----------------CSS for Backlog ----------------- */
+/*#endregion -----------------CSS for Backlog ----------------- */
 
-/* p {
-    color: black;
-    font-size: 12px;
-    line-height: 14px;
-} */
 
 p {
     font-size: .85rem;
-    color: #A5A5A5;
+    color: rgba(0,0,0,0.7);
 }
-
-
 
 .text {
     margin-top: -5px;
@@ -209,7 +193,7 @@ p {
     border-right: 4px solid var(--medium);
 }
 
-/* Background
+
 /* Colors of Category */
 
 .Management {
@@ -219,6 +203,7 @@ p {
 p.Management  {
     color:var(--managment);
     border-left:unset;
+    font-size: 16px;
 }
 
 .Sales{
@@ -228,6 +213,8 @@ p.Management  {
 p.Sales  {
     color:var(--sales);
     border-left:unset;
+    font-size: 16px;
+
 }
 
 .Product {
@@ -237,6 +224,8 @@ p.Sales  {
 p.Product {
     color:var(--product);
     border-left:unset;
+    font-size: 16px;
+
 }
 
 .Marketing {
@@ -246,6 +235,8 @@ p.Product {
 p.Marketing {
     color:var(--marketing);
     border-left:unset;
+    font-size: 16px;
+
 }
 
 .contentAvatar {
@@ -306,8 +297,7 @@ p.Marketing {
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border: 4px solid transparent;
-    margin-right: 5px;
+    margin-right: 7px;
 }
 
 @media (min-width:299px) and (max-width:995px){
@@ -435,12 +425,10 @@ textarea {
 :root {
     --blue: #203192;
     --violet: #f4f2fb;
-    /* Categories Colors */
     --managment: #892299;
     --sales: #8B6969;
     --product: #4faadf;
     --marketing: #adb63a;
-    /* Urgencies Colors */
     --low: green;
     --high: red;
     --medium: orange;
