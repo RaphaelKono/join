@@ -21,6 +21,8 @@ async function initAddTask() {
     localStorage.clear();
     await init();
     renderUser();
+    document.getElementById("nav-AddTask").classList.remove("brd-left-inactive");
+    document.getElementById("nav-AddTask").classList.add("brd-left-active");
     form.elements["curDate"].value = new Date().toJSON().split("T")[0];
 }
 
