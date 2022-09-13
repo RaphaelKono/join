@@ -1,6 +1,7 @@
 let form = document.getElementById("form");
 let formDialog = document.getElementById("dialogForm");
 let task;
+let selectedUsers = [];
 
 
 async function addUser() {
