@@ -202,7 +202,7 @@ th h3 {
     position: relative;
     border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+    box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
 
 .detail-btn {
@@ -598,6 +598,10 @@ textarea {
     }
 }
 
+.join-resp-logo {
+    display: none;
+}
+
 
 /*#endregion */
 
@@ -686,6 +690,23 @@ textarea {
     .navbar-brand {
         padding-left: 5px;
         padding-right: 15px;
+    }
+    .join-resp-logo {
+        display: flex;
+        margin: 0 !important;
+        padding: 0 !important;
+        justify-content: center;
+        margin-top: 0;
+    }
+    .join-resp-logo img {
+        position: absolute;
+        top: -5px;
+        left: 45vw;
+        display: inline-block;
+        margin-top: 1rem;
+        height: 2.5rem !important;
+        width: 2.5rem !important;
+        z-index: 9999;
     }
 }
 
