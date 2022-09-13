@@ -4,6 +4,10 @@
         justify-content: center;
         align-items: center;
     }
+
+    :root {
+        --blue: #203192;
+    }
     
     .container {
         background: white;

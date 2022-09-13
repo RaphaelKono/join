@@ -1,4 +1,4 @@
-const loginForm = document.querySelector("#login");
+const loginForm = document.getElementById("login");
 const createAccountForm = document.querySelector("#regrister");
 
 let currentUser = [];
