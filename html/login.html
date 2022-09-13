@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-    <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../favicon/site.webmanifest">
-    <link rel="stylesheet" href="../css/Login.css" />
-    <script src="../mini_backend.js"></script>
+    <script src="mini_backend.js"></script>
+
     <script src="../js/script.js"></script>
+<<<<<<< HEAD
     <script defer src="/js/Login.js"></script>
   </head>
   <body onload="initLogin()">
@@ -57,13 +52,68 @@
           <div id="error_password" class="form_input_error_message"></div>
         </div>
         <button class="form_button" type="submit" onclick="regristerUsers()">Register</button>
+=======
+    <link rel="stylesheet" href="../css/Login.css">
+</head>
 
-        <p class="form_text">
-          <a class="form_link" href="#" id="createAccount" onclick="sumbit()"
-            >you already have an account? click here for login.</a
-          >
-        </p>
-      </form>
+<body>
+
+
+    <div class="container" id="container">
+        <form id="login">
+            <h1 class="form_title">Login</h1>
+            <div class="form_message form_message_error"></div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" id="loginUserName" autofocus placeholder="Username or e-mail">
+                <div id="error" class="form_input_error_message"></div>
+
+            </div>
+            <div class="form_input_group">
+                <input type="text" class="form_input" id="loginPassword" autofocus placeholder="Password">
+>>>>>>> dad6f07a2bc52f9f39ab7fe09941bf7cbb0ffe4d
+
+
+            </div>
+            <button class="form_button" type="button" onclick="login()">Login</button>
+
+            <p class="form_text">
+                <a href="#" class="form_link" id="loginAsGuest" onclick="loginAsGuest()">Login as Guest</a>
+                <br><br>
+                <a class="form_link" href="#" id="createAccount" onclick="createAcc()">Create an account</a>
+            </p>
+        </form>
+        <form id="regrister" class="form_hidden">
+            <h1 class="form_title">Regrister</h1>
+            <div class="form_message form_message_error"></div>
+            <div class="form_input_group">
+                <input type="text" id="signupUsername" class="form_input" autofocus placeholder="Username">
+                <div class="form_input_error_message"></div>
+
+            </div>
+            <div class="form_input_group">
+                <input id="userEmail" type="text" class="form_input" autofocus placeholder="E-mail">
+                <div id="error_email" class="form_input_error_message"></div>
+
+            </div>
+            <div class="form_input_group">
+                <input id="signUpPassword" type="text" class="form_input_pw" autofocus placeholder="Password">
+                <div id="error_password" class="form_input_error_message"></div>
+
+            </div>
+            <div class="form_input_group">
+                <input id="signUpPassword2" type="text" class="form_input_pw2" autofocus placeholder="Repeat password">
+                <div id="error_password" class="form_input_error_message"></div>
+
+            </div>
+            <button class="form_button" type="submit" onclick="regristerUsers()">Regestrieren</button>
+
+            <p class="form_text">
+                <a class="form_link" href="#" id="createAccount" onclick="sumbit()">you already have an account? click here for login.</a>
+            </p>
+        </form>
     </div>
-  </body>
+
+</body>
+<script src="../js/Login.js"></script>
+
 </html>
