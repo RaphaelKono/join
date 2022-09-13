@@ -37,7 +37,7 @@
           <a class="form_link" href="#" id="createAccount" onclick="createAcc()">Create an account</a>
         </p>
       </form>
-      <form id="regrister" class="form_hidden">
+      <form id="regrister" class="form_hidden" onsubmit="regristerUsers(); return false;">
         <h1 class="form_title">Register</h1>
         <div class="form_message form_message_error"></div>
         <div class="form_input_group">
@@ -76,7 +76,7 @@
           <img title="woman" id="userNew-2" onclick="selectNewUser(2)" src="/img/woman-user.png" class="avatar" />
           <img title="man" id="userNew-3" onclick="selectNewUser(3)" src="../img/man-user.png" class="avatar" />
         </div>
-        <button class="form_button" type="submit" onclick="regristerUsers()">Register</button>
+        <button class="form_button">Register</button>
 
         <p class="form_text">
           <a class="form_link" href="#" id="createAccount" onclick="sumbit()"

@@ -20,10 +20,9 @@ function cutString(descr, amount) {
   return descr;
 }
 
-function deleteTask(i) {
+async function deleteTask(i) {
   backendTasks.splice(i, 1);
-  //tasks.splice(i, 1);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  await backend.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
 }
 
@@ -40,20 +39,27 @@ function renderBacklogHMTL(i, task) {
   return `
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
-            <div><img src="${backendUsers[task["creator"] - 1]["src"]}" class="avatarBacklog"></div>
-            <div class="mailContainer"><div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
-    backendUsers[task["creator"] - 1]["lastName"]
-  }</p>
-            <p class="mail">${backendUsers[task["creator"] - 1]["email"].toLowerCase()}</p></div></div>
+            <div><img src="${
+              backendUsers[task["creator"] - 1]["src"]
+            }" class="avatarBacklog"></div>
+            <div class="mailContainer"><div><p>${
+              backendUsers[task["creator"] - 1]["firstName"]
+            } ${backendUsers[task["creator"] - 1]["lastName"]}</p>
+            <p class="mail">${backendUsers[task["creator"] - 1][
+              "email"
+            ].toLowerCase()}</p></div></div>
         </div>
 
-        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${
-    task["category"]
-  }</b></p></div>
+        <div class="contentCategory"><p class="contentTextCategory ${
+          task["category"]
+        }"><b>${task["category"]}</b></p></div>
 
         <div class="contentDescription">
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
-            <div><p class="text">${cutString(task["description"], 200)}</p></div>
+            <div><p class="text">${cutString(
+              task["description"],
+              200
+            )}</p></div>
         </div>
 
         <div class="contentEdit">
@@ -75,7 +81,6 @@ function renderBacklogHMTL(i, task) {
 formbl.addEventListener(
   "submit",
   function (event) {
-    if (formbl.checkValidity()) saveEditTask();
     if (!formbl.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
@@ -99,7 +104,8 @@ function setEditTask(id) {
   formbl.elements["dueDate"].value = editTasks["duedate"];
   let urgencys = document.getElementsByName("choice");
   for (i = 0; i < urgencys.length; i++) {
-    if (urgencys[i].value == editTasks["urgency"]) urgencys[i].checked = "checked";
+    if (urgencys[i].value == editTasks["urgency"])
+      urgencys[i].checked = "checked";
   }
   formbl.elements["curDate"].value = editTasks["currentdate"];
   formbl.elements["desc"].value = editTasks["description"];
@@ -109,11 +115,13 @@ function setEditTask(id) {
   selectedUsers = editTasks["assignedTo"];
 }
 
-function saveEditTask() {
-  setTask();
-  backendTasks[editTaskId] = task;
-  tasks[editTaskId] = task;
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+async function saveEditTask() {
+  if (formbl.checkValidity()) {
+    setTask();
+    backendTasks[editTaskId] = task;
+    await backend.setItem("tasks", JSON.stringify(backendTasks));
+    window.location.href = "backlog.html";
+  }
 }
 
 function setTask() {

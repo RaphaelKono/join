@@ -1,17 +1,6 @@
 let form = document.getElementById("form");
-let formDialog = document.getElementById("dialogForm");
 let task;
 let selectedUsers = [];
-
-
-async function addUser() {
-  await backend.setItem("users", JSON.stringify(staff));
-  await backend.setItem("tasks", JSON.stringify(tasks));
-}
-
-async function addTasksToServer() {
-  await backend.setItem("tasks", JSON.stringify(tasks));
-}
 
 async function initAddTask() {
   await init();
@@ -24,7 +13,6 @@ async function initAddTask() {
 form.addEventListener(
   "submit",
   function (event) {
-    if (form.checkValidity()) addTask();
     if (!form.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
@@ -34,23 +22,12 @@ form.addEventListener(
   false
 );
 
-formDialog.addEventListener(
-  "submit",
-  function (event) {
-    if (formDialog.checkValidity()) addNewUser();
-    if (!formDialog.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    formDialog.classList.add("was-validated");
-  },
-  false
-);
-
-function addTask() {
-  setTask();
-  saveTask();
-  // window.location.href = 'backlog.html';
+async function addTask() {
+  if (form.checkValidity()) {
+    setTask();
+    await saveTask();
+    window.location.href = 'backlog.html';
+  }
 }
 
 function setTask() {
@@ -75,10 +52,8 @@ function getUrgency() {
 }
 
 async function saveTask() {
-  tasks.push(task);
-  //backendTasks.push(task);
-  //backend.setItem("tasks", JSON.stringify(tasks));
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  await backendTasks.push(task);
+  await backend.setItem("tasks", JSON.stringify(backendTasks));
 }
 
 function renderUser() {
@@ -88,63 +63,4 @@ function renderUser() {
     const user = backendUsers[i];
     avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;
   }
-}
-
-function selectUser(i) {
-  let user = document.getElementById("user-" + i);
-  user.classList.toggle("avatar-selected");
-  if (selectedUsers.includes(i)) {
-    selectedUsers = selectedUsers.filter((a) => a != i);
-  } else {
-    selectedUsers.push(i);
-  }
-  if (selectedUsers.length == 0) {
-    document.getElementById("users").setAttribute("required", "");
-  } else {
-    document.getElementById("users").removeAttribute("required");
-  }
-}
-
-function openDialog() {
-  document.body.style.overflow = "hidden";
-  window.scrollTo(0, 0);
-  let newUser = document.getElementById("dialogNewUser");
-  newUser.classList.remove("d-none");
-  selectNewUser(1);
-}
-
-function selectNewUser(i) {
-  let user = document.getElementById("userNew-" + i);
-  if (i != 1) user.classList.toggle("avatar-selected");
-  if (selectedNewUser.includes("userNew-" + i)) {
-    selectedNewUser = "userNew-1";
-    document.getElementById("userNew-1").classList.add("avatar-selected");
-  } else {
-    selectedNewUser = "userNew-" + i;
-    if (i == 1) {
-      document.getElementById("userNew-1").classList.add("avatar-selected");
-    }
-    for (let j = 1; j < 4; j++) {
-      if (j == i) continue;
-      document.getElementById("userNew-" + j).classList.remove("avatar-selected");
-    }
-  }
-}
-
-function addNewUser() {
-  let newUser = {
-    firstName: document.getElementById("fName").value,
-    lastName: document.getElementById("lName").value,
-    img: document.getElementById(selectedNewUser).src,
-  };
-  allUsers.push(newUser);
-  users.push(newUser.img.split("/img/")[1]);
-  renderUser();
-  formDialog.reset();
-  closeDialog();
-}
-
-function closeDialog() {
-  document.body.style.overflow = "auto";
-  document.getElementById("dialogNewUser").classList.add("d-none");
 }
