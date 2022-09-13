@@ -56,9 +56,9 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {
+async function moveTo(category) {
     backendTasks[currentDraggedElement].status = category;
-    localStorage.setItem("tasks", JSON.stringify(backendTasks));
+    await backend.setItem("tasks", JSON.stringify(backendTasks));
     renderBoard();
 }
 
