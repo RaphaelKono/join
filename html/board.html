@@ -53,8 +53,23 @@
             </div>
         </div>
     </div>
-    <div id="detailBoardCard" class="">
-        <div class="fullscreen">test</div>
+    <div id="detailBoardCard" class="d-none">
+        <div class="fullscreen">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body detail-card-board">
+                    <button onclick="hideTaskBoardDetail()" type="button" class="btn-close detail-btn" aria-label="Close"></button>
+                    <h5 id="boardtasktitle" class="card-title">Card title</h5>
+                    <h6 id="boardtaskcreatedOn" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h6 id="boardtaskDueDate" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p id="boardtaskDscr" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div id="boardtaskcategory"></div>
+                    <div id="boardtaskimages"></div>
+
+                    <div id="boardtaskurgency">Urgent</div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
