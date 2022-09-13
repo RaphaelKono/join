@@ -45,16 +45,36 @@
           <div class="form_input_error_message"></div>
         </div>
         <div class="form_input_group">
+          <input type="text" id="signupfirstname" class="form_input" autofocus placeholder="Firstname" />
+          <div class="form_input_error_message"></div>
+        </div>
+        <div class="form_input_group">
+          <input type="text" id="signuplastname" class="form_input" autofocus placeholder="Lastname" />
+          <div class="form_input_error_message"></div>
+        </div>
+        <div class="form_input_group">
           <input id="userEmail" type="text" class="form_input" autofocus placeholder="E-mail" />
           <div id="error_email" class="form_input_error_message"></div>
         </div>
         <div class="form_input_group">
-          <input id="signUpPassword" type="text" class="form_input_pw" autofocus placeholder="Password" />
+          <input id="signUpPassword" type="password" class="form_input_pw" autofocus placeholder="Password" />
           <div id="error_password" class="form_input_error_message"></div>
         </div>
         <div class="form_input_group">
-          <input id="signUpPassword2" type="text" class="form_input_pw2" autofocus placeholder="Repeat password" />
+          <input id="signUpPassword2" type="password" class="form_input_pw2" autofocus placeholder="Repeat password" />
           <div id="error_password" class="form_input_error_message"></div>
+        </div>
+        <div class="mb-3">
+          <p class="form-label row m-1">Profil Picture</p>
+          <img
+            title="neutral"
+            id="userNew-1"
+            onclick="selectNewUser(1)"
+            src="../img/guest-user.png"
+            class="avatar avatar-selected"
+          />
+          <img title="woman" id="userNew-2" onclick="selectNewUser(2)" src="/img/woman-user.png" class="avatar" />
+          <img title="man" id="userNew-3" onclick="selectNewUser(3)" src="../img/man-user.png" class="avatar" />
         </div>
         <button class="form_button" type="submit" onclick="regristerUsers()">Register</button>
 

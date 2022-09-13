@@ -1,6 +1,6 @@
 const loginForm = document.getElementById("login");
 const createAccountForm = document.querySelector("#regrister");
-
+let selectedNewUser = "userNew-1";
 let currentUser = [];
 let user = [
   {
@@ -86,13 +86,20 @@ function changeColor() {
 
 function regristerUsers() {
   var regristerusername = document.getElementById("signupUsername").value;
+  var regristerfirstname = document.getElementById("signupfirstname").value;
+  var regristerlastname = document.getElementById("signuplastname").value;
   var regristeremail = document.getElementById("userEmail").value;
   var regristerpassword = document.getElementById("signUpPassword").value;
   var regristerpassword2 = document.getElementById("signUpPassword2").value;
+  var regristerimg = '../img/' + document.getElementById(selectedNewUser).src.split('/img/')[1];
   var newUser = {
-    username: regristerusername,
-    email: regristeremail,
+    id: (backendUsers.length + 1),
+    userName: regristerusername,
     password: regristerpassword,
+    firstName: regristerfirstname,
+    lastName: regristerlastname,
+    email: regristeremail,
+    src: regristerimg,
   };
   for (let i = 0; i < user.length; i++) {
     if (regristerusername == user[i].username) {
@@ -115,10 +122,32 @@ function regristerUsers() {
     }
   }
   user.push(newUser);
-  console.log(user);
+  let testuser = backendUsers;
+  testuser.push(newUser);
+  console.log(testuser);
+  alert('Your register was succesful!');
+  createAccountForm.reset();
   loginForm.classList.remove("form_hidden");
   createAccountForm.classList.add("form_hidden");
 }
+
+function selectNewUser(i) {
+    let user = document.getElementById("userNew-" + i);
+    if (i != 1) user.classList.toggle("avatar-selected");
+    if (selectedNewUser.includes("userNew-" + i)) {
+      selectedNewUser = "userNew-1";
+      document.getElementById("userNew-1").classList.add("avatar-selected");
+    } else {
+      selectedNewUser = "userNew-" + i;
+      if (i == 1) {
+        document.getElementById("userNew-1").classList.add("avatar-selected");
+      }
+      for (let j = 1; j < 4; j++) {
+        if (j == i) continue;
+        document.getElementById("userNew-" + j).classList.remove("avatar-selected");
+      }
+    }
+  }
 
 async function loginAsGuest() {
   await backend.setItem("currentUser", JSON.stringify(5));
