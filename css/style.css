@@ -604,12 +604,47 @@ textarea {
 @media (max-width: 1200px) {
     .board-col {
         min-height: unset;
+        height: 35vh;
+        overflow-y: scroll;
     }
 }
 
 @media (min-width: 991px) {
     #nav-res {
         display: none;
+    }
+}
+
+@media (max-width: 999px) {
+    .col h3 {
+        font-size: 1rem;
+    }
+    .col {
+        margin-top: .6rem;
+    }
+    .board-col {
+        height: 15vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .card-body-board {
+        max-width: 200px;
+        margin: 0;
+        margin-right: .5rem;
+        margin-top: 0 !important;
+    }
+    .card-body-board p {
+        font-size: .7rem;
+        margin-bottom: 0;
+    }
+    .card-body-board h6 {
+        font-size: .7rem;
+        margin: 0 !important;
+    }
+    .card-body-board h5 {
+        font-size: .9rem;
+        margin: .1rem;
     }
 }
 

@@ -3,82 +3,12 @@ async function initBoard() {
     document.getElementById('nav-Board').classList.remove('brd-left-inactive');
     document.getElementById('nav-Board').classList.add('brd-left-active');
     renderBoard();
+    adaptMediaQueryBoard();
 }
 
 var taskOnBoard;
 let currentDraggedElement;
 
-let boardTasks = [{
-        title: "Prepare presentation",
-        id: 1,
-        urgency: "Medium",
-        category: "Marketing",
-        dueDate: "XX.XX.XXXX",
-        currentDate: "ZZ.ZZ.ZZZZ",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.",
-        assignedTo: [1],
-        status: "Done",
-    },
-    {
-        title: "Present presentation",
-        id: 2,
-        urgency: "Medium",
-        category: "Managment",
-        dueDate: "XX.XX.XXXX",
-        currentDate: "ZZ.ZZ.ZZZZ",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, inventore possimus accusamus rem repudiandae numquam hic accusantium ratione corrupti, iste laborum facilis voluptas praesentium nobis omnis provident itaque ea quis.",
-        assignedTo: [2, 1],
-        status: "ToDo",
-        creator: [2],
-    },
-];
-
-let staff = [{
-        id: 1,
-        userName: "user1",
-        password: "short",
-        firstName: "Bruce",
-        lastName: "Humphrey",
-        email: "Bruce.Humphrey@join.de",
-        src: "img/user1.jpg",
-    },
-    {
-        id: 2,
-        userName: "user1",
-        password: "short",
-        firstName: "Hamza",
-        lastName: "Paul",
-        email: "Hamza.Paul@join.de",
-        src: "img/user2.jpg",
-    },
-    {
-        id: 2,
-        userName: "user1",
-        password: "short",
-        firstName: "Stella",
-        lastName: "Hayes",
-        email: "Stella.Hayes@join.de",
-        src: "img/user2.jpg",
-    },
-    {
-        id: 2,
-        userName: "user1",
-        password: "short",
-        firstName: "Brian",
-        lastName: "McBride",
-        email: "Brian.McBride@join.de",
-        src: "img/user2.jpg",
-    },
-    {
-        id: 2,
-        userName: "guest",
-        password: "short",
-        firstName: "guest",
-        lastName: "guest",
-        email: "guest@join.de",
-        src: "img/user2.jpg",
-    },
-];
 
 function renderBoard() {
     resetBoard();
@@ -153,6 +83,10 @@ function templateBoardCardsChild(i, j) {
 }
 
 window.addEventListener("resize", function(event) {
+    adaptMediaQueryBoard();
+});
+
+function adaptMediaQueryBoard() {
     if (window.innerWidth < 1200 && window.innerWidth >= 1000) {
         document.getElementById("resizeid").classList.add("row-cols-2");
         document.getElementById("resizeid").classList.remove("row-cols-4");
@@ -167,7 +101,7 @@ window.addEventListener("resize", function(event) {
         document.getElementById("resizeid").classList.remove("row-cols-4");
         document.getElementById("resizeid").classList.add("flex-column");
     }
-});
+}
 
 function showTaskBoardDetail(i) {
     document.getElementById('detailBoardCard').classList.remove('d-none');
