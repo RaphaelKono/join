@@ -75,12 +75,12 @@ function renderBacklogHMTL(i, task) {
 formbl.addEventListener(
   "submit",
   function (event) {
-    if (form.checkValidity()) saveEditTask();
-    if (!form.checkValidity()) {
+    if (formbl.checkValidity()) saveEditTask();
+    if (!formbl.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
     }
-    form.classList.add("was-validated");
+    formbl.classList.add("was-validated");
   },
   false
 );
@@ -94,15 +94,15 @@ function editTask(id) {
 
 function setEditTask(id) {
   let editTasks = backendTasks[id];
-  form.elements["tasktitle"].value = editTasks["title"];
-  form.elements["category"].value = editTasks["category"];
-  form.elements["dueDate"].value = editTasks["duedate"];
+  formbl.elements["tasktitle"].value = editTasks["title"];
+  formbl.elements["category"].value = editTasks["category"];
+  formbl.elements["dueDate"].value = editTasks["duedate"];
   let urgencys = document.getElementsByName("choice");
   for (i = 0; i < urgencys.length; i++) {
     if (urgencys[i].value == editTasks["urgency"]) urgencys[i].checked = "checked";
   }
-  form.elements["curDate"].value = editTasks["currentdate"];
-  form.elements["desc"].value = editTasks["description"];
+  formbl.elements["curDate"].value = editTasks["currentdate"];
+  formbl.elements["desc"].value = editTasks["description"];
   editTasks["assignedTo"].forEach((element) => {
     selectUser(element);
   });
@@ -118,12 +118,12 @@ function saveEditTask() {
 
 function setTask() {
   task = {
-    title: form.elements["tasktitle"].value,
+    title: formbl.elements["tasktitle"].value,
     urgency: getUrgency(),
-    category: form.elements["category"].value,
-    duedate: form.elements["dueDate"].value,
-    currentdate: form.elements["curDate"].value,
-    description: form.elements["desc"].value,
+    category: formbl.elements["category"].value,
+    duedate: formbl.elements["dueDate"].value,
+    currentdate: formbl.elements["curDate"].value,
+    description: formbl.elements["desc"].value,
     assignedTo: selectedUsers,
     creator: backendTasks[editTaskId]["creator"],
     status: backendTasks[editTaskId]["status"],
