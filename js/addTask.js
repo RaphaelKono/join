@@ -3,9 +3,6 @@ let formDialog = document.getElementById("dialogForm");
 let task;
 let selectedUsers = [];
 let selectedNewUser = "userNew-1";
-let storedUser = localStorage.getItem("currentID");
-let currentLoggedUser = JSON.parse(storedUser);
-currentUser.push(storedUser);
 
 
 async function addUser() {
