@@ -139,7 +139,7 @@ function moveTo(category) {
 function templateBoardCards(currentTask, i) {
   return `
     <div draggable="true" ondragstart="startDragging(${i})" class="card-body card-body-board  ${currentTask["category"]} text-start">
-        <h6 class="card-subtitle mb-2 text-muted">${currentTask.duedate}</h6>
+        <h6 class=" mb-2 text-muted">${currentTask.duedate}</h6>
         <h5 class="card-title">${currentTask.title}</h5>
         <p class="card-text">${cutString(currentTask.description, 50)}</p>
         <div class="d-flex justify-content-between align-items-center text-end">
@@ -168,7 +168,7 @@ window.addEventListener("resize", function (event) {
   }
   if (window.innerWidth < 1000) {
     document.getElementById("resizeid").classList.remove("row-cols-2");
-    document.getElementById("resizeid").classList.add("row-cols-4");
+    document.getElementById("resizeid").classList.remove("row-cols-4");
     document.getElementById("resizeid").classList.add("flex-column");
   }
 });
