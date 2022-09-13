@@ -141,5 +141,4 @@ function loginAsGuest() {
     loginForm.classList.add("form_hidden");
     createAccountForm.classList.add("form_hidden");
     document.getElementById('container').style.display = "none";
-
 }
