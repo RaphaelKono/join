@@ -200,6 +200,9 @@ th h3 {
 
 .detail-card-board {
     position: relative;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
 }
 
 .detail-btn {
@@ -208,10 +211,18 @@ th h3 {
     right: 10px;
 }
 
+#boardtasktitle {
+    margin-bottom: 1rem;
+}
+
 #boardtaskurgency {
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+
+#boardtaskBy {
+    margin-top: 1rem;
 }
 
 
@@ -266,12 +277,24 @@ p {
     border-right: 4px solid var(--low);
 }
 
+.p-low {
+    color: var(--low);
+}
+
 .high {
     border-right: 4px solid var(--high);
 }
 
+.p-high {
+    color: var(--high);
+}
+
 .medium {
     border-right: 4px solid var(--medium);
+}
+
+.p-medium {
+    color: var(--medium);
 }
 
 
