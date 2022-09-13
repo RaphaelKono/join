@@ -102,7 +102,7 @@ async function regristerUsers() {
     src: regristerimg,
   };
   for (let i = 0; i < backendUsers.length; i++) {
-    if (regristerusername == user[i].username) {
+    if (regristerusername == backendUsers[i].userName) {
       alert("that username is already in use, please choose another.");
       return;
     } else if (regristerpassword.length < 5) {
@@ -122,10 +122,10 @@ async function regristerUsers() {
     }
   }
   alert('Your register was succesful!');
-  backendUsers.push(newUser);
-  //await backend.setItem("users", JSON.stringify(backendUsers));
-  //await backend.setItem("currentUser", JSON.stringify(newUser.id));
-  return (location.href = "../html/addTask.html");
+  await backendUsers.push(newUser);
+  await backend.setItem("users", JSON.stringify(backendUsers));
+  await backend.setItem("currentUser", JSON.stringify(newUser.id));
+  location.href = "../html/addTask.html";
   
 }
 
