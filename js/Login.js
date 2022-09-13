@@ -84,7 +84,7 @@ function changeColor() {
   document.getElementById("error").innerHTML = "password or username is wrong.";
 }
 
-function regristerUsers() {
+async function regristerUsers() {
   var regristerusername = document.getElementById("signupUsername").value;
   var regristerfirstname = document.getElementById("signupfirstname").value;
   var regristerlastname = document.getElementById("signuplastname").value;
@@ -101,7 +101,7 @@ function regristerUsers() {
     email: regristeremail,
     src: regristerimg,
   };
-  for (let i = 0; i < user.length; i++) {
+  for (let i = 0; i < backendUsers.length; i++) {
     if (regristerusername == user[i].username) {
       alert("that username is already in use, please choose another.");
       return;
@@ -110,10 +110,10 @@ function regristerUsers() {
       document.getElementById("signUpPassword2").style.color = "red";
       document.getElementById("error_password").innerHTML = "that password is too short,include 5 or more characters.";
       return;
-    } else if (regristeremail == user[i].email) {
+    } else if (regristeremail == backendUsers[i].email) {
       alert("that email is already in use, please choose another.");
       return;
-    } else if (regristerpassword == user[i].password) {
+    } else if (regristerpassword == backendUsers[i].password) {
       alert("that password is already in use, please choose another.");
       return;
     } else if (regristerpassword != regristerpassword2) {
@@ -121,14 +121,12 @@ function regristerUsers() {
       return;
     }
   }
-  user.push(newUser);
-  let testuser = backendUsers;
-  testuser.push(newUser);
-  console.log(testuser);
   alert('Your register was succesful!');
-  createAccountForm.reset();
-  loginForm.classList.remove("form_hidden");
-  createAccountForm.classList.add("form_hidden");
+  backendUsers.push(newUser);
+  //await backend.setItem("users", JSON.stringify(backendUsers));
+  //await backend.setItem("currentUser", JSON.stringify(newUser.id));
+  return (location.href = "../html/addTask.html");
+  
 }
 
 function selectNewUser(i) {

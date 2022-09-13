@@ -22,7 +22,7 @@ function cutString(descr, amount) {
 
 function deleteTask(i) {
   backendTasks.splice(i, 1);
-  tasks.splice(i, 1);
+  //tasks.splice(i, 1);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   renderBacklog();
 }
