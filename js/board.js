@@ -143,7 +143,7 @@ function templateBoardCards(currentTask, i) {
         <h5 class="card-title">${currentTask.title}</h5>
         <p class="card-text">${cutString(currentTask.description, 50)}</p>
         <div class="d-flex justify-content-between align-items-center text-end">
-            <a href="#" class="btn btn-primary ${currentTask.duedate}">${currentTask.category}</a>
+            <p class="${currentTask["category"]} border-category">${currentTask.category}</p>
             <p id="task${i}" href="#" class="card-text">IMG of assigned person</p>
         </div>
     </div>

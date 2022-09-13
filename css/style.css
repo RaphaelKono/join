@@ -145,6 +145,11 @@ th h3{
     flex-wrap: nowrap !important;
 }
 
+.border-category {
+    border: 1px solid;
+    padding: 3px; 
+}
+
 
 /*#endregion -----------------CSS for Backlog ----------------- */
 
