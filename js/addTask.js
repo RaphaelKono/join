@@ -15,7 +15,6 @@ async function addTasksToServer() {
 }
 
 async function initAddTask() {
-    localStorage.clear();
     await init();
     renderUser();
     document.getElementById("nav-AddTask").classList.remove("brd-left-inactive");
