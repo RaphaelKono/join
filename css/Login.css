@@ -1,5 +1,8 @@
     body {
         background: rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .container {
@@ -14,14 +17,7 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        left: 25%;
         top: 20%;
-    }
-    
-    .container,
-    .form_input,
-    .form_button {
-        font: 500 1rem 'Quicksand', sans-serif;
     }
     
     input.form_input_pw,
@@ -93,14 +89,12 @@
     .form_button {
         width: 100%;
         padding: 1rem 2rem;
-        font-weight: bold;
-        font-size: 1.1rem;
         color: #ffffff;
         border: none;
         border-radius: var(--border-radius);
         outline: none;
         cursor: pointer;
-        background: rgb(32, 113, 218);
+        background: var(--blue);
     }
     
     .form_button:active {
@@ -108,6 +102,7 @@
     }
     
     .form_text {
+        margin-top: 10px;
         text-align: center;
     }
     

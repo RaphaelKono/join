@@ -17,19 +17,19 @@
     <script src="../js/script.js"></script>
     <script defer src="/js/Login.js"></script>
   </head>
-  <body onload="init()">
+  <body onload="initLogin()">
     <div class="container" id="container">
       <form id="login">
         <h1 class="form_title">Login</h1>
         <div class="form_message form_message_error"></div>
         <div class="form_input_group">
-          <input type="text" class="form_input" id="loginUserName" autofocus placeholder="Username or e-mail" />
+          <input type="text" class="form_input" id="loginUserName" autofocus placeholder="Username" />
           <div id="error" class="form_input_error_message"></div>
         </div>
         <div class="form_input_group">
-          <input type="text" class="form_input" id="loginPassword" autofocus placeholder="Password" />
+          <input type="password" class="form_input" id="loginPassword" autofocus placeholder="Password" />
         </div>
-        <button class="form_button" type="button" onclick="login()">Login</button>
+        <button class=" form_button" type="button" onclick="login()">Login</button>
 
         <p class="form_text">
           <a href="#" class="form_link" id="loginAsGuest" onclick="loginAsGuest()">Login as Guest</a>
@@ -38,7 +38,7 @@
         </p>
       </form>
       <form id="regrister" class="form_hidden">
-        <h1 class="form_title">Regrister</h1>
+        <h1 class="form_title">Register</h1>
         <div class="form_message form_message_error"></div>
         <div class="form_input_group">
           <input type="text" id="signupUsername" class="form_input" autofocus placeholder="Username" />
@@ -56,7 +56,7 @@
           <input id="signUpPassword2" type="text" class="form_input_pw2" autofocus placeholder="Repeat password" />
           <div id="error_password" class="form_input_error_message"></div>
         </div>
-        <button class="form_button" type="submit" onclick="regristerUsers()">Regestrieren</button>
+        <button class="form_button" type="submit" onclick="regristerUsers()">Register</button>
 
         <p class="form_text">
           <a class="form_link" href="#" id="createAccount" onclick="sumbit()"

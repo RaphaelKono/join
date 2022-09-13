@@ -11,11 +11,12 @@ async function init() {
   await downloadFromServer();
   await getUsersFromServer();
   await getTasksFromServer();
+  document.getElementById("profil-logo").src = backendUsers[currentUserId - 1].src;
+  document.getElementById("profil-name").innerHTML = backendUsers[currentUserId - 1].firstName;
 }
 async function getUsersFromServer() {
   backendUsers = (await JSON.parse(backend.getItem("users"))) || [];
-  let zahl = Math.floor(Math.random() * 5);
-  currentUserId = backendUsers[zahl]["id"];
+  currentUserId = (await JSON.parse(backend.getItem("currentUser"))) || 5;
 }
 
 async function getTasksFromServer() {

@@ -3,6 +3,31 @@ body {
   font-family: "PT Sans";
 }
 
+.join-logo{
+    padding-left: 30px;
+}
+
+.profil {
+  position: absolute;
+  bottom: 20px;
+  left: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profil img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profil p {
+  color: white;
+}
+
 .footer {
   display: flex;
   font-size: 11px;
@@ -316,7 +341,6 @@ p.Marketing {
 }
 
 .dialog {
-  z-index: 10;
   overflow: auto;
   height: 70vh !important;
 }
@@ -374,10 +398,6 @@ p.Marketing {
     justify-content: center;
     align-items: flex-start;
   }
-
-  /* .card-header{
-        display: none;
-    } */
 }
 
 /* -----------------End region CSS for Backlog ----------------- */
@@ -528,15 +548,6 @@ textarea {
   }
 }
 
-@media (max-width: 1000px) {
-  .board-col {
-    min-width: 60vw;
-  }
-  .col {
-    min-width: 60vw;
-  }
-}
-
 @media (min-width: 991px) {
   #nav-res {
     display: none;
@@ -544,6 +555,28 @@ textarea {
 }
 
 @media (max-width: 991px) {
+  #profil {
+    bottom: unset;
+    left: unset;
+    top: 7px;
+    right: 20px;
+  }
+
+  #profil img{
+    width: 40px;
+    height: 40px;
+  }
+
+  #profil p{
+    display: none;
+  }
+
+  .board-col {
+    min-width: 60vw;
+  }
+  .col {
+    min-width: 60vw;
+  }
   #navbar {
     display: none;
   }
@@ -564,10 +597,6 @@ textarea {
   .navbar-brand {
     padding-left: 5px;
     padding-right: 15px;
-  }
-
-  #form {
-    border-radius: unset;
   }
 }
 @media (max-width: 700px) {
