@@ -630,6 +630,9 @@ textarea {
     }
     .card-body-board {
         max-width: 200px;
+        margin: 0;
+        margin-right: .5rem;
+        margin-top: 0 !important;
     }
     .card-body-board p {
         font-size: .7rem;
@@ -637,9 +640,11 @@ textarea {
     }
     .card-body-board h6 {
         font-size: .7rem;
+        margin: 0 !important;
     }
     .card-body-board h5 {
         font-size: .9rem;
+        margin: .1rem;
     }
 }
 
