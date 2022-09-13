@@ -171,17 +171,32 @@ window.addEventListener("resize", function(event) {
 
 function showTaskBoardDetail(i) {
     document.getElementById('detailBoardCard').classList.remove('d-none');
+    renderDetailsBoard(i);
+    renderAvatarsBoard(i);
+}
+
+function renderDetailsBoard(i) {
     document.getElementById('boardtasktitle').innerHTML = backendTasks[i].title;
-    document.getElementById('boardtaskcreatedOn').innerHTML = backendTasks[i].currentdate;
-    document.getElementById('boardtaskDueDate').innerHTML = backendTasks[i].duedate;
+    document.getElementById('boardtaskcreatedOn').innerHTML = `Created on: ${backendTasks[i].currentdate}`;
+    document.getElementById('boardtaskDueDate').innerHTML = `Due to: ${backendTasks[i].duedate}`;
     document.getElementById('boardtaskDscr').innerHTML = backendTasks[i].description;
-    document.getElementById('boardtaskcategory').innerHTML = backendTasks[i].category;
-    document.getElementById('boardtaskimages').innerHTML = backendTasks[i].assignedTo;
-    document.getElementById('boardtaskurgency').innerHTML = backendTasks[i].urgency;
+    document.getElementById('boardtaskcategory').innerHTML = `<p class="${backendTasks[i]["category"]} border-category">${backendTasks[i].category}</p>`;
+    document.getElementById('boardtaskurgency').innerHTML = `<div class="p-${backendTasks[i]["urgency"]}">${capitalizeFirstLetter(backendTasks[i].urgency)}</div>`;
+    document.getElementById('boardtaskBy').innerHTML = `Creator: ${backendUsers[backendTasks[i]["creator"]].firstName} ${backendUsers[backendTasks[i]["creator"]].lastName}`;
+    document.getElementById('boardtaskadress').innerHTML = backendUsers[backendTasks[i]["creator"]].email;
+    document.getElementById('boardtaskimages').innerHTML = '';
+}
 
-
+function renderAvatarsBoard(i) {
+    for (let j = 0; j < backendTasks[i].assignedTo.length; j++) {
+        document.getElementById('boardtaskimages').innerHTML += templateBoardCardsChild(i, j);
+    }
 }
 
 function hideTaskBoardDetail() {
     document.getElementById('detailBoardCard').classList.add('d-none');
+}
+
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
