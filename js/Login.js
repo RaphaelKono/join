@@ -76,7 +76,6 @@ async function regristerUsers() {
         if (regristerusername || regristerfirstname || regristerlastname || regristeremail || regristerpassword || regristerpassword2 == "") {
             alert("please fill all flieds.");
             return;
-
         }
     }
     alert('Your register was succesful!');
