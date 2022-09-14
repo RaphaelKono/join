@@ -2,53 +2,6 @@ const loginForm = document.getElementById("login");
 const createAccountForm = document.querySelector("#regrister");
 let selectedNewUser = "userNew-1";
 let currentUser = [];
-let user = [
-  {
-    id: 1,
-    username: "user1",
-    password: "short",
-    firstName: "Bruce",
-    lastName: "Humphrey",
-    email: "Bruce.Humphrey@join.de",
-    src: "../img/user1.jpg",
-  },
-  {
-    id: 2,
-    username: "user2",
-    password: "short",
-    firstName: "Hamza",
-    lastName: "Paul",
-    email: "Hamza.Paul@join.de",
-    src: "../img/user2.jpg",
-  },
-  {
-    id: 3,
-    username: "user3",
-    password: "short",
-    firstName: "Stella",
-    lastName: "Hayes",
-    email: "Stella.Hayes@join.de",
-    src: "../img/user3.jpg",
-  },
-  {
-    id: 4,
-    username: "user4",
-    password: "short",
-    firstName: "Brian",
-    lastName: "McBride",
-    email: "Brian.McBride@join.de",
-    src: "../img/user4.jpg",
-  },
-  {
-    id: 5,
-    username: "guest",
-    password: "short",
-    firstName: "Guest",
-    lastName: "Anonymus",
-    email: "guest@join.de",
-    src: "../img/guest-user.jpg",
-  },
-];
 
 async function initLogin() {
   setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
