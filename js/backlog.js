@@ -177,24 +177,20 @@ function renderUrg() {
     b = b == "low" ? 2 : b == "medium" ? 1 : 0;
     return a == b ? 0 : a > b ? 1 : -1;
   });
-  localStorage.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
 }
 
 function renderCat() {
   backendTasks.sort((a, b) => a["category"].localeCompare(b["category"]));
-  localStorage.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
 }
 
 function renderNam() {
   backendTasks.sort((a, b) => a["creator"] - b["creator"]);
-  localStorage.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
 }
 
 function renderTit() {
   backendTasks.sort((a, b) => a["title"].localeCompare(b["title"]));
-  localStorage.setItem("tasks", JSON.stringify(backendTasks));
   renderBacklog();
 }

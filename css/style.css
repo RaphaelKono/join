@@ -546,7 +546,6 @@ textarea {
     display: none;
 }
 
-#dialogNewUser,
 #dialogEditTask {
     position: fixed;
     top: 0;
@@ -559,23 +558,7 @@ textarea {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#ContentNewUser {
-    background-color: var(--violet);
-    border: 2px solid var(--blue);
-    border-radius: 10px;
-    padding: 30px;
-}
 
-#cross {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#cross img {
-    height: 16px;
-    width: 16px;
-    cursor: pointer;
-}
 
 #userNew-2,
 #userNew-3 {

@@ -116,8 +116,8 @@ function renderDetailsBoard(i) {
     document.getElementById('boardtaskDscr').innerHTML = backendTasks[i].description;
     document.getElementById('boardtaskcategory').innerHTML = `<p class="${backendTasks[i]["category"]} border-category">${backendTasks[i].category}</p>`;
     document.getElementById('boardtaskurgency').innerHTML = `<div class="p-${backendTasks[i]["urgency"]}">${capitalizeFirstLetter(backendTasks[i].urgency)}</div>`;
-    document.getElementById('boardtaskBy').innerHTML = `Creator: ${backendUsers[backendTasks[i]["creator"]].firstName} ${backendUsers[backendTasks[i]["creator"]].lastName}`;
-    document.getElementById('boardtaskadress').innerHTML = backendUsers[backendTasks[i]["creator"]].email;
+    document.getElementById('boardtaskBy').innerHTML = `Creator: ${backendUsers[backendTasks[i]["creator"]-1].firstName} ${backendUsers[backendTasks[i]["creator"]-1].lastName}`;
+    document.getElementById('boardtaskadress').innerHTML = backendUsers[backendTasks[i]["creator"]-1].email;
     document.getElementById('boardtaskimages').innerHTML = '';
 }
 

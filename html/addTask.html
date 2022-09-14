@@ -13,29 +13,12 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="../node_modules\bootstrap\dist\css\bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="../node_modules\bootstrap\dist\css\bootstrap.min.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
   </head>
 
@@ -62,14 +45,8 @@
               <div class="invalid-feedback">Please choose a title.</div>
             </div>
             <div class="col-md-6">
-              <label for="validationDefault02" class="form-label"
-                >CATEGORY</label
-              >
-              <select
-                class="form-select"
-                aria-label="Default select example"
-                id="category"
-              >
+              <label for="validationDefault02" class="form-label">CATEGORY</label>
+              <select class="form-select" aria-label="Default select example" id="category">
                 <option selected value="Management">Management</option>
                 <option value="Sales">Sales</option>
                 <option value="Product">Product</option>
@@ -77,18 +54,10 @@
               </select>
             </div>
             <div class="col-md-6">
-              <label for="validationDefault03" class="form-label"
-                >URGENCY</label
-              >
+              <label for="validationDefault03" class="form-label">URGENCY</label>
               <div class="form-control">
                 <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="choice"
-                    id="inlineRadio1"
-                    value="low"
-                  />
+                  <input class="form-check-input" type="radio" name="choice" id="inlineRadio1" value="low" />
                   <label class="form-check-label" for="inlineRadio1">Low</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -100,34 +69,17 @@
                     value="medium"
                     checked="checked"
                   />
-                  <label class="form-check-label" for="inlineRadio2"
-                    >Medium</label
-                  >
+                  <label class="form-check-label" for="inlineRadio2">Medium</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="choice"
-                    id="inlineRadio3"
-                    value="high"
-                  />
-                  <label class="form-check-label" for="inlineRadio3"
-                    >High</label
-                  >
+                  <input class="form-check-input" type="radio" name="choice" id="inlineRadio3" value="high" />
+                  <label class="form-check-label" for="inlineRadio3">High</label>
                 </div>
               </div>
             </div>
             <div class="col-md-12">
-              <label for="validationDefault03" class="form-label"
-                >DESCRIPTION</label
-              >
-              <textarea
-                class="form-control"
-                id="desc"
-                rows="3"
-                name="textarea"
-              ></textarea>
+              <label for="validationDefault03" class="form-label">DESCRIPTION</label>
+              <textarea class="form-control" id="desc" rows="3" name="textarea"></textarea>
             </div>
             <div class="col-md-6">
               <div class="col-md-8 mb-4">
@@ -142,33 +94,16 @@
             </div>
             <div class="col-md-6">
               <div class="col-md-12 mb-3">
-                <label for="users" class="form-label" id="assignedTo"
-                  >ASSIGNED TO</label
-                >
+                <label for="users" class="form-label" id="assignedTo">ASSIGNED TO</label>
                 <div class="col-md-12 pt-md-3">
                   <div id="avatars"></div>
                 </div>
-                <input
-                  type="text"
-                  style="display: none"
-                  class="form-control"
-                  id="users"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please choose one or more user.
-                </div>
+                <input type="text" style="display: none" class="form-control" id="users" required />
+                <div class="invalid-feedback">Please choose one or more user.</div>
               </div>
               <div class="col-md-12 row">
-                <a
-                  class="btn col-md m-2"
-                  onclick="window.location.reload()"
-                  id="cancel"
-                  >CANCEL</a
-                >
-                <button class="btn btn-primary col-md m-2" id="btn-create">
-                  CREATE TASK
-                </button>
+                <a class="btn col-md m-2" onclick="window.location.reload()" id="cancel">CANCEL</a>
+                <button class="btn btn-primary col-md m-2" id="btn-create">CREATE TASK</button>
               </div>
             </div>
           </form>

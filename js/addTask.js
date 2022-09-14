@@ -10,6 +10,15 @@ async function initAddTask() {
   form.elements["curDate"].value = new Date().toJSON().split("T")[0];
 }
 
+function renderUser() {
+  let avatarPicker = document.getElementById("avatars");
+  avatarPicker.innerHTML = ``;
+  for (let i = 0; i < backendUsers.length; i++) {
+    const user = backendUsers[i];
+    avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar">`;
+  }
+}
+
 form.addEventListener(
   "submit",
   function (event) {
@@ -26,7 +35,7 @@ async function addTask() {
   if (form.checkValidity()) {
     setTask();
     await saveTask();
-    window.location.href = 'backlog.html';
+    window.location.href = "backlog.html";
   }
 }
 
@@ -54,13 +63,4 @@ function getUrgency() {
 async function saveTask() {
   await backendTasks.push(task);
   await backend.setItem("tasks", JSON.stringify(backendTasks));
-}
-
-function renderUser() {
-  let avatarPicker = document.getElementById("avatars");
-  avatarPicker.innerHTML = ``;
-  for (let i = 0; i < backendUsers.length; i++) {
-    const user = backendUsers[i];
-    avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;
-  }
 }
