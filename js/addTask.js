@@ -64,3 +64,27 @@ async function saveTask() {
   await backendTasks.push(task);
   await backend.setItem("tasks", JSON.stringify(backendTasks));
 }
+
+function renderUser() {
+  let avatarPicker = document.getElementById("avatars");
+  avatarPicker.innerHTML = ``;
+  for (let i = 0; i < backendUsers.length; i++) {
+      const user = backendUsers[i];
+      avatarPicker.innerHTML += `<img title="${user["firstName"]} ${user["lastName"]}" id='user-${i}' onclick='selectUser(${i})' src="${user["src"]}" class="avatar ">`;
+  }
+}
+
+function selectUser(i) {
+  let user = document.getElementById("user-" + i);
+  user.classList.toggle("avatar-selected");
+  if (selectedUsers.includes(i)) {
+      selectedUsers = selectedUsers.filter((a) => a != i);
+  } else {
+      selectedUsers.push(i);
+  }
+  if (selectedUsers.length == 0) {
+      document.getElementById("users").setAttribute("required", "");
+  } else {
+      document.getElementById("users").removeAttribute("required");
+  }
+}
