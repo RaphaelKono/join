@@ -2,6 +2,7 @@ const loginForm = document.getElementById("login");
 const createAccountForm = document.querySelector("#regrister");
 let selectedNewUser = "userNew-1";
 let currentUser = [];
+let regrist = false;
 
 async function initLogin() {
     setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
@@ -79,11 +80,15 @@ async function regristerUsers() {
 
         }
     }
-    alert('Your register was succesful!');
-    await backendUsers.push(newUser);
-    await backend.setItem("users", JSON.stringify(backendUsers));
-    await backend.setItem("currentUser", JSON.stringify(newUser.id));
-    location.href = "../html/addTask.html";
+
+    regrist = true;
+    if (regrist = true) {
+        alert('Your register was succesful!');
+        await backendUsers.push(newUser);
+        await backend.setItem("users", JSON.stringify(backendUsers));
+        await backend.setItem("currentUser", JSON.stringify(newUser.id));
+        location.href = "../html/addTask.html";
+    }
 
 }
 
