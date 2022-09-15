@@ -55,6 +55,7 @@ async function regristerUsers() {
         email: regristeremail,
         src: regristerimg,
     };
+  
     for (let i = 0; i < backendUsers.length; i++) {
         if (regristerusername == backendUsers[i].userName) {
             alert("that username is already in use, please choose another.");
@@ -65,19 +66,18 @@ async function regristerUsers() {
             document.getElementById("error_password").innerHTML = "that password is too short,include 5 or more characters.";
             return;
         } else if (regristeremail == backendUsers[i].email) {
-            alert("that email is already in use, please choose another.");
+            document.getElementById("error_password").innerHTML = "that email is already in use, please choose another.";
             return;
         } else if (regristerpassword == backendUsers[i].password) {
-            alert("that password is already in use, please choose another.");
+            document.getElementById("error_password").innerHTML = "that password is already in use, please choose another.";
             return;
         } else if (regristerpassword != regristerpassword2) {
-            alert("the password is not the same as the repeated password");
+            document.getElementById("error_password").innerHTML = "the password is not the same as the repeated password";
             return;
         }
         if (regristerusername == "" || regristerfirstname == "" || regristerlastname == "" || regristeremail == "" || regristerpassword == "" || regristerpassword2 == "") {
-            alert("please fill all flieds.");
+            document.getElementById("error_password").innerHTML = "please fill all flieds.";
             return;
-
         }
     }
 
