@@ -61,11 +61,6 @@ function getUrgency() {
 }
 
 async function saveTask() {
-<<<<<<< HEAD
-    await backendTasks.push(task);
-    await backend.setItem("tasks", JSON.stringify(backendTasks));
-}
-=======
   await backendTasks.push(task);
   await backend.setItem("tasks", JSON.stringify(backendTasks));
 }
@@ -93,4 +88,3 @@ function selectUser(i) {
       document.getElementById("users").removeAttribute("required");
   }
 }
->>>>>>> 28b86ff805c9f9c166019f2bd7c4f243ca5e76e0
