@@ -58,23 +58,27 @@ async function regristerUsers() {
         src: regristerimg,
     };
   
-    for (let i = 0; i < backendUsers.length; i++) {
+   for (let i = 0; i < backendUsers.length; i++) {
         if (regristerusername == backendUsers[i].userName) {
-            alert("that username is already in use, please choose another.");
+            document.getElementById("error_password").innerHTML = "that username is already in use, please choose another.";
+            document.getElementById("signupUsername").style.borderColor = "red"
             return;
         } else if (regristerpassword.length < 5) {
-            document.getElementById("signUpPassword").style.color = "red";
-            document.getElementById("signUpPassword2").style.color = "red";
             document.getElementById("error_password").innerHTML = "that password is too short,include 5 or more characters.";
+            document.getElementById("error_password").style.color = "red";
             return;
         } else if (regristeremail == backendUsers[i].email) {
             document.getElementById("error_password").innerHTML = "that email is already in use, please choose another.";
+            document.getElementById("userEmail").style.borderColor = "red"
+
             return;
         } else if (regristerpassword == backendUsers[i].password) {
             document.getElementById("error_password").innerHTML = "that password is already in use, please choose another.";
+            document.getElementById("loginPassword").style.borderColor = "red"
             return;
         } else if (regristerpassword != regristerpassword2) {
             document.getElementById("error_password").innerHTML = "the password is not the same as the repeated password";
+            document.getElementById("loginPassword2").style.borderColor = "red"
             return;
         }
         if (regristerusername == "" || regristerfirstname == "" || regristerlastname == "" || regristeremail == "" || regristerpassword == "" || regristerpassword2 == "") {
