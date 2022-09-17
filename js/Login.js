@@ -35,8 +35,8 @@ async function login() {
 function changeColor() {
     document.getElementById("loginUserName").style.color = "red";
     document.getElementById("loginPassword").style.color = "red";
-     document.getElementsById("loginUserName").style.borderColor = "red"
-    document.getElementsById("loginPassword").style.borderColor = "red"
+    document.getElementById("loginUserName").style.borderColor = "red"
+    document.getElementById("loginPassword").style.borderColor = "red"
     document.getElementById("error").innerHTML = "password or username is wrong.";
 }
 
