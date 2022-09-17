@@ -2,41 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
-    <script src="./mini_backend.js"></script>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="/fonts.css">
-    <link rel="stylesheet" href="./css/style.css">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <script src="js/mini_backend.js"></script>
+    <script src="js/script.js"></script>
+    <script defer src="js/Login.js"></script>
+    <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
 </head>
 
-<body>
-    <h1>Join-Test 2</h1>
-
-    <div class="container">
-        <form id="login" class="form">
+<body onload="initLogin()">
+    <div class="container" id="container">
+        <form id="login">
             <h1 class="form_title">Login</h1>
-            <div class="form_message form_message_error">Passwort/Benutzername ungültig.</div>
+            <div class="form_message form_message_error"></div>
             <div class="form_input_group">
-                <input type="text" class="form_input" autofocus placeholder="Passwort">
-                <div class="form_input_error_message">Fehlermeldung</div>
+                <input type="text" class="form_input" id="loginUserName" autofocus placeholder="Username" />
+                <div id="error" class="form_input_error_message"></div>
             </div>
-            <button class="form_button" type="submit">Einloggen</button>
+            <div class="form_input_group">
+                <input type="password" class="form_input" id="loginPassword" autofocus placeholder="Password" />
+            </div>
+            <button class="form_button" type="button" onclick="login()">Login</button>
+
             <p class="form_text">
-                <a href="#" class="form_link">Passwort vergessen</a>
-            </p>
-            <p class="form_text">
-                <a class="form_link" href="./" id="createAccount">Account erstellen</a>
+                <a href="#" class="form_link" id="loginAsGuest" onclick="loginAsGuest()">Login as Guest</a>
+                <br /><br />
+                <a class="form_link" href="#" id="createAccount" onclick="createAcc()">Create an account</a>
             </p>
         </form>
+        <form id="regrister" class="form_hidden" onsubmit="regristerUsers(); return false;">
+            <h1 class="form_title">Register</h1>
+            <div class="form_message form_message_error"></div>
+            <div class="form_input_group">
+                <input type="text" id="signupUsername" class="form_input" autofocus placeholder="Username" />
+                <div class="form_input_error_message"></div>
+            </div>
+            <div class="form_input_group">
+                <input type="text" id="signupfirstname" class="form_input" autofocus placeholder="Firstname" />
+                <div class="form_input_error_message"></div>
+            </div>
+            <div class="form_input_group">
+                <input type="text" id="signuplastname" class="form_input" autofocus placeholder="Lastname" />
+                <div class="form_input_error_message"></div>
+            </div>
+            <div class="form_input_group">
+                <input id="userEmail" type="text" class="form_input" autofocus placeholder="E-mail" />
+                <div id="error_email" class="form_input_error_message"></div>
+            </div>
+            <div class="form_input_group">
+                <input id="signUpPassword" type="password" class="form_input_pw" autofocus placeholder="Password" />
+                <div id="error_password" class="form_input_error_message"></div>
+            </div>
+            <div class="form_input_group">
+                <input id="signUpPassword2" type="password" class="form_input_pw2" autofocus placeholder="Repeat password" />
+                <div id="error_password" class="form_input_error_message"></div>
+            </div>
+            <div class="mb-3">
+                <p class="form-label row m-1">Profil Picture</p>
+                <img title="neutral" id="userNew-1" onclick="selectNewUser(1)" src="img/guest-user.png" class="avatar avatar-selected" />
+                <img title="woman" id="userNew-2" onclick="selectNewUser(2)" src="img/woman-user.png" class="avatar" />
+                <img title="man" id="userNew-3" onclick="selectNewUser(3)" src="img/man-user.png" class="avatar" />
+            </div>
+            <button class="form_button">Register</button>
+
+            <p class="form_text">
+                <a class="form_link" href="#" id="createAccount" onclick="sumbit()">you already have an account? click here for login.</a
+          >
+        </p>
+      </form>
     </div>
-</body>
+  </body>
 
 </html>

@@ -26,7 +26,7 @@ async function login() {
     for (let i = 0; i < backendUsers.length; i++) {
         if (username == backendUsers[i].userName && password == backendUsers[i].password) {
             await backend.setItem("currentUser", JSON.stringify(backendUsers[i].id));
-            return (location.href = "../html/addTask.html");
+            return (location.href = "html/addTask.html");
         }
     }
     changeColor();
@@ -93,7 +93,7 @@ async function regristerUsers() {
         await backendUsers.push(newUser);
         await backend.setItem("users", JSON.stringify(backendUsers));
         await backend.setItem("currentUser", JSON.stringify(newUser.id));
-        location.href = "../html/addTask.html";
+        location.href = "html/addTask.html";
     }
 
 }
@@ -118,5 +118,5 @@ function selectNewUser(i) {
 
 async function loginAsGuest() {
     await backend.setItem("currentUser", JSON.stringify(5));
-    return (location.href = "../html/addTask.html");
+    return (location.href = "html/addTask.html");
 }
