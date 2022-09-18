@@ -35,7 +35,7 @@ async function addTask() {
   if (form.checkValidity()) {
     setTask();
     await saveTask();
-    window.location.href = "backlog.html";
+    window.location.href = "../html/backlog.html";
   }
 }
 
