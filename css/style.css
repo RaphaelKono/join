@@ -245,7 +245,7 @@ p {
 }
 
 .marginLeftTitle {
-    margin-left: 20px;
+    margin-left: calc(20px + 5px);
 }
 
 .marginLeftCatgegory {
