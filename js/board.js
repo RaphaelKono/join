@@ -9,6 +9,7 @@ async function initBoard() {
 
 var taskOnBoard;
 let currentDraggedElement;
+let currentDetailedTask;
 
 
 function renderBoard() {
@@ -107,6 +108,7 @@ function adaptMediaQueryBoard() {
 }
 
 function showTaskBoardDetail(i) {
+    currentDetailedTask = i;
     document.getElementById('detailBoardCard').classList.remove('d-none');
     renderDetailsBoard(i);
     renderAvatarsBoard(i);
@@ -173,6 +175,14 @@ function addArrowLeft(el, id1, preId) {
             document.getElementById(`${preId}arrowLeft`).classList.remove('d-none');
         }
     }
+}
+
+async function changeStatus() {
+    let formBoard = document.getElementById('formBoard');
+    backendTasks[currentDetailedTask].status = formBoard.elements["statusBoard"].value;
+    await backend.setItem("tasks", JSON.stringify(backendTasks));
+    renderBoard();
+    addArrows();
 }
 
 

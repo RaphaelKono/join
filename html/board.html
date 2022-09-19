@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div id="detailBoardCard" class="container d-none ">
+    <div id="detailBoardCard" class="container d-none">
         <div class="fullscreen animate">
             <div class="card" style="width: 18rem;">
                 <div class="card-body detail-card-board">
@@ -65,7 +65,18 @@
                     <div id="boardtaskBy"></div>
                     <a id="boardtaskadress" href="#" class="card-link">Card link</a>
                     <div id="boardtaskurgency">Urgent</div>
-
+                    <form class="mt-2" id="formBoard" onsubmit="changeStatus(); return false;" novalidate>
+                        <div class="col-md-6">
+                            <label for="validationDefault02" class="form-label">STATUS</label>
+                            <select class="form-select" aria-label="Default select example" id="statusBoard">
+                          <option selected value="ToDo">To Do</option>
+                          <option value="InProgress">In Progress</option>
+                          <option value="Testing">Testing</option>
+                          <option value="Done">Done</option>
+                        </select>
+                        </div>
+                        <button class="btn btn-primary brd-btn" id="btn-create">Change Status</button>
+                    </form>
                 </div>
             </div>
         </div>
