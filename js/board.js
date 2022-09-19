@@ -117,7 +117,7 @@ function renderDetailsBoard(i) {
     document.getElementById('boardtaskcategory').innerHTML = `<p class="${backendTasks[i]["category"]} border-category">${backendTasks[i].category}</p>`;
     document.getElementById('boardtaskurgency').innerHTML = `<div class="p-${backendTasks[i]["urgency"]}">${capitalizeFirstLetter(backendTasks[i].urgency)}</div>`;
     document.getElementById('boardtaskBy').innerHTML = `Creator: ${backendUsers[backendTasks[i]["creator"]-1].firstName} ${backendUsers[backendTasks[i]["creator"]-1].lastName}`;
-    document.getElementById('boardtaskadress').innerHTML = backendUsers[backendTasks[i]["creator"]-1].email;
+    document.getElementById('boardtaskadress').innerHTML = backendUsers[backendTasks[i]["creator"] - 1].email;
     document.getElementById('boardtaskimages').innerHTML = '';
 }
 
@@ -133,4 +133,61 @@ function hideTaskBoardDetail() {
 
 function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+
+function addArrows() {
+    var el = document.getElementById('ToDoBoard');
+    if (isOverflown(el) == true && el.scrollLeft <= 1) {
+        if (document.getElementById('toDoarrowRight')) {
+            document.getElementById('toDoarrowRight').classList.remove('d-none');
+        } else {
+            document.getElementById('toDoCol').innerHTML += `<img id="toDoarrowRight" onclick="scrollNavbarLeft()" src="../img/arrowright.png" class="scroll-arrow scroll-arrow-left d-none">`;
+            document.getElementById('toDoarrowRight').classList.remove('d-none');
+        }
+
+    }
+    if (isOverflown(el) == true && el.scrollLeft > 0) {
+        if (document.getElementById('toDoarrowLeft')) {
+            document.getElementById('toDoarrowLeft').classList.remove('d-none');
+        } else {
+            document.getElementById('toDoCol').innerHTML += `<img id="toDoarrowLeft" onclick="scrollNavbarRight()" src="../img/arrowleft.png" class="scroll-arrow scroll-arrow-right d-none">`;
+            document.getElementById('toDoarrowLeft').classList.remove('d-none');
+        }
+    }
+}
+
+function isOverflown(element) {
+    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}
+
+
+function setScrollTimeout(time) {
+    removeArrows();
+    setTimeout(addArrows, time);
+}
+
+function removeArrows() {
+    if (document.getElementById('toDoarrowRight')) {
+        document.getElementById('toDoarrowRight').classList.add('d-none');
+    }
+    if (document.getElementById('toDoarrowLeft')) {
+        document.getElementById('toDoarrowLeft').classList.add('d-none');
+    }
+}
+
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
+function scrollNavbarRight() {
+    let offset = document.getElementById('ToDoBoard');
+    offset.scrollLeft -= 300;
+    setScrollTimeout(225);
+}
+
+function scrollNavbarLeft() {
+    let offset = document.getElementById('ToDoBoard');
+    offset.scrollLeft += 300;
+    setScrollTimeout(225);
 }

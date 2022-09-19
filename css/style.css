@@ -46,7 +46,7 @@ body {
     text-decoration: underline;
 }
 
-.color-blue{
+.color-blue {
     color: var(--blue);
 }
 
@@ -65,7 +65,7 @@ h4 {
     color: var(--blue);
 }
 
-a{
+a {
     cursor: pointer;
 }
 
@@ -149,9 +149,15 @@ a{
 }
 
 .board-col {
-    min-height: 80vh;
+    height: 80vh;
     background-color: #f4f3fb;
     padding: 0.5rem;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.board-col::-webkit-scrollbar {
+    display: none;
 }
 
 .card-body-board {
@@ -162,7 +168,6 @@ a{
     box-shadow: 0 0 8px rgb(0, 0, 0, 0.1);
     border-radius: 8px;
     background-color: white;
-    /*border-left: 8px solid rgb(255, 165, 0, 0.7) !important;*/
 }
 
 .card-body-board:hover {
@@ -235,6 +240,22 @@ a{
     margin-top: 1rem;
 }
 
+.pos-arrowleft {
+    position: absolute;
+    left: 1rem;
+    height: 2rem;
+    border-radius: 100%;
+    background: rgb(138, 138, 138);
+}
+
+.pos-arrowright {
+    position: absolute;
+    right: 1rem;
+    height: 2rem;
+    border-radius: 100%;
+    background: rgb(138, 138, 138);
+}
+
 
 /*#endregion -----------------CSS for Backlog ----------------- */
 
@@ -256,7 +277,7 @@ p {
     margin-left: 170px;
 }
 
-.marginLeftUrgency{
+.marginLeftUrgency {
     position: absolute;
     right: 10px;
 }
@@ -376,7 +397,6 @@ p.Marketing {
 
 .contentDescription {
     width: 80%;
-
 }
 
 .contentEdit {
@@ -401,7 +421,7 @@ p.Marketing {
     margin-right: 5px;
 }
 
-.mailContainer{
+.mailContainer {
     display: flex;
     align-items: center;
     width: 200px;
@@ -411,7 +431,7 @@ p.Marketing {
     overflow: auto;
 }
 
-.sort{
+.sort {
     display: flex;
     border-bottom: 1px solid lightgray;
     color: gray;
@@ -441,7 +461,6 @@ p.Marketing {
     .iconBacklog {
         width: 17px;
     }
-
     .sort {
         display: none;
     }
@@ -558,21 +577,31 @@ textarea {
     object-fit: contain !important;
 }
 
+
 /* Add Zoom Animation */
+
 .animate {
     -webkit-animation: animatezoom 0.4s;
     animation: animatezoom 0.4s
-  }
-  
-  @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
-  }
-  
-  @keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-  }
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
 
 
 /*#endregion */
@@ -581,7 +610,9 @@ textarea {
     .board-col {
         min-height: unset;
         height: 35vh;
-        overflow-y: scroll;
+    }
+    .card-body-board {
+        /* min-width: 200px !important; */
     }
 }
 
@@ -597,15 +628,34 @@ textarea {
     }
     .col {
         margin-top: .6rem;
+        position: relative;
     }
     .board-col {
         height: 15vh;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        overflow-y: unset !important;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+    }
+    .scroll-arrow {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        border-radius: 100%;
+        background: gray;
+        border: 1px solid gray;
+        height: 24px;
+    }
+    .scroll-arrow-left {
+        right: 24px;
+    }
+    .scroll-arrow-right {
+        left: 24px;
     }
     .card-body-board {
-        max-width: 200px;
+        max-width: 200px !important;
+        min-width: 200px;
         margin: 0;
         margin-right: .5rem;
         margin-top: 0 !important;
