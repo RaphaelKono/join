@@ -632,7 +632,7 @@ textarea {
         display: flex;
         flex-direction: row;
         overflow-y: unset !important;
-        overflow-x: scroll;
+        overflow-x: hidden;
         scroll-behavior: smooth;
     }
     .scroll-arrow {
@@ -668,6 +668,9 @@ textarea {
     .card-body-board h5 {
         font-size: .9rem;
         margin: .1rem;
+    }
+    .pb-5 {
+        padding-bottom: 0 !important;
     }
 }
 

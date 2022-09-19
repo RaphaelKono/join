@@ -30,24 +30,22 @@
                     <h1><b>Board</b></h1>
                     <h4>Easily drag and drop your tasks and projects</h4>
                 </div>
-                <div class=" text-center">
-                    <div id="resizeid" class="row row-cols-4 align-items-start gy-4">
-                        <div id="toDoCol" class="col">
-                            <h3>TO DO</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('ToDo')" ondragover="allowDrop(event)" id="ToDoBoard"></div>
-                        </div>
-                        <div class="col">
-                            <h3>IN PROGRESS</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('InProgress')" ondragover="allowDrop(event)" id="InProgressBoard"></div>
-                        </div>
-                        <div class="col">
-                            <h3>TESTING</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('Testing')" ondragover="allowDrop(event)" id="TestingBoard"></div>
-                        </div>
-                        <div class="col">
-                            <h3>DONE</h3>
-                            <div class="board-col dragarea" ondrop="moveTo('Done')" ondragover="allowDrop(event)" id="DoneBoard"></div>
-                        </div>
+                <div id="resizeid" class="row row-cols-4 align-items-start">
+                    <div id="toDoCol" class="col text-center">
+                        <h3>TO DO</h3>
+                        <div class="board-col dragarea" ondrop="moveTo('ToDo')" ondragover="allowDrop(event)" id="ToDoBoard"></div>
+                    </div>
+                    <div id="inProgressCol" class="col">
+                        <h3>IN PROGRESS</h3>
+                        <div class="board-col dragarea" ondrop="moveTo('InProgress')" ondragover="allowDrop(event)" id="InProgressBoard"></div>
+                    </div>
+                    <div id="testingCol" class="col">
+                        <h3>TESTING</h3>
+                        <div class="board-col dragarea" ondrop="moveTo('Testing')" ondragover="allowDrop(event)" id="TestingBoard"></div>
+                    </div>
+                    <div id="doneCol" class="col">
+                        <h3>DONE</h3>
+                        <div class="board-col dragarea" ondrop="moveTo('Done')" ondragover="allowDrop(event)" id="DoneBoard"></div>
                     </div>
                 </div>
             </div>
