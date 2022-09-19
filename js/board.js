@@ -92,19 +92,31 @@ window.addEventListener("resize", function(event) {
 
 function adaptMediaQueryBoard() {
     if (window.innerWidth < 1200 && window.innerWidth >= 1000) {
-        document.getElementById("resizeid").classList.add("row-cols-2");
-        document.getElementById("resizeid").classList.remove("row-cols-4");
-        document.getElementById("resizeid").classList.remove("flex-column");
+        displayGridMedium();
     }
     if (window.innerWidth >= 1200) {
-        document.getElementById("resizeid").classList.remove("row-cols-2");
-        document.getElementById("resizeid").classList.add("row-cols-4");
+        displayGridLarge();
     }
     if (window.innerWidth < 1000) {
-        document.getElementById("resizeid").classList.remove("row-cols-2");
-        document.getElementById("resizeid").classList.remove("row-cols-4");
-        document.getElementById("resizeid").classList.add("flex-column");
+        displayGridSmall();
     }
+}
+
+function displayGridSmall() {
+    document.getElementById("resizeid").classList.remove("row-cols-2");
+    document.getElementById("resizeid").classList.remove("row-cols-4");
+    document.getElementById("resizeid").classList.add("flex-column");
+}
+
+function displayGridMedium() {
+    document.getElementById("resizeid").classList.add("row-cols-2");
+    document.getElementById("resizeid").classList.remove("row-cols-4");
+    document.getElementById("resizeid").classList.remove("flex-column");
+}
+
+function displayGridLarge() {
+    document.getElementById("resizeid").classList.remove("row-cols-2");
+    document.getElementById("resizeid").classList.add("row-cols-4");
 }
 
 function showTaskBoardDetail(i) {
@@ -213,12 +225,12 @@ function removeArrow(preId) {
 
 function scrollNavbarRight(id, preid) {
     let offset = document.getElementById(id);
-    offset.scrollLeft -= 300;
+    offset.scrollLeft -= 200;
     setScrollTimeout(225, preid);
 }
 
 function scrollNavbarLeft(id, preid) {
     let offset = document.getElementById(id);
-    offset.scrollLeft += 300;
+    offset.scrollLeft += 200;
     setScrollTimeout(225, preid);
 }
