@@ -611,9 +611,6 @@ textarea {
         min-height: unset;
         height: 35vh;
     }
-    .card-body-board {
-        /* min-width: 200px !important; */
-    }
 }
 
 @media (min-width: 991px) {
