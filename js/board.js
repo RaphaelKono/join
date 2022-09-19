@@ -86,6 +86,7 @@ function templateBoardCardsChild(i, j) {
 
 window.addEventListener("resize", function(event) {
     adaptMediaQueryBoard();
+    setScrollTimeout(225);
 });
 
 function adaptMediaQueryBoard() {
@@ -140,7 +141,7 @@ function capitalizeFirstLetter(str) {
 
 function addArrows() {
     var el = document.getElementById('ToDoBoard');
-    if (isOverflown(el) == true && el.scrollLeft <= 1) {
+    if (isOverflown(el) == true && el.scrollLeft <= 1 || ((el.scrollWidth - el.scrollLeft) > el.offsetWidth)) {
         if (document.getElementById('toDoarrowRight')) {
             document.getElementById('toDoarrowRight').classList.remove('d-none');
         } else {
