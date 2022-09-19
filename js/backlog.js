@@ -170,6 +170,8 @@ function selectUser(i) {
 }
 
 function renderUrg() {
+  removeColor(4);
+  document.getElementById("sort-4").classList.add('color-blue');
   backendTasks.sort(function (x, y) {
     let a = x.urgency,
       b = y.urgency;
@@ -181,16 +183,29 @@ function renderUrg() {
 }
 
 function renderCat() {
+  removeColor(2);
+  document.getElementById("sort-2").classList.add('color-blue');
   backendTasks.sort((a, b) => a["category"].localeCompare(b["category"]));
   renderBacklog();
 }
 
 function renderNam() {
+  removeColor(1);
+  document.getElementById("sort-1").classList.add('color-blue');
   backendTasks.sort((a, b) => a["creator"] - b["creator"]);
   renderBacklog();
 }
 
 function renderTit() {
+  removeColor(3);
+  document.getElementById("sort-3").classList.add('color-blue');
   backendTasks.sort((a, b) => a["title"].localeCompare(b["title"]));
   renderBacklog();
+}
+
+function removeColor(i){
+  for (let index = 1; index < 5; index++) {
+    if(index == i) continue;
+    document.getElementById("sort-" + index).classList.remove('color-blue');
+  }
 }

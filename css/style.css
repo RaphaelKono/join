@@ -46,6 +46,10 @@ body {
     text-decoration: underline;
 }
 
+.color-blue{
+    color: var(--blue);
+}
+
 .divider {
     color: white;
     margin-left: 2px;
@@ -410,6 +414,7 @@ p.Marketing {
 .sort{
     display: flex;
     border-bottom: 1px solid lightgray;
+    color: gray;
 }
 
 #formbl {
