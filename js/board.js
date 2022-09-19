@@ -4,6 +4,7 @@ async function initBoard() {
     document.getElementById('nav-Board').classList.add('brd-left-active');
     renderBoard();
     adaptMediaQueryBoard();
+    setScrollTimeout(225);
 }
 
 var taskOnBoard;
@@ -60,6 +61,7 @@ async function moveTo(category) {
     backendTasks[currentDraggedElement].status = category;
     await backend.setItem("tasks", JSON.stringify(backendTasks));
     renderBoard();
+    setScrollTimeout(225);
 }
 
 function templateBoardCards(currentTask, i) {
@@ -176,9 +178,6 @@ function removeArrows() {
     }
 }
 
-function delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-}
 
 function scrollNavbarRight() {
     let offset = document.getElementById('ToDoBoard');
