@@ -58,7 +58,7 @@ function renderBacklogHMTL(i, task) {
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
             <div><p class="text">${cutString(
               task["description"],
-              200
+              80
             )}</p></div>
         </div>
 
