@@ -197,6 +197,7 @@ th h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 .detail-card-board {
@@ -411,7 +412,6 @@ p.Marketing {
 
 .dialog {
     overflow: auto;
-    height: 70vh !important;
 }
 
 #formbl {
@@ -419,6 +419,7 @@ p.Marketing {
     overflow: auto;
     width: 50%;
     border-radius: 10px;
+    max-height: 97vh !important;
 }
 
 @media (min-width: 299px) and (max-width: 995px) {
@@ -560,8 +561,8 @@ textarea {
 
 /* Add Zoom Animation */
 .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
+    -webkit-animation: animatezoom 0.4s;
+    animation: animatezoom 0.4s
   }
   
   @-webkit-keyframes animatezoom {
