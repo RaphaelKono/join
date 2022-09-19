@@ -420,7 +420,7 @@ p.Marketing {
     max-height: 97vh !important;
 }
 
-@media (min-width: 299px) and (max-width: 995px) {
+@media (min-width: 299px) and (max-width: 750px) {
     .bg {
         width: unset;
         flex-direction: column;
