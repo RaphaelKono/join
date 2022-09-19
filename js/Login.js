@@ -2,7 +2,6 @@ const loginForm = document.getElementById("login");
 const createAccountForm = document.querySelector("#regrister");
 let selectedNewUser = "userNew-1";
 let currentUser = [];
-let regrist = false;
 
 async function initLogin() {
     setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
@@ -74,11 +73,11 @@ async function regristerUsers() {
             return;
         } else if (regristerpassword == backendUsers[i].password) {
             document.getElementById("error_password").innerHTML = "that password is already in use, please choose another.";
-            document.getElementById("loginPassword").style.borderColor = "red"
+            document.getElementById("signUpPassword").style.borderColor = "red"
             return;
         } else if (regristerpassword != regristerpassword2) {
             document.getElementById("error_password").innerHTML = "the password is not the same as the repeated password";
-            document.getElementById("loginPassword2").style.borderColor = "red"
+            document.getElementById("signUpPassword2").style.borderColor = "red"
             return;
         }
         if (regristerusername == "" || regristerfirstname == "" || regristerlastname == "" || regristeremail == "" || regristerpassword == "" || regristerpassword2 == "") {
@@ -86,16 +85,11 @@ async function regristerUsers() {
             return;
         }
     }
-
-    regrist = true;
-    if (regrist = true) {
         alert('Your register was succesful!');
         await backendUsers.push(newUser);
         await backend.setItem("users", JSON.stringify(backendUsers));
         await backend.setItem("currentUser", JSON.stringify(newUser.id));
         location.href = "html/addTask.html";
-    }
-
 }
 
 function selectNewUser(i) {
