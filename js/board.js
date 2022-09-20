@@ -15,9 +15,11 @@ let currentDetailedTask;
 function renderBoard() {
     resetBoard();
     for (let i = 0; i < backendTasks.length; i++) {
-        renderCurrentCol(i);
-        for (let j = 0; j < backendTasks[i].assignedTo.length; j++) {
-            renderCurrentTaskAvatars(i, j);
+        if (backendTasks[i].status != 'Backlog') {
+            renderCurrentCol(i);
+            for (let j = 0; j < backendTasks[i].assignedTo.length; j++) {
+                renderCurrentTaskAvatars(i, j);
+            }
         }
     }
 }
