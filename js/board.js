@@ -226,7 +226,6 @@ function removeArrow(preId) {
         document.getElementById(`${preId}arrowLeft`).classList.add('d-none');
     }
 }
-// Testkommentar
 
 function scrollNavbarRight(id, preid) {
     let offset = document.getElementById(id);
