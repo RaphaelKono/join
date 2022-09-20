@@ -188,3 +188,9 @@
         width: 80%;
     }
 }
+
+@media (min-width: 999px) {
+    .scroll-arrow {
+        display: none;
+    }
+}

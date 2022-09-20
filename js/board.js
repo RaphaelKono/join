@@ -112,6 +112,7 @@ function displayGridMedium() {
     document.getElementById("resizeid").classList.add("row-cols-2");
     document.getElementById("resizeid").classList.remove("row-cols-4");
     document.getElementById("resizeid").classList.remove("flex-column");
+
 }
 
 function displayGridLarge() {
@@ -166,7 +167,6 @@ function addArrow(id1, preId) {
     var el = document.getElementById(id1);
     addArrowRight(el, id1, preId);
     addArrowLeft(el, id1, preId);
-
 }
 
 function addArrowRight(el, id1, preId) {
