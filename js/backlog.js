@@ -39,41 +39,23 @@ function renderBacklogHMTL(i, task) {
   return `
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
-            <div><img src="${
-              backendUsers[task["creator"] - 1]["src"]
-            }" class="avatarBacklog"></div>
-            <div class="mailContainer"><div><p>${
-              backendUsers[task["creator"] - 1]["firstName"]
-            } ${backendUsers[task["creator"] - 1]["lastName"]}</p>
-            <p class="mail">${backendUsers[task["creator"] - 1][
-              "email"
-            ].toLowerCase()}</p></div></div>
+            <div><img src="${backendUsers[task["creator"] - 1]["src"]}" class="avatarBacklog"></div>
+            <div class="mailContainer"><div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
+    backendUsers[task["creator"] - 1]["lastName"]
+  }</p>
+            <p class="mail">${backendUsers[task["creator"] - 1]["email"].toLowerCase()}</p></div></div>
         </div>
-
-        <div class="contentCategory"><p class="contentTextCategory ${
-          task["category"]
-        }"><b>${task["category"]}</b></p></div>
-
+        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${
+    task["category"]
+  }</b></p></div>
         <div class="contentDescription">
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
-            <div><p class="text">${cutString(
-              task["description"],
-              80
-            )}</p></div>
+            <div><p class="text">${cutString(task["description"], 80)}</p></div>
         </div>
-
         <div class="contentEdit">
             <div><a  onclick="deleteTask(${i})"><img src="../img/delete.png" class="iconBacklog"></a></div>
             <div><a  onclick="editTask(${i})"><img src="../img/edit.png" class="iconBacklog"></a></div>
         </div>
-
-        <!--
-        <div><p>Dringlichkeit: ${task["urgency"]}</p>
-        <div><p>Ticket erledigt bis: ${task["duedate"]}</p>
-        <div><p>Task erfasst am: ${task["currentdate"]}</p>
-        <div><p>Ticket Status: ${task["status"]}</p>
-        </div>
-        -->
     </div>
         `;
 }
@@ -104,8 +86,7 @@ function setEditTask(id) {
   formbl.elements["dueDate"].value = editTasks["duedate"];
   let urgencys = document.getElementsByName("choice");
   for (i = 0; i < urgencys.length; i++) {
-    if (urgencys[i].value == editTasks["urgency"])
-      urgencys[i].checked = "checked";
+    if (urgencys[i].value == editTasks["urgency"]) urgencys[i].checked = "checked";
   }
   formbl.elements["curDate"].value = editTasks["currentdate"];
   formbl.elements["desc"].value = editTasks["description"];
@@ -171,7 +152,7 @@ function selectUser(i) {
 
 function renderUrg() {
   removeColor(4);
-  document.getElementById("sort-4").classList.add('color-blue');
+  document.getElementById("sort-4").classList.add("color-blue");
   backendTasks.sort(function (x, y) {
     let a = x.urgency,
       b = y.urgency;
@@ -184,28 +165,28 @@ function renderUrg() {
 
 function renderCat() {
   removeColor(2);
-  document.getElementById("sort-2").classList.add('color-blue');
+  document.getElementById("sort-2").classList.add("color-blue");
   backendTasks.sort((a, b) => a["category"].localeCompare(b["category"]));
   renderBacklog();
 }
 
 function renderNam() {
   removeColor(1);
-  document.getElementById("sort-1").classList.add('color-blue');
+  document.getElementById("sort-1").classList.add("color-blue");
   backendTasks.sort((a, b) => a["creator"] - b["creator"]);
   renderBacklog();
 }
 
 function renderTit() {
   removeColor(3);
-  document.getElementById("sort-3").classList.add('color-blue');
+  document.getElementById("sort-3").classList.add("color-blue");
   backendTasks.sort((a, b) => a["title"].localeCompare(b["title"]));
   renderBacklog();
 }
 
-function removeColor(i){
+function removeColor(i) {
   for (let index = 1; index < 5; index++) {
-    if(index == i) continue;
-    document.getElementById("sort-" + index).classList.remove('color-blue');
+    if (index == i) continue;
+    document.getElementById("sort-" + index).classList.remove("color-blue");
   }
 }
