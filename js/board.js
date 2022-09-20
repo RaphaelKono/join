@@ -198,6 +198,7 @@ async function changeStatus() {
     backendTasks[currentDetailedTask].status = formBoard.elements["statusBoard"].value;
     await backend.setItem("tasks", JSON.stringify(backendTasks));
     renderBoard();
+    hideTaskBoardDetail();
     addArrows();
 }
 
