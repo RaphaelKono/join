@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,99 +17,101 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
-  </head>
+</head>
 
-  <body onload="initBacklog()">
+<body onload="initBacklog()">
     <div class="card-header">
-      <div w3-include-html="../html/header.html" class="card-header"></div>
+        <div w3-include-html="../html/header.html" class="card-header"></div>
     </div>
     <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <h1><b>Backlog</b></h1>
-          <h4>See all your tasks and projects</h4>
-          <div class="mt-5 sort ">
-                <a onclick="renderNam()"><h3 id="sort-1">↓CREATOR</h3></a>
-                <a onclick="renderCat()"><h3 id="sort-2" class="marginLeftCatgegory">↓CATEGORY</h3></a>
-                <a onclick="renderTit()"><h3 id="sort-3" class="marginLeftTitle">↓TITLE</h3></a>
-                <a onclick="renderUrg()"><h3 id="sort-4" class="marginLeftUrgency">URGENCY↓</h3></a>
-          </div>
-          <div class="mt-5" id="backlogContent"></div>
+        <div class="card">
+            <div class="card-body">
+                <h1><b>Backlog</b></h1>
+                <h4>See all your tasks and projects</h4>
+                <div class="mt-5 sort ">
+                    <a onclick="renderNam()" class="contentAvatar unstyle-link">
+                        <h3 id="sort-1">↓CREATOR</h3>
+                    </a>
+                    <a onclick="renderCat()" class="contentCategory unstyle-link">
+                        <h3 id="sort-2" class="">↓CATEGORY</h3>
+                    </a>
+                    <a onclick="renderTit()" class="contentDescription unstyle-link">
+                        <h3 id="sort-3" class="">↓TITLE</h3>
+                    </a>
+                    <a onclick="renderUrg()">
+                        <h3 id="sort-4" class="marginLeftUrgency">URGENCY↓</h3>
+                    </a>
+                </div>
+                <div class="mt-5" id="backlogContent"></div>
+            </div>
         </div>
-      </div>
     </div>
     <div id="dialogEditTask" class="container d-none ">
-      <div class="fullscreen animate">
-        <form class="row gy-4 m-1 p-3 pb-5 col-md-8 needs-validation" id="formbl" novalidate onsubmit="saveEditTask(); return false;">
-          <div class="col-md-12">
-            <label for="validationDefault01" class="form-label">TITLE</label>
-            <input type="text" class="form-control" id="tasktitle" required />
-            <div class="invalid-feedback">Please choose a title.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="validationDefault02" class="form-label">CATEGORY</label>
-            <select class="form-select" aria-label="Default select example" id="category">
+        <div class="fullscreen animate">
+            <form class="row gy-4 m-1 p-3 pb-5 col-md-8 needs-validation" id="formbl" novalidate onsubmit="saveEditTask(); return false;">
+                <div class="col-md-12">
+                    <label for="validationDefault01" class="form-label">TITLE</label>
+                    <input type="text" class="form-control" id="tasktitle" required />
+                    <div class="invalid-feedback">Please choose a title.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault02" class="form-label">CATEGORY</label>
+                    <select class="form-select" aria-label="Default select example" id="category">
               <option selected value="Management">Management</option>
               <option value="Sales">Sales</option>
               <option value="Product">Product</option>
               <option value="Marketing">Marketing</option>
             </select>
-          </div>
-          <div class="col-md-6">
-            <label for="validationDefault03" class="form-label">URGENCY</label>
-            <div class="form-control">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="choice" id="inlineRadio1" value="low" />
-                <label class="form-check-label" for="inlineRadio1">Low</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="choice"
-                  id="inlineRadio2"
-                  value="medium"
-                  checked="checked"
-                />
-                <label class="form-check-label" for="inlineRadio2">Medium</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="choice" id="inlineRadio3" value="high" />
-                <label class="form-check-label" for="inlineRadio3">High</label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationDefault03" class="form-label">DESCRIPTION</label>
-            <textarea class="form-control" id="desc" rows="3" name="textarea"></textarea>
-          </div>
-          <div class="col-md-6">
-            <div class="col-md-8 mb-4">
-              <label for="curDate" class="form-label">START DATE</label>
-              <input id="curDate" class="form-control" type="date" />
-            </div>
-            <div class="col-md-8">
-              <label for="dueDate" class="form-label">DUE DATE</label>
-              <input id="dueDate" class="form-control" type="date" required />
-              <div class="invalid-feedback">Please choose a due date.</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="col-md-12 mb-3">
-              <label for="users" class="form-label" id="assignedTo">ASSIGNED TO</label>
-              <div class="col-md-12 pt-md-3">
-                <div id="avatars"></div>
-              </div>
-              <input type="text" style="display: none" class="form-control" id="users"  />
-              <div class="invalid-feedback">Please choose one or more user.</div>
-            </div>
-            <div class="col-md-12">
-              <a class="btn col-md m-2" onclick="window.location.reload()" id="cancel">CANCEL</a>
-              <button class="btn btn-primary col-md m-2" id="btn-create">SAVE TASK</button>
-            </div>
-          </div>
-        </form>
-      </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault03" class="form-label">URGENCY</label>
+                    <div class="form-control">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="choice" id="inlineRadio1" value="low" />
+                            <label class="form-check-label" for="inlineRadio1">Low</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="choice" id="inlineRadio2" value="medium" checked="checked" />
+                            <label class="form-check-label" for="inlineRadio2">Medium</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="choice" id="inlineRadio3" value="high" />
+                            <label class="form-check-label" for="inlineRadio3">High</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault03" class="form-label">DESCRIPTION</label>
+                    <textarea class="form-control" id="desc" rows="3" name="textarea"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-8 mb-4">
+                        <label for="curDate" class="form-label">START DATE</label>
+                        <input id="curDate" class="form-control" type="date" />
+                    </div>
+                    <div class="col-md-8">
+                        <label for="dueDate" class="form-label">DUE DATE</label>
+                        <input id="dueDate" class="form-control" type="date" required />
+                        <div class="invalid-feedback">Please choose a due date.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-12 mb-3">
+                        <label for="users" class="form-label" id="assignedTo">ASSIGNED TO</label>
+                        <div class="col-md-12 pt-md-3">
+                            <div id="avatars"></div>
+                        </div>
+                        <input type="text" style="display: none" class="form-control" id="users" />
+                        <div class="invalid-feedback">Please choose one or more user.</div>
+                    </div>
+                    <div class="col-md-12">
+                        <a class="btn col-md m-2" onclick="window.location.reload()" id="cancel">CANCEL</a>
+                        <button class="btn btn-primary col-md m-2" id="btn-create">SAVE TASK</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

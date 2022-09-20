@@ -315,6 +315,11 @@ p {
     display: flex;
 }
 
+.unstyle-link {
+    text-decoration: none;
+    color: gray;
+}
+
 
 /* Colors of Urgency */
 
