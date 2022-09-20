@@ -31,9 +31,8 @@ function renderBacklog() {
     loadTasks.innerHTML = "";
     for (let i = 0; i < backendTasks.length; i++) {
         const task = backendTasks[i];
-        loadTasks.innerHTML += renderBacklogHMTL(i, task);
         if (task.status == 'Backlog') {
-            document.getElementById(`pushtoBoardbtn${i}`).innerHTML = renderBacklogHTMLchild(i);
+            loadTasks.innerHTML += renderBacklogHMTL(i, task);
         }
     }
 }
@@ -58,14 +57,10 @@ function renderBacklogHMTL(i, task) {
         <div class="contentEdit">
             <div><a  onclick="deleteTask(${i})"><img src="../img/delete.png" title="delete" class="iconBacklog"></a></div>
             <div><a  onclick="editTask(${i})"><img src="../img/edit.png" title="edit" class="iconBacklog"></a></div>
-            <div id="pushtoBoardbtn${i}"></div>
+            <div id="pushtoBoardbtn${i}"><a onclick="pushToBoard(${i})"><img src="../img/addToBoard.png" title="push to board" class="iconBacklog"></a></div>
         </div>
     </div>
         `;
-}
-
-function renderBacklogHTMLchild(i) {
-    return `<a  onclick="pushToBoard(${i})"><img src="../img/addToBoard.png" title="push to board" class="iconBacklog"></a>`;
 }
 
 formbl.addEventListener(
@@ -201,6 +196,6 @@ function removeColor(i) {
 
 async function pushToBoard(i) {
     backendTasks[i].status = 'ToDo';
-    document.getElementById(`pushtoBoardbtn${i}`).classList.add('d-none');
     await backend.setItem("tasks", JSON.stringify(backendTasks));
+    await initBacklog();
 }
