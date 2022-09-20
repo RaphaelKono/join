@@ -154,10 +154,12 @@ function capitalizeFirstLetter(str) {
 
 
 function addArrows() {
-    addArrow('ToDoBoard', 'toDo');
-    addArrow('InProgressBoard', 'inProgress');
-    addArrow('TestingBoard', 'testing');
-    addArrow('DoneBoard', 'done');
+    if (window.innerWidth < 1000) {
+        addArrow('ToDoBoard', 'toDo');
+        addArrow('InProgressBoard', 'inProgress');
+        addArrow('TestingBoard', 'testing');
+        addArrow('DoneBoard', 'done');
+    }
 }
 
 function addArrow(id1, preId) {
