@@ -12,7 +12,7 @@
 }
 
 .board-col {
-    height: 80vh;
+    height: 75vh;
     background-color: #f4f3fb;
     padding: 0.5rem;
     overflow-y: scroll;
