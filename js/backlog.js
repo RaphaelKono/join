@@ -53,8 +53,8 @@ function renderBacklogHMTL(i, task) {
             <div><p class="text">${cutString(task["description"], 80)}</p></div>
         </div>
         <div class="contentEdit">
-            <div><a  onclick="deleteTask(${i})"><img src="../img/delete.png" class="iconBacklog"></a></div>
-            <div><a  onclick="editTask(${i})"><img src="../img/edit.png" class="iconBacklog"></a></div>
+            <div><a  onclick="deleteTask(${i})"><img src="../img/delete.png" title="delete" class="iconBacklog"></a></div>
+            <div><a  onclick="editTask(${i})"><img src="../img/edit.png" title="edit" class="iconBacklog"></a></div>
         </div>
     </div>
         `;
