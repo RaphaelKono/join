@@ -360,7 +360,7 @@ form label {
     height: 50px;
     object-fit: cover;
     opacity: 0.6;
-    margin-right: 5px;
+    margin: 5px;
 }
 
 .avatar:hover {
