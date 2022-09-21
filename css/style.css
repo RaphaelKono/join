@@ -446,14 +446,9 @@ textarea {
     object-fit: contain !important;
 }
 
-
 ::-webkit-scrollbar {
     width: 5px;
-    height: 5px;
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 5px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
