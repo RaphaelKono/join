@@ -110,6 +110,7 @@ async function saveEditTask() {
         closeDialog();
         selectedUsers = [];
         renderBacklog();
+        formbl.classList.remove("was-validated");
     }
 }
 
