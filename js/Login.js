@@ -82,7 +82,6 @@ createAccountForm.addEventListener(
 async function registerUsers() {
   if (createAccountForm.checkValidity()) {
     setNewUser();
-    alert("Your register was succesful!");
     await backendUsers.push(newUser);
     await backend.setItem("users", JSON.stringify(backendUsers));
     await backend.setItem("currentUser", JSON.stringify(newUser.id));
