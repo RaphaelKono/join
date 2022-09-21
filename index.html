@@ -44,7 +44,6 @@
         </form>
         <form id="register" class="form_hidden" onsubmit="registerUsers(); return false;" novalidate>
             <h1 class="form_title">Register</h1>
-            <div class="form_message form_message_error"></div>
             <div class="form_input_group">
                 <input type="text" id="signupUsername" class="form_input" autofocus placeholder="Username" required/>
                 <div class="invalid-feedback">Please choose a username.</div>
@@ -62,7 +61,7 @@
                 <div class="invalid-feedback">Please choose a emailadress.</div>
             </div>
             <div class="form_input_group">
-                <input id="signUpPassword" type="password" class="form_input_pw" pattern=".{5,}" autofocus placeholder="Password" required/>
+                <input id="signUpPassword" type="password" class="form_input" pattern=".{5,}" autofocus placeholder="Password" required/>
                 <div class="invalid-feedback">Your password must be include 5 or more character.</div>
             </div>
             <div class="mb-3">
