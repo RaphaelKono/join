@@ -10,7 +10,7 @@
         --blue: #203192;
     }
     
-    .container {
+    .containerLogin {
         background: white;
         border-radius: 20px;
         display: flex;
@@ -126,4 +126,10 @@
     
     .form_link:hover {
         text-decoration: underline;
+    }
+
+    @media (max-width: 400px) {
+        .form_input{
+            min-width: unset;
+        }
     }
