@@ -21,9 +21,7 @@ function renderBoard() {
     for (let i = 0; i < backendTasks.length; i++) {
         if (backendTasks[i].status != 'Backlog') {
             renderCurrentCol(i);
-            for (let j = 0; j < backendTasks[i].assignedTo.length; j++) {
-                renderCurrentTaskAvatars(i, j);
-            }
+            renderCurrentTaskAvatars(i);
         }
     }
 }
@@ -42,9 +40,11 @@ function renderCurrentCol(i) {
     document.getElementById(`task${i}`).innerHTML = "";
 }
 
-function renderCurrentTaskAvatars(i, j) {
+function renderCurrentTaskAvatars(i) {
     let currentBoardColChild = document.getElementById(`task${i}`);
-    currentBoardColChild.innerHTML += templateBoardCardsChild(i, j);
+    console.log(backendUsers[backendTasks[i]["creator"] - 1].id);
+    console.log(backendUsers[backendTasks[i]["creator"] - 1]);
+    currentBoardColChild.innerHTML += templateBoardCardsChild(i);
 }
 
 function cutString(descr, amount) {
@@ -85,9 +85,9 @@ function templateBoardCards(currentTask, i) {
     `;
 }
 
-function templateBoardCardsChild(i, j) {
+function templateBoardCardsChild(i) {
     return `
-    <img class="avatar-board" src="${backendUsers[backendTasks[i]["assignedTo"][j]]["src"]}">
+    <img class="avatar-board" src="${backendUsers[backendTasks[i]["creator"] - 1]["src"]}">
     `;
 }
 
@@ -151,8 +151,14 @@ function renderDetailsBoard(i) {
 
 function renderAvatarsBoard(i) {
     for (let j = 0; j < backendTasks[i].assignedTo.length; j++) {
-        document.getElementById('boardtaskimages').innerHTML += templateBoardCardsChild(i, j);
+        document.getElementById('boardtaskimages').innerHTML += templateBoardCardAvatars(i, j);
     }
+}
+
+function templateBoardCardAvatars(i, j) {
+    return `
+    <img class="avatar-board" src="${backendUsers[backendTasks[i]["assignedTo"][j]]["src"]}">
+    `;
 }
 
 function hideTaskBoardDetail() {
