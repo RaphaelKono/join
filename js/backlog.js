@@ -24,6 +24,7 @@ async function deleteTask(i) {
     backendTasks.splice(i, 1);
     await backend.setItem("tasks", JSON.stringify(backendTasks));
     renderBacklog();
+    renderBacklogAlert('Deleted');
 }
 
 function renderBacklog() {
@@ -139,6 +140,7 @@ async function saveEditTask() {
         selectedUsers = [];
         renderBacklog();
         formbl.classList.remove("was-validated");
+        renderBacklogAlert('Edited')
     }
 }
 
@@ -236,20 +238,46 @@ async function pushToBoard(i) {
     backendTasks[i].status = 'ToDo';
     await backend.setItem("tasks", JSON.stringify(backendTasks));
     await initBacklog();
-    renderBacklogAlert();
+    renderBacklogAlert('PushedToBoard');
 }
 
-function renderBacklogAlert() {
+function renderBacklogAlert(event) {
     let backlogAlert = document.getElementById('backlogalert');
     backlogAlert.innerHTML = '';
-    backlogAlert.innerHTML = templateAlertMessage();
+    alertCases(backlogAlert, event);
     setTimeout(() => {
         backlogAlert.innerHTML = '';
     }, 3000);
 }
 
+function alertCases(backlogAlert, event) {
+    switch (event) {
+        case 'PushedToBoard':
+            backlogAlert.innerHTML = templateAlertMessage();
+            break;
+        case 'Deleted':
+            backlogAlert.innerHTML = templateAlertMessage2();
+            break;
+        case 'Edited':
+            backlogAlert.innerHTML = templateAlertMessage3();
+            break;
+    }
+}
+
 function templateAlertMessage() {
     return `
     <div class="card-alert"><p>Task has been pushed to the board</p></div>
+    `;
+}
+
+function templateAlertMessage2() {
+    return `
+    <div class="card-alert"><p>Task has been deleted</p></div>
+    `;
+}
+
+function templateAlertMessage3() {
+    return `
+    <div class="card-alert"><p>Task has been successfully edited</p></div>
     `;
 }

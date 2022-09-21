@@ -80,11 +80,6 @@ a {
     margin-bottom: 15px;
 }
 
-.container {
-    margin-left: 164px;
-    max-width: 80%;
-}
-
 .card {
     display: flex;
     flex-direction: row !important;
@@ -97,7 +92,6 @@ a {
     background-color: var(--blue) !important;
     padding: 0;
     height: 100vh;
-    position: fixed;
     left: 0;
     top: 0;
 }
