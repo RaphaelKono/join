@@ -236,4 +236,20 @@ async function pushToBoard(i) {
     backendTasks[i].status = 'ToDo';
     await backend.setItem("tasks", JSON.stringify(backendTasks));
     await initBacklog();
+    renderBacklogAlert();
+}
+
+function renderBacklogAlert() {
+    let backlogAlert = document.getElementById('backlogalert');
+    backlogAlert.innerHTML = '';
+    backlogAlert.innerHTML = templateAlertMessage();
+    setTimeout(() => {
+        backlogAlert.innerHTML = '';
+    }, 3000);
+}
+
+function templateAlertMessage() {
+    return `
+    <div class="card-alert"><p>Task has been pushed to the board</p></div>
+    `;
 }
