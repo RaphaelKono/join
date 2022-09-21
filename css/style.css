@@ -361,7 +361,14 @@ form label {
     object-fit: cover;
     opacity: 0.6;
     margin: 5px;
+
 }
+
+#avatars{
+    max-height: 80px;
+    overflow: auto;
+    /*white-space: nowrap;*/
+}   
 
 .avatar:hover {
     opacity: 1;
@@ -437,4 +444,19 @@ textarea {
 #userNew-2,
 #userNew-3 {
     object-fit: contain !important;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 5px;
 }
