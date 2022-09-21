@@ -33,7 +33,7 @@ function renderBacklog() {
     if (backlogTasks.length > 0) {
         renderBacklogTasks(loadTasks);
     } else if (backlogTasks.length == 0) {
-        loadTasks.innerHTML += renderAddTaskMessage();
+        loadTasks.innerHTML = renderAddTaskMessage();
     }
 }
 
