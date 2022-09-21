@@ -42,8 +42,6 @@ function renderCurrentCol(i) {
 
 function renderCurrentTaskAvatars(i) {
     let currentBoardColChild = document.getElementById(`task${i}`);
-    console.log(backendUsers[backendTasks[i]["creator"] - 1].id);
-    console.log(backendUsers[backendTasks[i]["creator"] - 1]);
     currentBoardColChild.innerHTML += templateBoardCardsChild(i);
 }
 

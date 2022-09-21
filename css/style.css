@@ -102,6 +102,15 @@ a {
     top: 0;
 }
 
+.add-message {
+    font-size: 1.1rem;
+    color: gray;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
 
 /*#region Navigation */
 
@@ -361,14 +370,13 @@ form label {
     object-fit: cover;
     opacity: 0.6;
     margin: 5px;
-
 }
 
-#avatars{
+#avatars {
     max-height: 80px;
     overflow: auto;
     /*white-space: nowrap;*/
-}   
+}
 
 .avatar:hover {
     opacity: 1;

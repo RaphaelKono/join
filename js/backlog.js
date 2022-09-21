@@ -29,15 +29,24 @@ async function deleteTask(i) {
 function renderBacklog() {
     let loadTasks = document.getElementById("backlogContent");
     loadTasks.innerHTML = "";
+    let backlogTasks = backendTasks.filter(t => t['status'] == 'Backlog');
+    if (backlogTasks.length > 0) {
+        renderBacklogTasks(loadTasks);
+    } else if (backlogTasks.length == 0) {
+        loadTasks.innerHTML += renderAddTaskMessage();
+    }
+}
+
+function renderBacklogTasks(loadTasks) {
     for (let i = 0; i < backendTasks.length; i++) {
         const task = backendTasks[i];
         if (task.status == 'Backlog') {
-            loadTasks.innerHTML += renderBacklogHMTL(i, task);
+            loadTasks.innerHTML += renderBacklogHTML(i, task);
         }
     }
 }
 
-function renderBacklogHMTL(i, task) {
+function renderBacklogHTML(i, task) {
     return `
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
@@ -59,6 +68,12 @@ function renderBacklogHMTL(i, task) {
         </div>
     </div>
         `;
+}
+
+function renderAddTaskMessage() {
+    return `
+    <a href="../html/addTask.html" class="add-message">Currently, there is no task in backlog. You can add a task in the "Add Task" section.</p>
+    `;
 }
 
 formbl.addEventListener(
@@ -86,21 +101,34 @@ function editTask(id) {
 
 function setEditTask(id) {
     let editTasks = backendTasks[id];
+    setEditSingleElements(editTasks);
+    setEditUrgencies(editTasks);
+    setEditAssignedUsers(editTasks);
+    checkSelectUser();
+}
+
+function setEditSingleElements(editTasks) {
     formbl.elements["tasktitle"].value = editTasks["title"];
     formbl.elements["category"].value = editTasks["category"];
     formbl.elements["dueDate"].value = editTasks["duedate"];
+    formbl.elements["curDate"].value = editTasks["currentdate"];
+    formbl.elements["desc"].value = editTasks["description"];
+}
+
+function setEditUrgencies(editTasks) {
     let urgencys = document.getElementsByName("choice");
     for (i = 0; i < urgencys.length; i++) {
         if (urgencys[i].value == editTasks["urgency"]) urgencys[i].checked = "checked";
     }
-    formbl.elements["curDate"].value = editTasks["currentdate"];
-    formbl.elements["desc"].value = editTasks["description"];
+}
+
+function setEditAssignedUsers(editTasks) {
     editTasks["assignedTo"].forEach((element) => {
         document.getElementById("user-" + element).classList.add('avatar-selected');
     });
     selectedUsers = editTasks["assignedTo"];
-    checkSelectUser();
 }
+
 
 async function saveEditTask() {
     if (formbl.checkValidity()) {
