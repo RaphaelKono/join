@@ -4,6 +4,10 @@ async function initBoard() {
     document.getElementById('nav-Board').classList.add('brd-left-active');
     renderBoard();
     adaptMediaQueryBoard();
+    removeArrow('toDo');
+    removeArrow('inProgress');
+    removeArrow('testing');
+    removeArrow('done');
     addArrows();
 }
 
@@ -71,7 +75,7 @@ function templateBoardCards(currentTask, i) {
     return `
     <div onclick="showTaskBoardDetail(${i})" draggable="true" ondragstart="startDragging(${i})" class="card-body card-body-board  ${currentTask["category"]} text-start">
         <h6 class=" mb-2 text-muted">${currentTask.duedate}</h6>
-        <h5 class="card-title">${currentTask.title}</h5>
+        <h5 class="card-title">${cutString(currentTask.title,20)}</h5>
         <p class="card-text">${cutString(currentTask.description, 50)}</p>
         <div class="d-flex justify-content-between align-items-center text-end">
             <p class="${currentTask["category"]} border-category">${currentTask.category}</p>
@@ -89,6 +93,10 @@ function templateBoardCardsChild(i, j) {
 
 window.addEventListener("resize", function(event) {
     adaptMediaQueryBoard();
+    removeArrow('toDo');
+    removeArrow('inProgress');
+    removeArrow('testing');
+    removeArrow('done');
     addArrows();
 });
 

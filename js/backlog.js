@@ -42,14 +42,12 @@ function renderBacklogHMTL(i, task) {
     <div class="bg ${task["urgency"]} ${task["category"]}">
         <div class="contentAvatar">
             <div><img src="${backendUsers[task["creator"] - 1]["src"]}" class="avatarBacklog"></div>
-            <div class="mailContainer"><div><p>${backendUsers[task["creator"] - 1]["firstName"]} ${
-    backendUsers[task["creator"] - 1]["lastName"]
-  }</p>
-            <p class="mail">${backendUsers[task["creator"] - 1]["email"].toLowerCase()}</p></div></div>
-        </div>
-        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${
-    task["category"]
-  }</b></p></div>
+            <div class="mailContainer">
+            <div>
+                <p><b>${backendUsers[task["creator"] - 1]["firstName"]} ${backendUsers[task["creator"] - 1]["lastName"]}</b></p>
+                <p class="mail">${backendUsers[task["creator"] - 1]["email"].toLowerCase()}</p></div></div>
+            </div>
+        <div class="contentCategory"><p class="contentTextCategory ${task["category"]}"><b>${task["category"]}</b></p></div>
         <div class="contentDescription">
             <div><p><b>${task["title"]} / Ticket-ID: ${i + 1}</b></p></div>
             <div><p class="text">${cutString(task["description"], 80)}</p></div>
@@ -75,7 +73,7 @@ formbl.addEventListener(
     false
 );
 
-function closeDialog(){
+function closeDialog() {
     renderUser();
     document.getElementById("dialogEditTask").classList.add("d-none");
 }
@@ -156,7 +154,7 @@ function selectUser(i) {
     checkSelectUser();
 }
 
-function checkSelectUser(){
+function checkSelectUser() {
     if (selectedUsers.length == 0) {
         document.getElementById("users").setAttribute("required", "");
     } else {

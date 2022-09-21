@@ -85,8 +85,8 @@
         height: 15vh;
         display: flex;
         flex-direction: row;
-        overflow-y: unset !important;
-        overflow-x: hidden;
+        overflow-y: hidden;
+        overflow-x: scroll;
         scroll-behavior: smooth;
     }
     .scroll-arrow {
