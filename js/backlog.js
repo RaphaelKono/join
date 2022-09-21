@@ -75,9 +75,13 @@ formbl.addEventListener(
     false
 );
 
+function closeDialog(){
+    renderUser();
+    document.getElementById("dialogEditTask").classList.add("d-none");
+}
+
 function editTask(id) {
     document.getElementById("dialogEditTask").classList.remove("d-none");
-    document.body.style.overflow = "hidden";
     setEditTask(id);
     editTaskId = id;
 }
@@ -94,9 +98,10 @@ function setEditTask(id) {
     formbl.elements["curDate"].value = editTasks["currentdate"];
     formbl.elements["desc"].value = editTasks["description"];
     editTasks["assignedTo"].forEach((element) => {
-        selectUser(element);
+        document.getElementById("user-" + element).classList.add('avatar-selected');
     });
     selectedUsers = editTasks["assignedTo"];
+    checkSelectUser();
 }
 
 async function saveEditTask() {
@@ -104,7 +109,9 @@ async function saveEditTask() {
         setTask();
         backendTasks[editTaskId] = task;
         await backend.setItem("tasks", JSON.stringify(backendTasks));
-        window.location.href = "backlog.html";
+        closeDialog();
+        selectedUsers = [];
+        renderBacklog();
     }
 }
 
@@ -146,6 +153,10 @@ function selectUser(i) {
     } else {
         selectedUsers.push(i);
     }
+    checkSelectUser();
+}
+
+function checkSelectUser(){
     if (selectedUsers.length == 0) {
         document.getElementById("users").setAttribute("required", "");
     } else {
