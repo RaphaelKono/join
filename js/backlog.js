@@ -282,3 +282,11 @@ function templateAlertMessage3() {
     <div class="card-alert"><p>Task has been successfully edited</p></div>
     `;
 }
+
+formbl.addEventListener('click', function(event ) {
+    event.stopPropagation();
+});	
+
+fullscreen.addEventListener('click', function(event) {
+    closeDialog();
+});
