@@ -264,3 +264,11 @@ function scrollNavbarLeft(id, preid) {
     offset.scrollLeft += 200;
     setScrollTimeout(225, preid);
 }
+
+edit.addEventListener('click', function(event ) {
+    event.stopPropagation();
+});	
+
+fullscreen.addEventListener('click', function(event) {
+    hideTaskBoardDetail();
+});
