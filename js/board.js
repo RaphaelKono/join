@@ -1,3 +1,7 @@
+let taskOnBoard;
+let currentDraggedElement;
+let currentDetailedTask;
+
 async function initBoard() {
     await init();
     document.getElementById('nav-Board').classList.remove('brd-left-inactive');
@@ -10,11 +14,6 @@ async function initBoard() {
     removeArrow('done');
     addArrows();
 }
-
-let taskOnBoard;
-let currentDraggedElement;
-let currentDetailedTask;
-
 
 function renderBoard() {
     resetBoard();
@@ -99,15 +98,24 @@ window.addEventListener("resize", function(event) {
 });
 
 function adaptMediaQueryBoard() {
-    if (window.innerWidth < 1200 && window.innerWidth >= 1000) {
-        displayGridMedium();
-    }
-    if (window.innerWidth >= 1200) {
+    if (windowIsLarge())
         displayGridLarge();
-    }
-    if (window.innerWidth < 1000) {
+    if (windowIsMedium())
+        displayGridMedium();
+    if (windowIsSmall())
         displayGridSmall();
-    }
+}
+
+function windowIsLarge() {
+    return window.innerWidth >= 1200;
+}
+
+function windowIsSmall() {
+    return window.innerWidth < 1000;
+}
+
+function windowIsMedium() {
+    return !(windowIsLarge() || windowIsSmall())
 }
 
 function displayGridSmall() {
@@ -169,7 +177,7 @@ function capitalizeFirstLetter(str) {
 
 
 function addArrows() {
-    if (window.innerWidth < 1000) {
+    if (windowIsSmall()) {
         addArrow('ToDoBoard', 'toDo');
         addArrow('InProgressBoard', 'inProgress');
         addArrow('TestingBoard', 'testing');
@@ -184,7 +192,7 @@ function addArrow(id1, preId) {
 }
 
 function addArrowRight(el, id1, preId) {
-    if (isOverflown(el) == true && el.scrollLeft <= 1 || ((el.scrollWidth - el.scrollLeft) > el.offsetWidth)) {
+    if (arrowRightShouldBeAdded(el)) {
         if (document.getElementById(`${preId}arrowRight`)) {
             document.getElementById(`${preId}arrowRight`).classList.remove('d-none');
         } else {
@@ -195,7 +203,7 @@ function addArrowRight(el, id1, preId) {
 }
 
 function addArrowLeft(el, id1, preId) {
-    if (isOverflown(el) == true && el.scrollLeft > 0) {
+    if (arrowLeftShouldBeAdded(el)) {
         if (document.getElementById(`${preId}arrowLeft`)) {
             document.getElementById(`${preId}arrowLeft`).classList.remove('d-none');
         } else {
@@ -214,7 +222,13 @@ async function changeStatus() {
     addArrows();
 }
 
+function arrowRightShouldBeAdded(el) {
+    return isOverflown(el) == true && el.scrollLeft <= 1 || ((el.scrollWidth - el.scrollLeft) > el.offsetWidth);
+}
 
+function arrowLeftShouldBeAdded(el) {
+    return isOverflown(el) == true && el.scrollLeft > 0;
+}
 
 function isOverflown(element) {
     return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
