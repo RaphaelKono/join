@@ -127,6 +127,7 @@
 
 @media (max-width: 991px) {
     #profil {
+        position: absolute;
         bottom: unset;
         left: unset;
         top: 7px;
