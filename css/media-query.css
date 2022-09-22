@@ -149,6 +149,10 @@
     #navbar {
         display: none;
     }
+    .navbar-distance {
+        min-height: unset;
+        width: 100vw;
+    }
     .container {
         max-width: unset;
         margin-left: unset;
