@@ -1,4 +1,4 @@
-@media (min-width: 299px) and (max-width: 750px) {
+@media (max-width: 750px) {
     .bg {
         width: unset;
         flex-direction: column;
@@ -10,6 +10,7 @@
     .contentEdit {
         margin-left: unset;
         margin-top: -10px;
+        gap: 15px;
     }
     .iconBacklog {
         width: 17px;
@@ -189,6 +190,11 @@
     .board-container {
         flex-direction: column !important;
     }
+    #nav-res {
+        display: flex;
+        flex-direction: column !important;
+        gap: 30px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -200,5 +206,12 @@
 @media (min-width: 999px) {
     .scroll-arrow {
         display: none;
+    }
+}
+
+@media (max-height: 500px) {
+    body {
+        height: unset;
+        min-height: 100vh;
     }
 }
