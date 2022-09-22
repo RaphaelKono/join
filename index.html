@@ -26,12 +26,12 @@
             <a class="mt-4"><img src="img/joinlogo.png" /></a>
             <h1 class="form_title">Login</h1>
             <div class="form_input_group">
-                <input type="text" class="form_input" id="loginUserName" autofocus placeholder="Username" required/>
+                <input type="text" class="form-control" id="loginUserName" autofocus placeholder="Username" required/>
                 <input type="text" style="display: none" class="form-input" id="log-username" required />
                 <div class="invalid-feedback">Username is not correct.</div>
             </div>
             <div class="form_input_group">
-                <input type="password" class="form_input" id="loginPassword" placeholder="Password" required/>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required/>
                 <input type="text" style="display: none" class="form-input" id="log-password" required />
                 <div class="invalid-feedback">Password is not correct.</div>
             </div>
@@ -45,23 +45,23 @@
         <form id="register" class="form_hidden" onsubmit="registerUsers(); return false;" novalidate>
             <h1 class="form_title">Register</h1>
             <div class="form_input_group">
-                <input type="text" id="signupUsername" class="form_input" autofocus placeholder="Username" required/>
+                <input type="text" id="signupUsername" class="form-control" autofocus placeholder="Username" required/>
                 <div class="invalid-feedback">Please choose a username.</div>
             </div>
             <div class="form_input_group">
-                <input type="text" id="signupfirstname" class="form_input" autofocus placeholder="Firstname" required/>
+                <input type="text" id="signupfirstname" class="form-control" autofocus placeholder="Firstname" required/>
                 <div class="invalid-feedback">Please choose a firstname.</div>
             </div>
             <div class="form_input_group">
-                <input type="text" id="signuplastname" class="form_input" autofocus placeholder="Lastname" required/>
+                <input type="text" id="signuplastname" class="form-control" autofocus placeholder="Lastname" required/>
                 <div class="invalid-feedback">Please choose a lastname.</div>
             </div>
             <div class="form_input_group">
-                <input id="userEmail" type="text" class="form_input" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" autofocus placeholder="E-mail" required/>
+                <input id="userEmail" type="text" class="form-control" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" autofocus placeholder="E-mail" required/>
                 <div class="invalid-feedback">Please choose an email address.</div>
             </div>
             <div class="form_input_group">
-                <input id="signUpPassword" type="password" class="form_input" pattern=".{5,}" autofocus placeholder="Password" required/>
+                <input id="signUpPassword" type="password" class="form-control" pattern=".{5,}" autofocus placeholder="Password" required/>
                 <div class="invalid-feedback">Your password must be include 5 or more character.</div>
             </div>
             <div class="mb-3">

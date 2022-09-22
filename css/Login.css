@@ -79,7 +79,7 @@
         flex-direction: column;
     }
     
-    .form_input {
+    .form-control {
         display: block;
         min-width: 300px;
         padding: 0.75rem;
@@ -103,7 +103,7 @@
         padding: 1rem 2rem;
         color: #ffffff;
         border: none;
-        border-radius: var(--border-radius);
+        border-radius: .375rem;
         outline: none;
         cursor: pointer;
         background: var(--blue);
@@ -129,7 +129,7 @@
     }
 
     @media (max-width: 400px) {
-        .form_input{
+        .form-control{
             min-width: unset;
         }
     }
