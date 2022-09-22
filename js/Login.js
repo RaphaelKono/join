@@ -3,8 +3,9 @@ const createAccountForm = document.querySelector("#register");
 let selectedNewUser = "userNew-1";
 let currentUser = [];
 let newUser;
-let loginUsername = document.getElementById("log-username");
-let loginPassword = document.getElementById("log-password");
+let logUsername = document.getElementById("log-username");
+let logPassword = document.getElementById("log-password");
+
 
 async function initLogin() {
     setURL("https://gruppe-302.developerakademie.net/smallest_backend_ever");
@@ -39,21 +40,21 @@ loginForm.addEventListener(
 function checkUsername() {
     for (let i = 0; i < backendUsers.length; i++) {
         if (document.getElementById("loginUserName").value == backendUsers[i].userName) {
-            loginUsername.removeAttribute("required");
+            logUsername.removeAttribute("required");
             return;
         }
     }
-    loginUsername.setAttribute("required", "");
+    logUsername.setAttribute("required", "");
 }
 
 function checkPassword() {
     for (let i = 0; i < backendUsers.length; i++) {
         if (document.getElementById("loginPassword").value == backendUsers[i].password) {
-            loginPassword.removeAttribute("required");
+            logPassword.removeAttribute("required");
             return;
         }
     }
-    loginPassword.setAttribute("required", "");
+    logPassword.setAttribute("required", "");
 }
 
 async function login() {

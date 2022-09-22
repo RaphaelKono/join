@@ -267,25 +267,25 @@ function alertCases(backlogAlert, event) {
 
 function templateAlertMessage() {
     return `
-    <div class="card-alert"><p>Task has been pushed to the board</p></div>
+    <div class="card-alert slide-in"><p>Task has been pushed to the board</p></div>
     `;
 }
 
 function templateAlertMessage2() {
     return `
-    <div class="card-alert"><p>Task has been deleted</p></div>
+    <div class="card-alert slide-in"><p>Task has been deleted</p></div>
     `;
 }
 
 function templateAlertMessage3() {
     return `
-    <div class="card-alert"><p>Task has been successfully edited</p></div>
+    <div class="card-alert slide-in"><p>Task has been successfully edited</p></div>
     `;
 }
 
-formbl.addEventListener('click', function(event ) {
+formbl.addEventListener('click', function(event) {
     event.stopPropagation();
-});	
+});
 
 fullscreen.addEventListener('click', function(event) {
     closeDialog();
