@@ -133,3 +133,11 @@ async function loginAsGuest() {
     await backend.setItem("currentUser", JSON.stringify(5));
     return (location.href = "html/addTask.html");
 }
+
+loginUserName.addEventListener('keyup', function(event) {
+    checkUsername();
+});
+
+loginPassword.addEventListener('keyup', function(event) {
+    checkPassword();
+});

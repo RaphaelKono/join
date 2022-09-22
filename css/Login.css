@@ -79,7 +79,7 @@
         flex-direction: column;
     }
     
-    .form-control {
+    .form-input {
         display: block;
         min-width: 300px;
         padding: 0.75rem;
@@ -87,6 +87,7 @@
         border: 1px solid #dddddd;
         background: #eeeeee;
         transition: background 0.2s, border-color 0.2s;
+        border-radius: .375rem;
     }
     
     .error {
@@ -129,7 +130,7 @@
     }
 
     @media (max-width: 400px) {
-        .form-control{
+        .form-input{
             min-width: unset;
         }
     }
