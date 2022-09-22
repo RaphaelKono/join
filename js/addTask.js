@@ -32,7 +32,7 @@ form.addEventListener(
         }
         form.classList.add("was-validated");
     },
-    false
+    false //Due to bootstrap validation
 );
 
 async function addTask() {
