@@ -98,6 +98,7 @@ function editTask(id) {
     document.getElementById("dialogEditTask").classList.remove("d-none");
     setEditTask(id);
     editTaskId = id;
+    let event = document.getElementById('formbl');
 }
 
 function setEditTask(id) {
