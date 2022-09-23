@@ -173,6 +173,7 @@
         min-height: unset;
         width: 100vw;
         position: unset;
+        background-color: unset;
     }
     .container {
         max-width: unset;

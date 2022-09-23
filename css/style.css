@@ -34,6 +34,7 @@ body {
     justify-content: space-between;
     min-height: 100vh;
     position: fixed;
+    background-color: var(--blue);
 }
 
 .profil p {
